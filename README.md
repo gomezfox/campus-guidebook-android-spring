@@ -1,1 +1,2 @@
-# campus-guidebook-android
+# Campus Sustainability Guidebook
+MoBAS Course Project
