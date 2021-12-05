@@ -22,4 +22,9 @@
         android:name="edu.cascadia.mobas.campusguidebook.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/blankFragmentEvents"
+        android:name="edu.cascadia.mobas.campusguidebook.BlankFragmentEvents"
+        android:label="fragment_blank_events"
+        tools:layout="@layout/fragment_blank_events" />
 </navigation>
