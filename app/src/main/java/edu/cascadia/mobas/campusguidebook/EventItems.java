@@ -16,6 +16,6 @@ class EventItems extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_event_items, container, false);
+        return inflater.inflate(R.layout.fragment_events_items, container, false);
     }
 }

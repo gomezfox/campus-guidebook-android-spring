@@ -26,5 +26,5 @@
         android:id="@+id/blankFragmentEvents"
         android:name="edu.cascadia.mobas.campusguidebook.BlankFragmentEvents"
         android:label="fragment_blank_events"
-        tools:layout="@layout/fragment_blank_events" />
+        tools:layout="@layout/fragment_events_page" />
 </navigation>
