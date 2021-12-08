@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook.ui.slideshow;
+package edu.cascadia.mobas.campusguidebook.ui.events;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,18 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.databinding.FragmentEventsBinding;
 
-public class SlideshowFragment extends Fragment {
+public class EventsFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private EventsViewModel slideshowViewModel;
     private FragmentEventsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+                new ViewModelProvider(this).get(EventsViewModel.class);
 
         binding = FragmentEventsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
