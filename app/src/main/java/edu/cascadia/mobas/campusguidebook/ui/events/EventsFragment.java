@@ -13,22 +13,22 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.databinding.FragmentSlideshowBinding;
+import edu.cascadia.mobas.campusguidebook.databinding.FragmentEventsBinding;
 
 public class SlideshowFragment extends Fragment {
 
     private SlideshowViewModel slideshowViewModel;
-    private FragmentSlideshowBinding binding;
+    private FragmentEventsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         slideshowViewModel =
                 new ViewModelProvider(this).get(SlideshowViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentEventsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
+        final TextView textView = binding.textEvents;
         slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
