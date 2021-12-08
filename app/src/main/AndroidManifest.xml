@@ -16,6 +16,12 @@
             android:theme="@style/Theme.CampusGuidebookTemplate.NoActionBar">
         </activity>
         <activity
+            android:name=".login.LoginActivity"
+            android:exported="true"
+            android:label="@string/title_activity_login">
+
+        </activity>
+        <activity
             android:name=".Splash"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
