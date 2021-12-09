@@ -1,16 +1,16 @@
-package edu.cascadia.mobas.campusguidebook.ui.slideshow;
+package edu.cascadia.mobas.campusguidebook.ui.info;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class InfoViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public InfoViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is Campus Info fragment");
     }
 
     public LiveData<String> getText() {
