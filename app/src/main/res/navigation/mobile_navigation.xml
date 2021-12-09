@@ -23,8 +23,8 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
-        android:id="@+id/blankFragmentEvents"
-        android:name="edu.cascadia.mobas.campusguidebook.BlankFragmentEvents"
-        android:label="fragment_blank_events"
+        android:id="@+id/events"
+        android:name="edu.cascadia.mobas.campusguidebook.Events"
+        android:label="fragment_events_page"
         tools:layout="@layout/fragment_events_page" />
 </navigation>

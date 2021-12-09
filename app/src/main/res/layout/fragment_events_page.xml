@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BlankFragmentEvents">
+    tools:context=".Events">
 
     <Spinner
         android:id="@+id/spinner"
@@ -20,7 +20,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="edu.cascadia.mobas.campusguidebook.BlankFragmentEvents"
+        android:name="edu.cascadia.mobas.campusguidebook.Events"
         android:layout_width="381dp"
         android:layout_height="596dp"
         android:layout_marginStart="16dp"
