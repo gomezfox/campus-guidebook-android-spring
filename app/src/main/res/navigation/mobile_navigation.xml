@@ -12,19 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_info"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.info.InfoFragment"
+        android:label="@string/menu_info"
+        tools:layout="@layout/fragment_info" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
-        android:id="@+id/events"
-        android:name="edu.cascadia.mobas.campusguidebook.Events"
-        android:label="fragment_events_page"
-        tools:layout="@layout/fragment_events_page" />
+        android:id="@+id/nav_events"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.events.EventsFragment"
+        android:label="@string/menu_events"
+        tools:layout="@layout/fragment_events" />
 </navigation>
