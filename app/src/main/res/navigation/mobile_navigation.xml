@@ -22,4 +22,9 @@
         android:name="edu.cascadia.mobas.campusguidebook.ui.events.EventsFragment"
         android:label="@string/menu_events"
         tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/events"
+        android:name="edu.cascadia.mobas.campusguidebook.Events"
+        android:label="fragment_events_page"
+        tools:layout="@layout/fragment_events_page" />
 </navigation>
