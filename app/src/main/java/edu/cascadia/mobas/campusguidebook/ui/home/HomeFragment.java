@@ -8,9 +8,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.databinding.FragmentHomeBinding;
@@ -25,6 +27,7 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
+
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -35,6 +38,12 @@ public class HomeFragment extends Fragment {
 //                textView.setText(s);
 //            }
 //        });
+        CardView card = root.findViewById(R.id.cardView1);
+
+        card.setOnClickListener(CardView -> {
+            Navigation.findNavController(card).navigate(R.id.action_nav_home_to_nav_events);
+        });
+
         return root;
     }
 

@@ -11,8 +11,8 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_nav_home_to_events"
-            app:destination="@id/events" />
+            android:id="@+id/action_nav_home_to_nav_events"
+            app:destination="@id/nav_events" />
     </fragment>
 
     <fragment
@@ -26,9 +26,5 @@
         android:name="edu.cascadia.mobas.campusguidebook.ui.events.EventsFragment"
         android:label="@string/menu_events"
         tools:layout="@layout/fragment_events" />
-    <fragment
-        android:id="@+id/events"
-        android:name="edu.cascadia.mobas.campusguidebook.Events"
-        android:label="fragment_events_page"
-        tools:layout="@layout/fragment_events_page" />
+
 </navigation>
