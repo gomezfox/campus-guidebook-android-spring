@@ -8,6 +8,7 @@
 
     <Spinner
         android:id="@+id/spinner"
+
         android:layout_width="409dp"
         android:layout_height="53dp"
         android:layout_marginTop="56dp"
@@ -17,13 +18,134 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:name="edu.cascadia.mobas.campusguidebook.Events"
-        android:layout_width="381dp"
-        android:layout_height="596dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Media -->
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+
+
+                android:scaleType="centerCrop"
+
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <!-- Title, secondary and supporting text -->
+
+                <!--android:textAppearance="?attr/textAppearanceTitleMedium" -->
+
+
+                <TextView
+                    android:layout_width="52dp"
+                    android:layout_height="18dp"
+                    android:text="nature club"
+                    app:layout_constraintEnd_toStartOf="@+id/textView2"
+                    app:layout_constraintHorizontal_bias="0.004"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="79dp"
+
+                    android:layout_height="18dp"
+
+                    android:text="THU 5:00PM"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card1"
+        android:layout_width="373dp"
+        android:layout_height="234dp"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card">
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Media -->
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+
+
+                android:scaleType="centerCrop"
+
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <!-- Title, secondary and supporting text -->
+
+                <!--android:textAppearance="?attr/textAppearanceTitleMedium" -->
+
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="52dp"
+                    android:layout_height="18dp"
+                    android:text="sky club"
+                    app:layout_constraintEnd_toStartOf="@+id/textView22"
+                    app:layout_constraintHorizontal_bias="0.004"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="79dp"
+
+                    android:layout_height="18dp"
+
+                    android:text="THU 6:00PM"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

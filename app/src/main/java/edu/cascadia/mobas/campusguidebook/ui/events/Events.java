@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.ui.events;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import edu.cascadia.mobas.campusguidebook.R;
 
 /**
  * A simple {@link Fragment} subclass.

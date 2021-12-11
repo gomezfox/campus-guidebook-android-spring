@@ -41,7 +41,7 @@ public class HomeFragment extends Fragment {
         CardView card = root.findViewById(R.id.cardView1);
 
         card.setOnClickListener(CardView -> {
-            Navigation.findNavController(card).navigate(R.id.action_nav_home_to_nav_events);
+            Navigation.findNavController(card).navigate(R.id.nav_events);
         });
 
         return root;
