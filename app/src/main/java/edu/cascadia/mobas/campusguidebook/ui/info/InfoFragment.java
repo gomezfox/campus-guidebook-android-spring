@@ -27,12 +27,12 @@ public class InfoFragment extends Fragment {
         binding = FragmentInfoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textView12;
-        // changed this to textView2
+        //final TextView textView = binding.textView;
+        // changed this to textViewCampusInfo1
         galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            //    textView.setText(s);
             }
         });
         return root;

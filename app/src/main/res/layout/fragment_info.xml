@@ -58,7 +58,8 @@
 
 
                 <TextView
-                    android:layout_width="253dp"
+                    android:id="@+id/textViewCampusInfo1"
+                    android:layout_width="240dp"
                     android:layout_height="20dp"
                     android:text="WETLANDS"
                     app:layout_constraintStart_toStartOf="parent"
@@ -110,9 +111,9 @@
 
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/textViewCampusInfo2"
                     android:layout_width="240dp"
-                    android:layout_height="21dp"
+                    android:layout_height="20dp"
                     android:text="GREEN BUILDINGS"
                     app:layout_constraintEnd_toStartOf="@+id/textView22"
                     app:layout_constraintHorizontal_bias="0.004"
