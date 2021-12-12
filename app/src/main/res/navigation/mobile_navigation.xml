@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_nav_home_to_nav_events"
             app:destination="@id/nav_events" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_info"
+            app:destination="@id/nav_info" />
     </fragment>
 
     <fragment
