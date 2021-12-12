@@ -43,7 +43,7 @@
 
                 android:scaleType="centerCrop"
 
-                tools:src="@tools:sample/backgrounds/scenic" />
+                android:src="@drawable/engineer_s_mindset__1_" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -58,9 +58,9 @@
 
 
                 <TextView
-                    android:layout_width="52dp"
-                    android:layout_height="18dp"
-                    android:text="nature club"
+                    android:layout_width="253dp"
+                    android:layout_height="20dp"
+                    android:text="WE ENGINEERES"
                     app:layout_constraintEnd_toStartOf="@+id/textView2"
                     app:layout_constraintHorizontal_bias="0.004"
                     app:layout_constraintStart_toStartOf="parent"
@@ -108,7 +108,7 @@
 
                 android:scaleType="centerCrop"
 
-                tools:src="@tools:sample/backgrounds/scenic" />
+                android:src="@drawable/engineer_s_mindset__1_" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -124,9 +124,9 @@
 
                 <TextView
                     android:id="@+id/textView12"
-                    android:layout_width="52dp"
-                    android:layout_height="18dp"
-                    android:text="sky club"
+                    android:layout_width="240dp"
+                    android:layout_height="21dp"
+                    android:text="WE ENGENEERES outreach event"
                     app:layout_constraintEnd_toStartOf="@+id/textView22"
                     app:layout_constraintHorizontal_bias="0.004"
                     app:layout_constraintStart_toStartOf="parent"
