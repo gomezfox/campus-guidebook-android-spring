@@ -1,16 +1,16 @@
-package edu.cascadia.mobas.campusguidebook.ui.gallery;
+package edu.cascadia.mobas.campusguidebook.ui.events;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class EventsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public EventsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is Events fragment");
     }
 
     public LiveData<String> getText() {

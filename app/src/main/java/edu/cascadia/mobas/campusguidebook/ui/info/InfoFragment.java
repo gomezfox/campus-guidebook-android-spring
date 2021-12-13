@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook.ui.gallery;
+package edu.cascadia.mobas.campusguidebook.ui.info;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,23 +12,22 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.databinding.FragmentGalleryBinding;
+import edu.cascadia.mobas.campusguidebook.databinding.FragmentInfoBinding;
 
-public class GalleryFragment extends Fragment {
+public class InfoFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
-    private FragmentGalleryBinding binding;
+    private InfoViewModel galleryViewModel;
+    private FragmentInfoBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+                new ViewModelProvider(this).get(InfoViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentInfoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
+        final TextView textView = binding.textInfo;
         galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
