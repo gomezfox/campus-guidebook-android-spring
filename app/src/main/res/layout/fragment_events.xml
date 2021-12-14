@@ -123,7 +123,7 @@
 
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/textViewCampusInfo2"
                     android:layout_width="240dp"
                     android:layout_height="21dp"
                     android:text="WE ENGENEERES outreach event"

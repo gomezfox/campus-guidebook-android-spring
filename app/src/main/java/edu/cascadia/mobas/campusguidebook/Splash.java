@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.content.Intent;
+import android.widget.ProgressBar;
 
 import edu.cascadia.mobas.campusguidebook.login.LoginActivity;
 import edu.cascadia.mobas.campusguidebook.ui.home.HomeFragment;
@@ -25,6 +26,6 @@ public class Splash extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },2000);
+        },1500);
     }
 }

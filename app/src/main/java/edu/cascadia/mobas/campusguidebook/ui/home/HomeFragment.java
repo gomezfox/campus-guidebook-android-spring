@@ -38,10 +38,16 @@ public class HomeFragment extends Fragment {
 //                textView.setText(s);
 //            }
 //        });
-        CardView card = root.findViewById(R.id.cardView1);
+        CardView card1 = root.findViewById(R.id.cardView1);
 
-        card.setOnClickListener(CardView -> {
-            Navigation.findNavController(card).navigate(R.id.nav_events);
+        card1.setOnClickListener(CardView -> {
+            Navigation.findNavController(card1).navigate(R.id.nav_events);
+        });
+
+        CardView card2 = root.findViewById(R.id.cardView2);
+
+        card2.setOnClickListener(CardView -> {
+            Navigation.findNavController(card2).navigate(R.id.nav_info);
         });
 
         return root;

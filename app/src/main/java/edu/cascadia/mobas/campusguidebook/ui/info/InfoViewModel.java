@@ -10,7 +10,7 @@ public class InfoViewModel extends ViewModel {
 
     public InfoViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is Campus Info fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {
