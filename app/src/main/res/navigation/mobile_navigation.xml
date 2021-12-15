@@ -28,6 +28,15 @@
         android:id="@+id/nav_events"
         android:name="edu.cascadia.mobas.campusguidebook.ui.events.EventsFragment"
         android:label="@string/menu_events"
-        tools:layout="@layout/fragment_events" />
+        tools:layout="@layout/fragment_events" >
+        <action
+            android:id="@+id/action_nav_events_to_fragment_Event_Info"
+            app:destination="@id/fragment_Event_Info" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Event_Info"
+        android:name="edu.cascadia.mobas.campusguidebook.Fragment_Event_Info"
+        android:label="Event Info"
+        tools:layout="@layout/fragment__event__info" />
 
 </navigation>

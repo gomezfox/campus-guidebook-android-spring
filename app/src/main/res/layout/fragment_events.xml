@@ -84,7 +84,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card1"
+        android:id="@+id/card2"
         android:layout_width="373dp"
         android:layout_height="234dp"
         android:layout_margin="20dp"
