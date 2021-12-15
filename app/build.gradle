@@ -7,10 +7,10 @@ android {
 
     defaultConfig {
         applicationId "edu.cascadia.mobas.campusguidebook"
-        minSdk 21
+        minSdk 25
         targetSdk 31
         versionCode 1
-        versionName "1.0"
+        versionName "Internal Test 1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
