@@ -50,7 +50,7 @@ Prioritized list of functional components that describe the implementation from 
 * Link to high-fidelity prototype: https://www.figma.com/file/QnAEXRG8AdvsNGzqpFzAYz/campus-guidebook
 
 ## Screens
-* * refer to the figma link above
+
 ![Screen](https://github.com/MobileApps-Cascadia/campus-guidebook-android/blob/add-Readme/app/src/main/Screens1.png)
 ## Color
 * Primary color: F5F5F6
