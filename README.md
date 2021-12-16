@@ -51,7 +51,7 @@ Prioritized list of functional components that describe the implementation from 
 
 ## Screens
 * * refer to the figma link above
-
+![Screen](https://github.com/MobileApps-Cascadia/campus-guidebook-android/blob/add-Readme/app/src/main/Screens1.png)
 ## Color
 * Primary color: F5F5F6
 * Secondary color: 002F6C
