@@ -66,6 +66,7 @@ Prioritized list of functional components that describe the implementation from 
 ## Usability summary
 We are planning to expand the app’s features by developing  
 location-based services and event notifications. We also are planning to  
-add more to the list of clubs, we would like to add sustainability info pages,  
+expand the groups at cascadia that can add information and events to the application.
+We would like to add more sustainability information pages.
 and a page to add events on clubs.
-
+we would like to add a one button click to add an event to your calendar
