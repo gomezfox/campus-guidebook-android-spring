@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText usernameEditText = binding.username;
         final EditText passwordEditText = binding.password;
         final Button loginButton = binding.login;
+        final Button registerButton = binding.login2;
         final ProgressBar loadingProgressBar = binding.loading;
 
         loginButton.setOnClickListener(v -> {
@@ -54,6 +55,12 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         });
 
+        registerButton.setOnClickListener(v -> {
+            Intent intent = new Intent( LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+
+            finish();
+        });
 //        loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
 //            @Override
 //            public void onChanged(@Nullable LoginFormState loginFormState) {
