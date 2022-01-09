@@ -8,7 +8,6 @@
 
     <Spinner
         android:id="@+id/spinner"
-
         android:layout_width="409dp"
         android:layout_height="53dp"
         android:layout_marginTop="56dp"
@@ -37,12 +36,11 @@
             <!-- Media -->
 
             <ImageView
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
-
-
                 android:scaleType="centerCrop"
-
                 android:src="@drawable/wetlands" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -90,6 +88,8 @@
             <!-- Media -->
 
             <ImageView
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
 

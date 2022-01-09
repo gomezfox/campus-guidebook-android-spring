@@ -22,7 +22,19 @@
         android:id="@+id/nav_info"
         android:name="edu.cascadia.mobas.campusguidebook.ui.info.InfoFragment"
         android:label="@string/menu_info"
-        tools:layout="@layout/fragment_info" />
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_nav_info_to_fragment_wetlands2"
+            app:destination="@id/fragment_wetlands" />
+    </fragment>
+    <action
+        android:id="@+id/action_nav_info_to_fragment_wetlands"
+        app:destination="@id/fragment_wetlands" />
+    <fragment
+        android:id="@+id/fragment_wetlands"
+        android:name="edu.cascadia.mobas.campusguidebook.Fragment_Wetlands"
+        android:label="Info Details"
+        tools:layout="@layout/fragment_wetlands" />
 
     <fragment
         android:id="@+id/nav_events"
