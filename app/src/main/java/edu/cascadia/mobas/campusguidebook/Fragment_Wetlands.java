@@ -29,6 +29,7 @@ public class Fragment_Wetlands extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
     public Fragment_Wetlands() {
         // Required empty public constructor
     }
@@ -39,7 +40,7 @@ public class Fragment_Wetlands extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment_Event_Info.
+     * @return A new instance of fragment Fragment_Wetlands.
      */
     // TODO: Rename and change types and number of parameters
     public static Fragment_Wetlands newInstance(String param1, String param2) {

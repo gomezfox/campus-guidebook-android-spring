@@ -36,6 +36,7 @@ public class InfoFragment extends Fragment {
             Navigation.findNavController(card1).navigate(R.id.fragment_wetlands);
         });
 
+
         //final TextView textView = binding.textView;
         // changed this to textViewCampusInfo1
         galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
