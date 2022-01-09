@@ -42,8 +42,6 @@
                 android:background="#00FFFFFF"
                 android:text="Learn more here"
                 android:textColor="@color/black"
-                app:icon="@android:drawable/ic_menu_my_calendar"
-                app:iconTint="@color/black" />
 
             <Button
                 android:id="@+id/button2"
