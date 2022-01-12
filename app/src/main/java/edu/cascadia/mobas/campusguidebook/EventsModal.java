@@ -30,11 +30,12 @@ public class EventsModal {
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
-    public EventsModal(String eventName, String description, String location, String dateTime) {
-        this.EventName = eventName;
-        this.Description = description;
-        this.Location = location;
-        this.DateTime = dateTime;
+    public EventsModal(String EventName, String Description, String Location, String DateTime) {
+        this.EventName = EventName;
+        this.Description = Description;
+        this.Location = Location;
+        this.DateTime = DateTime;
+
     }
 
     // on below line we are creating
@@ -71,6 +72,9 @@ public class EventsModal {
 
     public int getId() {
         return id;
+    }
+    public void setId(int ID) {
+        this.id = ID;
     }
 
 }
