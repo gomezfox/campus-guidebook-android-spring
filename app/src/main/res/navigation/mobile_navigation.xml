@@ -9,17 +9,46 @@
         android:id="@+id/nav_home"
         android:name="edu.cascadia.mobas.campusguidebook.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_events"
+            app:destination="@id/nav_events" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_info"
+            app:destination="@id/nav_info" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_info"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.info.InfoFragment"
+        android:label="@string/menu_info"
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_nav_info_to_fragment_wetlands2"
+            app:destination="@id/fragment_wetlands" />
+    </fragment>
+    <action
+        android:id="@+id/action_nav_info_to_fragment_wetlands"
+        app:destination="@id/fragment_wetlands" />
+    <fragment
+        android:id="@+id/fragment_wetlands"
+        android:name="edu.cascadia.mobas.campusguidebook.Fragment_Wetlands"
+        android:label="Info Details"
+        tools:layout="@layout/fragment_wetlands" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_events"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.events.EventsFragment"
+        android:label="@string/menu_events"
+        tools:layout="@layout/fragment_events" >
+        <action
+            android:id="@+id/action_nav_events_to_fragment_Event_Info"
+            app:destination="@id/fragment_Event_Info" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Event_Info"
+        android:name="edu.cascadia.mobas.campusguidebook.Fragment_Event_Info"
+        android:label="Event Info"
+        tools:layout="@layout/fragment__event__info" />
+
 </navigation>
