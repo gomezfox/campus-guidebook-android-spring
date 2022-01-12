@@ -8,10 +8,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
+import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.databinding.FragmentInfoBinding;
 
 public class InfoFragment extends Fragment {
@@ -26,6 +29,13 @@ public class InfoFragment extends Fragment {
 
         binding = FragmentInfoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+//
+        CardView card1 = root.findViewById(R.id.card);
+
+        card1.setOnClickListener(CardView -> {
+            Navigation.findNavController(card1).navigate(R.id.fragment_wetlands);
+        });
+
 
         //final TextView textView = binding.textView;
         // changed this to textViewCampusInfo1

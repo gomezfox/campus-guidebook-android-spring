@@ -8,7 +8,6 @@
 
     <Spinner
         android:id="@+id/spinner"
-
         android:layout_width="409dp"
         android:layout_height="53dp"
         android:layout_marginTop="56dp"
@@ -34,15 +33,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <!-- Media -->
 
             <ImageView
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
-
-
                 android:scaleType="centerCrop"
-
                 android:src="@drawable/wetlands" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,8 +72,8 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card2"
-        android:layout_width="373dp"
-        android:layout_height="234dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
         app:cardCornerRadius="15dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,6 +89,8 @@
             <!-- Media -->
 
             <ImageView
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
 
@@ -115,12 +116,9 @@
                     android:layout_width="240dp"
                     android:layout_height="20dp"
                     android:text="GREEN BUILDINGS"
-                    app:layout_constraintEnd_toStartOf="@+id/textView22"
                     app:layout_constraintHorizontal_bias="0.004"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
