@@ -2,35 +2,35 @@ package edu.cascadia.mobas.campusguidebook;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Events_Table")
-public class EventsModal {
+@Entity(tableName = "Event_Table")
+public class EventModal {
     // below line is to auto increment
-    // id for each Events.
+    // id for each Event.
     @PrimaryKey(autoGenerate = true)
 
     // variable for our id.
     private int id;
 
     // below line is a variable
-    // for Events name.
+    // for Event name.
     private String EventName;
 
     // below line is use for
-    // Events Description.
+    // Event Description.
     private String Description;
 
     // below line is use
-    // for Events Location.
+    // for Event Location.
     private String Location;
 
     // below line is use
-    // for Events Date and Time.
+    // for Event Date and Time.
     private String DateTime;
 
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
-    public EventsModal(String EventName, String Description, String Location, String DateTime) {
+    public EventModal(String EventName, String Description, String Location, String DateTime) {
         this.EventName = EventName;
         this.Description = Description;
         this.Location = Location;

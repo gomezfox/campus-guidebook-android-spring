@@ -9,19 +9,19 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 // adding annotation for our database entities and db version.
-@Database(entities = {EventsModal.class}, version = 1)
-public abstract class EventsDatabase extends RoomDatabase {
+@Database(entities = {EventModal.class}, version = 1)
+public abstract class EventDatabase extends RoomDatabase {
 
     // below line is to create instance
     // for our database class.
-    private static EventsDatabase instance;
+    private static EventDatabase instance;
 
     // below line is to create
     // abstract variable for dao.
     public abstract Dao Dao();
 
     // on below line we are getting instance for our database.
-    public static synchronized EventsDatabase getInstance(Context context) {
+    public static synchronized EventDatabase getInstance(Context context) {
         // below line is to check if
         // the instance is null or not.
         if (instance == null) {
@@ -32,7 +32,7 @@ public abstract class EventsDatabase extends RoomDatabase {
                     // we are creating a database builder and passing
                     // our database class with our database name.
                     Room.databaseBuilder(context.getApplicationContext(),
-                            EventsDatabase.class, "Events_Database")
+                            EventDatabase.class, "Event_Database")
                             // below line is use to add fall back to
                             // destructive migration to our database.
                             .fallbackToDestructiveMigration()
@@ -61,7 +61,7 @@ public abstract class EventsDatabase extends RoomDatabase {
 
     // we are creating an async task class to perform task in background.
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-        PopulateDbAsyncTask(EventsDatabase instance) {
+        PopulateDbAsyncTask(EventDatabase instance) {
             Dao dao = instance.Dao();
         }
         @Override
