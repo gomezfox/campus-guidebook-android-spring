@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:background="#00FFFFFF"
                 android:text="Learn more here"
-                android:textColor="@color/black"
+                android:textColor="@color/black"/>
 
             <Button
                 android:id="@+id/button2"
