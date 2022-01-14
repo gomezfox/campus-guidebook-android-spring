@@ -13,17 +13,17 @@ public interface Dao {
     // below method is use to
     // add data to database.
     @Insert
-    void insert(EventModal model);
+    void insert(EventModel model);
 
     // below method is use to update
     // the data in our database.
     @Update
-    void update(EventModal model);
+    void update(EventModel model);
 
     // below line is use to delete a
     // specific Event in our database.
     @Delete
-    void delete(EventModal model);
+    void delete(EventModel model);
 
 
 }

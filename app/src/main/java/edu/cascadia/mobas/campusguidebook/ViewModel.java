@@ -6,34 +6,34 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import java.util.List;
 
-public class ViewModal extends AndroidViewModel {
+public class ViewModel extends AndroidViewModel {
 
     // creating a new variable for Event repository.
     private EventRepository repository;
 
     // below line is to create a variable for live
     // data where all the Event are present.
-    private LiveData<List<EventModal>> allEvent;
+    private LiveData<List<EventModel>> allEvent;
 
-    // constructor for our view modal.
-    public ViewModal(@NonNull Application application) {
+    // constructor for our view model.
+    public ViewModel(@NonNull Application application) {
         super(application);
         repository = new EventRepository(application);
         //allEvent = repository.getAllEvent();
     }
 
     // below method is use to insert the data to our repository.
-    public void insert(EventModal model) {
+    public void insert(EventModel model) {
         repository.insert(model);
     }
 
     // below line is to update data in our repository.
-    public void update(EventModal model) {
+    public void update(EventModel model) {
         repository.update(model);
     }
 
     // below line is to delete the data in our repository.
-    public void delete(EventModal model) {
+    public void delete(EventModel model) {
         repository.delete(model);
     }
 
@@ -43,7 +43,7 @@ public class ViewModal extends AndroidViewModel {
     //}
 
     // below method is to get all the Event in our list.
-    //public LiveData<List<EventModal>> Event() {
+    //public LiveData<List<EventModel>> Event() {
     //    return allEvent;
     //}
 }

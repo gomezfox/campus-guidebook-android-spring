@@ -3,7 +3,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Event_Table")
-public class EventModal {
+public class EventModel {
     // below line is to auto increment
     // id for each Event.
     @PrimaryKey(autoGenerate = true)
@@ -30,7 +30,7 @@ public class EventModal {
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
-    public EventModal(String EventName, String Description, String Location, String DateTime) {
+    public EventModel(String EventName, String Description, String Location, String DateTime) {
         this.EventName = EventName;
         this.Description = Description;
         this.Location = Location;
