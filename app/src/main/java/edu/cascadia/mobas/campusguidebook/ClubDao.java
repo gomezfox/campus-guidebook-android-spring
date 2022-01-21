@@ -6,8 +6,9 @@ import androidx.room.Update;
 
 import edu.cascadia.mobas.campusguidebook.data.model.ClubModel;
 
+
 @androidx.room.Dao
-public interface ClubDao {
+public interface ClubDao extends EventDao {
 
     // below method is use to
     // add data to database.
@@ -23,7 +24,6 @@ public interface ClubDao {
     // specific Event in our database.
     @Delete
     void delete(ClubModel model);
-
 
 }
 

@@ -8,6 +8,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import edu.cascadia.mobas.campusguidebook.ClubDao;
 import edu.cascadia.mobas.campusguidebook.EventDao;
 
 // adding annotation for our database entities and db version.
@@ -21,7 +22,7 @@ public abstract class appDatabase extends RoomDatabase {
     // below line is to create
     // abstract variable for dao.
     public abstract EventDao EventDao();
-    public abstract EventDao ClubDao();
+    public abstract ClubDao ClubDao();
 
     // on below line we are getting instance for our database.
     public static synchronized appDatabase getInstance(Context context) {
