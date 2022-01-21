@@ -1,9 +1,12 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.data.model;
 
 import android.app.Application;
 import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 import java.util.List;
+
+import edu.cascadia.mobas.campusguidebook.Dao;
+import edu.cascadia.mobas.campusguidebook.EventModel;
 
 public class EventRepository {
     // below line is the create a variable

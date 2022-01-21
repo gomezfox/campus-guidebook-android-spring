@@ -1,10 +1,12 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.data.model;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import java.util.List;
+
+import edu.cascadia.mobas.campusguidebook.EventModel;
 
 public class ViewModel extends AndroidViewModel {
 

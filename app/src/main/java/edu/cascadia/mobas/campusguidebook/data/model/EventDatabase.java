@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.data.model;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -7,6 +7,9 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import edu.cascadia.mobas.campusguidebook.Dao;
+import edu.cascadia.mobas.campusguidebook.EventModel;
 
 // adding annotation for our database entities and db version.
 @Database(entities = {EventModel.class}, version = 1)
