@@ -21,6 +21,8 @@ import edu.cascadia.mobas.campusguidebook.ClubDao;
 import edu.cascadia.mobas.campusguidebook.ClubDao_Impl;
 import edu.cascadia.mobas.campusguidebook.EventDao;
 import edu.cascadia.mobas.campusguidebook.EventDao_Impl;
+import edu.cascadia.mobas.campusguidebook.SustainabilityDao;
+import edu.cascadia.mobas.campusguidebook.SustainabilityDao_Impl;
 import java.lang.Class;
 import java.lang.Override;
 import java.lang.String;
@@ -38,6 +40,8 @@ public final class appDatabase_Impl extends appDatabase {
 
   private volatile ClubDao _clubDao;
 
+  private volatile SustainabilityDao _sustainabilityDao;
+
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
@@ -45,14 +49,16 @@ public final class appDatabase_Impl extends appDatabase {
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Event_Table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `EventName` TEXT, `Description` TEXT, `Location` TEXT, `DateTime` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Club_Table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `ClubName` TEXT)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Sustainability_Table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `SustainabilityName` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9119a00949e35f4845a37632ada1b285')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3e05262c7cdb24e911e8c5b0511c08bb')");
       }
 
       @Override
       public void dropAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("DROP TABLE IF EXISTS `Event_Table`");
         _db.execSQL("DROP TABLE IF EXISTS `Club_Table`");
+        _db.execSQL("DROP TABLE IF EXISTS `Sustainability_Table`");
         if (mCallbacks != null) {
           for (int _i = 0, _size = mCallbacks.size(); _i < _size; _i++) {
             mCallbacks.get(_i).onDestructiveMigration(_db);
@@ -118,9 +124,21 @@ public final class appDatabase_Impl extends appDatabase {
                   + " Expected:\n" + _infoClubTable + "\n"
                   + " Found:\n" + _existingClubTable);
         }
+        final HashMap<String, TableInfo.Column> _columnsSustainabilityTable = new HashMap<String, TableInfo.Column>(2);
+        _columnsSustainabilityTable.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsSustainabilityTable.put("SustainabilityName", new TableInfo.Column("SustainabilityName", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysSustainabilityTable = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesSustainabilityTable = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoSustainabilityTable = new TableInfo("Sustainability_Table", _columnsSustainabilityTable, _foreignKeysSustainabilityTable, _indicesSustainabilityTable);
+        final TableInfo _existingSustainabilityTable = TableInfo.read(_db, "Sustainability_Table");
+        if (! _infoSustainabilityTable.equals(_existingSustainabilityTable)) {
+          return new RoomOpenHelper.ValidationResult(false, "Sustainability_Table(edu.cascadia.mobas.campusguidebook.data.model.SustainabilityModel).\n"
+                  + " Expected:\n" + _infoSustainabilityTable + "\n"
+                  + " Found:\n" + _existingSustainabilityTable);
+        }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "9119a00949e35f4845a37632ada1b285", "ca7c8dce9539773baf9fe9dbbd0faf14");
+    }, "3e05262c7cdb24e911e8c5b0511c08bb", "45b64831c642c587d8052c8f68e8de7a");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)
@@ -133,7 +151,7 @@ public final class appDatabase_Impl extends appDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "Event_Table","Club_Table");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "Event_Table","Club_Table","Sustainability_Table");
   }
 
   @Override
@@ -144,6 +162,7 @@ public final class appDatabase_Impl extends appDatabase {
       super.beginTransaction();
       _db.execSQL("DELETE FROM `Event_Table`");
       _db.execSQL("DELETE FROM `Club_Table`");
+      _db.execSQL("DELETE FROM `Sustainability_Table`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -159,6 +178,7 @@ public final class appDatabase_Impl extends appDatabase {
     final HashMap<Class<?>, List<Class<?>>> _typeConvertersMap = new HashMap<Class<?>, List<Class<?>>>();
     _typeConvertersMap.put(EventDao.class, EventDao_Impl.getRequiredConverters());
     _typeConvertersMap.put(ClubDao.class, ClubDao_Impl.getRequiredConverters());
+    _typeConvertersMap.put(SustainabilityDao.class, SustainabilityDao_Impl.getRequiredConverters());
     return _typeConvertersMap;
   }
 
@@ -198,6 +218,20 @@ public final class appDatabase_Impl extends appDatabase {
           _clubDao = new ClubDao_Impl(this);
         }
         return _clubDao;
+      }
+    }
+  }
+
+  @Override
+  public SustainabilityDao SustainabilityDao() {
+    if (_sustainabilityDao != null) {
+      return _sustainabilityDao;
+    } else {
+      synchronized(this) {
+        if(_sustainabilityDao == null) {
+          _sustainabilityDao = new SustainabilityDao_Impl(this);
+        }
+        return _sustainabilityDao;
       }
     }
   }

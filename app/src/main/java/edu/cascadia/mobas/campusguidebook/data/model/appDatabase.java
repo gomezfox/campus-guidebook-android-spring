@@ -10,9 +10,10 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import edu.cascadia.mobas.campusguidebook.ClubDao;
 import edu.cascadia.mobas.campusguidebook.EventDao;
+import edu.cascadia.mobas.campusguidebook.SustainabilityDao;
 
 // adding annotation for our database entities and db version.
-@Database(entities = {EventModel.class, ClubModel.class}, version = 1)
+@Database(entities = {EventModel.class, ClubModel.class, SustainabilityModel.class}, version = 1)
 public abstract class appDatabase extends RoomDatabase {
 
     // below line is to create instance
@@ -23,6 +24,7 @@ public abstract class appDatabase extends RoomDatabase {
     // abstract variable for dao.
     public abstract EventDao EventDao();
     public abstract ClubDao ClubDao();
+    public abstract SustainabilityDao SustainabilityDao();
 
     // on below line we are getting instance for our database.
     public static synchronized appDatabase getInstance(Context context) {

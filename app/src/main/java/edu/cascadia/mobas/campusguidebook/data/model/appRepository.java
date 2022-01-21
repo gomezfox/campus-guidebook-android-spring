@@ -7,6 +7,7 @@ import java.util.List;
 
 import edu.cascadia.mobas.campusguidebook.ClubDao;
 import edu.cascadia.mobas.campusguidebook.EventDao;
+import edu.cascadia.mobas.campusguidebook.SustainabilityDao;
 
 public class appRepository {
     // below line is the create a variable
@@ -19,6 +20,12 @@ public class appRepository {
     // for dao and list for all Club.
     private ClubDao Clubdao;
     private LiveData<List<ClubModel>> allClub;
+
+
+    // below line is the create a variable
+    // for dao and list for all Club.
+    private SustainabilityDao Sustainabilitydao;
+    private LiveData<List<SustainabilityModel>> allSustainability;
 
 
 
@@ -153,6 +160,71 @@ public class appRepository {
             // below line is use to delete
             // our Event model in dao.
             Clubdao.delete(models[0]);
+            return null;
+        }
+    }
+
+
+    // creating a method to insert the data to our database.
+    public void insert(SustainabilityModel model) {
+        new InsertSustainabilityAsyncTask(Sustainabilitydao).execute(model);
+    }
+
+    // creating a method to update data in database.
+    public void update(SustainabilityModel model) {
+        new UpdateSustainabilityAsyncTask(Sustainabilitydao).execute(model);
+    }
+
+    // creating a method to delete the data in our database.
+    public void delete(SustainabilityModel model) {
+        new DeleteSustainabilityAsyncTask(Sustainabilitydao).execute(model);
+    }
+
+    // we are creating a async task method to insert new Event.
+    private static class InsertSustainabilityAsyncTask extends AsyncTask<SustainabilityModel, Void, Void> {
+        private SustainabilityDao Sustainabilitydao;
+
+        private InsertSustainabilityAsyncTask(SustainabilityDao dao) {
+            this.Sustainabilitydao = Sustainabilitydao;
+        }
+
+        @Override
+        protected Void doInBackground(SustainabilityModel... model) {
+            // below line is use to insert our model in dao.
+            Sustainabilitydao.insert(model[0]);
+            return null;
+        }
+    }
+    // we are creating a async task method to update our Event.
+    private static class UpdateSustainabilityAsyncTask extends AsyncTask<SustainabilityModel, Void, Void> {
+        private SustainabilityDao Sustainabilitydao;
+
+        private UpdateSustainabilityAsyncTask(SustainabilityDao Sustainabilitydao) {
+            this.Sustainabilitydao = Sustainabilitydao;
+        }
+
+        @Override
+        protected Void doInBackground(SustainabilityModel... models) {
+            // below line is use to update
+            // our model in dao.
+            Sustainabilitydao.update(models[0]);
+            return null;
+        }
+    }
+
+    // we are creating a async task method to delete Event.
+    private static class DeleteSustainabilityAsyncTask extends AsyncTask<SustainabilityModel, Void, Void> {
+        private SustainabilityDao Sustainabilitydao;
+
+        private DeleteSustainabilityAsyncTask(SustainabilityDao Sustainabilitydao) {
+            this.Sustainabilitydao = Sustainabilitydao;
+        }
+
+        @Override
+        protected Void doInBackground(SustainabilityModel... models) {
+            // below line is use to delete
+            // our Event model in dao.
+            Sustainabilitydao.delete(models[0]);
             return null;
         }
     }
