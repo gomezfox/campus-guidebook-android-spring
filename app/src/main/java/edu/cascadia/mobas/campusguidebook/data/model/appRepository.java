@@ -8,12 +8,19 @@ import java.util.List;
 import edu.cascadia.mobas.campusguidebook.ClubDao;
 import edu.cascadia.mobas.campusguidebook.EventDao;
 import edu.cascadia.mobas.campusguidebook.SustainabilityDao;
+import edu.cascadia.mobas.campusguidebook.UserDao;
 
 public class appRepository {
+
     // below line is the create a variable
     // for dao and list for all Event.
     private EventDao Eventdao;
     private LiveData<List<EventModel>> allEvent;
+
+    // below line is the create a variable
+    // for dao and list for all Event.
+    private UserDao UserDao;
+    private LiveData<List<EventModel>> allUser;
 
 
     // below line is the create a variable
@@ -160,6 +167,79 @@ public class appRepository {
             // below line is use to delete
             // our Event model in dao.
             Clubdao.delete(models[0]);
+            return null;
+        }
+    }
+
+
+    // creating a constructor for our variables
+// and passing the variables to it.
+    public appRepository(Application application) {
+        appDatabase database = appDatabase.getInstance(application);
+        UserDao = database.UserDao();
+
+    }
+
+    // creating a method to insert the data to our database.
+    public void insert(UserModel model) {
+        new InsertUserAsyncTask(UserDao).execute(model);
+    }
+
+    // creating a method to update data in database.
+    public void update(UserModel model) {
+        new UpdateUserAsyncTask(UserDao).execute(model);
+    }
+
+    // creating a method to delete the data in our database.
+    public void delete(UserModel model) {
+        new DeleteUserAsyncTask(UserDao).execute(model);
+    }
+
+    // we are creating a async task method to insert new User.
+    private static class InsertUserAsyncTask extends AsyncTask<UserModel, Void, Void> {
+        private UserDao Userdao;
+
+        private InsertUserAsyncTask(UserDao dao) {
+            this.Userdao = Userdao;
+        }
+
+        @Override
+        protected Void doInBackground(UserModel... model) {
+            // below line is use to insert our model in dao.
+            Userdao.insert(model[0]);
+            return null;
+        }
+    }
+    // we are creating a async task method to update our User.
+    private static class UpdateUserAsyncTask extends AsyncTask<UserModel, Void, Void> {
+        private UserDao Userdao;
+
+        private UpdateUserAsyncTask(UserDao Userdao) {
+            this.Userdao = Userdao;
+        }
+
+        @Override
+        protected Void doInBackground(UserModel... models) {
+            // below line is use to update
+            // our model in dao.
+            Userdao.update(models[0]);
+            return null;
+        }
+    }
+
+    // we are creating a async task method to delete User.
+    private static class DeleteUserAsyncTask extends AsyncTask<UserModel, Void, Void> {
+        private UserDao Userdao;
+
+        private DeleteUserAsyncTask(UserDao Userdao) {
+            this.Userdao = Userdao;
+        }
+
+        @Override
+        protected Void doInBackground(UserModel... models) {
+            // below line is use to delete
+            // our User model in dao.
+            Userdao.delete(models[0]);
             return null;
         }
     }
