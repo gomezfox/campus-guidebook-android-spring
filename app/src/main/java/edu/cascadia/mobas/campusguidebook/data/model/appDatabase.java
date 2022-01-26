@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.data.model;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -8,20 +8,28 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import edu.cascadia.mobas.campusguidebook.ClubDao;
+import edu.cascadia.mobas.campusguidebook.EventDao;
+import edu.cascadia.mobas.campusguidebook.SustainabilityDao;
+import edu.cascadia.mobas.campusguidebook.UserDao;
+
 // adding annotation for our database entities and db version.
-@Database(entities = {EventModel.class}, version = 1)
-public abstract class EventDatabase extends RoomDatabase {
+@Database(entities = {EventModel.class, ClubModel.class, SustainabilityModel.class}, version = 1)
+public abstract class appDatabase extends RoomDatabase {
 
     // below line is to create instance
     // for our database class.
-    private static EventDatabase instance;
+    private static appDatabase instance;
 
     // below line is to create
     // abstract variable for dao.
-    public abstract Dao Dao();
+    public abstract EventDao EventDao();
+    public abstract ClubDao ClubDao();
+    public abstract SustainabilityDao SustainabilityDao();
+    public abstract UserDao UserDao();
 
     // on below line we are getting instance for our database.
-    public static synchronized EventDatabase getInstance(Context context) {
+    public static synchronized appDatabase getInstance(Context context) {
         // below line is to check if
         // the instance is null or not.
         if (instance == null) {
@@ -32,7 +40,7 @@ public abstract class EventDatabase extends RoomDatabase {
                     // we are creating a database builder and passing
                     // our database class with our database name.
                     Room.databaseBuilder(context.getApplicationContext(),
-                            EventDatabase.class, "Event_Database")
+                            appDatabase.class, "appDatabase")
                             // below line is use to add fall back to
                             // destructive migration to our database.
                             .fallbackToDestructiveMigration()
@@ -61,8 +69,8 @@ public abstract class EventDatabase extends RoomDatabase {
 
     // we are creating an async task class to perform task in background.
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-        PopulateDbAsyncTask(EventDatabase instance) {
-            Dao dao = instance.Dao();
+        PopulateDbAsyncTask(appDatabase instance) {
+            EventDao dao = instance.EventDao();
         }
         @Override
         protected Void doInBackground(Void... voids) {

@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.data.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 

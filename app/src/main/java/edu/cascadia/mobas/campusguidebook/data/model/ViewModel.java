@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.data.model;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -9,7 +9,7 @@ import java.util.List;
 public class ViewModel extends AndroidViewModel {
 
     // creating a new variable for Event repository.
-    private EventRepository repository;
+    private appRepository repository;
 
     // below line is to create a variable for live
     // data where all the Event are present.
@@ -18,7 +18,7 @@ public class ViewModel extends AndroidViewModel {
     // constructor for our view model.
     public ViewModel(@NonNull Application application) {
         super(application);
-        repository = new EventRepository(application);
+        repository = new appRepository(application);
         //allEvent = repository.getAllEvent();
     }
 

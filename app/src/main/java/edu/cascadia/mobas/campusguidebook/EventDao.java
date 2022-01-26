@@ -1,14 +1,13 @@
 package edu.cascadia.mobas.campusguidebook;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
 import androidx.room.Insert;
-import androidx.room.Query;
 import androidx.room.Update;
-import java.util.List;
+
+import edu.cascadia.mobas.campusguidebook.data.model.EventModel;
 
 @androidx.room.Dao
-public interface Dao {
+public interface EventDao {
 
     // below method is use to
     // add data to database.
