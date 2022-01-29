@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.data.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
@@ -8,35 +8,36 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import edu.cascadia.mobas.campusguidebook.data.model.Club;
 import edu.cascadia.mobas.campusguidebook.data.model.User;
 
 
 @androidx.room.Dao
-public interface UserDao {
+public interface ClubDao {
 
     // below method is use to
     // add data to database.
     @Insert
-    void insert(User model);
+    void insert(Club model);
 
     // below method is use to update
     // the data in our database.
     @Update
-    void update(User model);
+    void update(Club model);
 
     // below line is use to delete a
     // specific Event in our database.
     @Delete
-    void delete(User model);
+    void delete(Club model);
 
-    @Query("SELECT * FROM User_Table")
-    LiveData<List<User>> getAllUsers();
+    @Query("SELECT * FROM Club_Table")
+    LiveData<List<Club>> getAllClubs();
 
-    @Query("SELECT * FROM User_Table WHERE id=:userID")
-    LiveData<User> getUserById(int userID);
+    @Query("SELECT * FROM Club_Table WHERE id=:clubID")
+    LiveData<Club> getClubById(int clubID);
 
-    @Query("SELECT COUNT(*) FROM User_Table")
-    int getUserCount();
+    @Query("SELECT COUNT(*) FROM Club_Table")
+    int getClubCount();
 
 }
 

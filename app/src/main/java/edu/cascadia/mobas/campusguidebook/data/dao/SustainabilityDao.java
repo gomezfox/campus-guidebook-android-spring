@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.data.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Delete;

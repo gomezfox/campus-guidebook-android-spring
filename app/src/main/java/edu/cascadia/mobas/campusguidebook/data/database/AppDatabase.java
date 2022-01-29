@@ -9,10 +9,10 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import edu.cascadia.mobas.campusguidebook.ClubDao;
-import edu.cascadia.mobas.campusguidebook.EventDao;
-import edu.cascadia.mobas.campusguidebook.SustainabilityDao;
-import edu.cascadia.mobas.campusguidebook.UserDao;
+import edu.cascadia.mobas.campusguidebook.data.dao.ClubDao;
+import edu.cascadia.mobas.campusguidebook.data.dao.EventDao;
+import edu.cascadia.mobas.campusguidebook.data.dao.SustainabilityDao;
+import edu.cascadia.mobas.campusguidebook.data.dao.UserDao;
 import edu.cascadia.mobas.campusguidebook.data.model.*;
 
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.OffsetDateTimeConverter;
