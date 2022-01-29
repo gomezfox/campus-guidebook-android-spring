@@ -9,8 +9,8 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import edu.cascadia.mobas.campusguidebook.data.model.SustainabilityModel;
-import edu.cascadia.mobas.campusguidebook.data.model.UserModel;
+import edu.cascadia.mobas.campusguidebook.data.model.Sustainability;
+import edu.cascadia.mobas.campusguidebook.data.model.User;
 
 @androidx.room.Dao
 public interface SustainabilityDao {
@@ -18,25 +18,25 @@ public interface SustainabilityDao {
     // below method is use to
     // add data to database.
     @Insert
-    void insert(SustainabilityModel model);
+    void insert(Sustainability model);
 
     // below method is use to update
     // the data in our database.
     @Update
-    void update(SustainabilityModel model);
+    void update(Sustainability model);
 
     // below line is use to delete a
     // specific Sustainability in our database.
     @Delete
-    void delete(SustainabilityModel model);
+    void delete(Sustainability model);
 
-    @Query("SELECT * FROM Sustainability_Table")
-    LiveData<List<UserModel>> getAllSustainability();
+    @Query("SELECT * FROM Sustainability")
+    LiveData<List<User>> getAllSustainability();
 
-    @Query("SELECT * FROM Sustainability_Table WHERE id=:sustainabilityID")
-    LiveData<UserModel> getSustainabilityById(int sustainabilityID);
+    @Query("SELECT * FROM Sustainability WHERE id=:sustainabilityID")
+    LiveData<User> getSustainabilityById(int sustainabilityID);
 
-    @Query("SELECT COUNT(*) FROM Sustainability_Table")
+    @Query("SELECT COUNT(*) FROM Sustainability")
     int getSustainabilityCount();
 }
 

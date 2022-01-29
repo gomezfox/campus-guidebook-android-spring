@@ -3,7 +3,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "User_Table")
-public class UserModel {
+public class User {
     // below line is to auto increment
     // id for each User.
     @PrimaryKey(autoGenerate = true)
@@ -28,7 +28,7 @@ public class UserModel {
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
-    public UserModel(String UserName, String Subscriptions, String Password) {
+    public User(String UserName, String Subscriptions, String Password) {
         this.UserName = UserName;
         this.Password = Password;
         this.Subscriptions = Subscriptions;

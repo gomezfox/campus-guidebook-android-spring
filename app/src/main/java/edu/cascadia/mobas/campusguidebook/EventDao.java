@@ -8,7 +8,7 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import edu.cascadia.mobas.campusguidebook.data.model.EventModel;
+import edu.cascadia.mobas.campusguidebook.data.model.Event;
 
 @androidx.room.Dao
 public interface EventDao {
@@ -16,25 +16,25 @@ public interface EventDao {
     // below method is use to
     // add data to database.
     @Insert
-    void insert(EventModel model);
+    void insert(Event model);
 
     // below method is use to update
     // the data in our database.
     @Update
-    void update(EventModel model);
+    void update(Event model);
 
     // below line is use to delete a
     // specific Event in our database.
     @Delete
-    void delete(EventModel model);
+    void delete(Event model);
 
-    @Query("SELECT * FROM Event_Table")
-    LiveData<List<EventModel>> getAllEvents();
+    @Query("SELECT * FROM Event")
+    LiveData<List<Event>> getAllEvents();
 
-    @Query("SELECT * FROM Event_Table WHERE id=:eventID")
-    LiveData<List<EventModel>> getEventByID(int eventID);
+    @Query("SELECT * FROM Event WHERE id=:eventID")
+    LiveData<List<Event>> getEventByID(int eventID);
 
-    @Query("SELECT COUNT(*) FROM Event_Table")
+    @Query("SELECT COUNT(*) FROM Event")
     int getEventCount();
 
 }

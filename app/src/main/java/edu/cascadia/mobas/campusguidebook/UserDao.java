@@ -8,7 +8,7 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import edu.cascadia.mobas.campusguidebook.data.model.UserModel;
+import edu.cascadia.mobas.campusguidebook.data.model.User;
 
 
 @androidx.room.Dao
@@ -17,25 +17,25 @@ public interface UserDao {
     // below method is use to
     // add data to database.
     @Insert
-    void insert(UserModel model);
+    void insert(User model);
 
     // below method is use to update
     // the data in our database.
     @Update
-    void update(UserModel model);
+    void update(User model);
 
     // below line is use to delete a
     // specific Event in our database.
     @Delete
-    void delete(UserModel model);
+    void delete(User model);
 
-    @Query("SELECT * FROM User_Table")
-    LiveData<List<UserModel>> getAllUsers();
+    @Query("SELECT * FROM User")
+    LiveData<List<User>> getAllUsers();
 
-    @Query("SELECT * FROM User_Table WHERE id=:userID")
-    LiveData<UserModel> getUserById(int userID);
+    @Query("SELECT * FROM User WHERE id=:userID")
+    LiveData<User> getUserById(int userID);
 
-    @Query("SELECT COUNT(*) FROM User_Table")
+    @Query("SELECT COUNT(*) FROM User")
     int getUserCount();
 
 }

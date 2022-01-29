@@ -15,10 +15,10 @@ import edu.cascadia.mobas.campusguidebook.UserDao;
 
 // adding annotation for our database entities and db version.
 @Database(entities = {
-        EventModel.class,
-        ClubModel.class,
-        SustainabilityModel.class,
-        UserModel.class}, version = 1)
+        Event.class,
+        Club.class,
+        Sustainability.class,
+        User.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     // below line is to create instance

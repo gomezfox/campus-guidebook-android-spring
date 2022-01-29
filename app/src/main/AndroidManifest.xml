@@ -16,7 +16,7 @@
             android:theme="@style/Theme.CampusGuidebookTemplate.NoActionBar">
         </activity>
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="true"
             android:label="@string/title_activity_login">
 

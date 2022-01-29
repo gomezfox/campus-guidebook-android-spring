@@ -12,10 +12,10 @@ import edu.cascadia.mobas.campusguidebook.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Events#newInstance} factory method to
+ * Use the {@link EventsFrag#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Events extends Fragment {
+public class EventsFrag extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class Events extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Events() {
+    public EventsFrag() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class Events extends Fragment {
      * @return A new instance of fragment BlankFragmentEvents.
      */
     // TODO: Rename and change types and number of parameters
-    public static Events newInstance(String param1, String param2) {
-        Events fragment = new Events();
+    public static EventsFrag newInstance(String param1, String param2) {
+        EventsFrag fragment = new EventsFrag();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

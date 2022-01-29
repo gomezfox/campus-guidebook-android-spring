@@ -8,8 +8,8 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import edu.cascadia.mobas.campusguidebook.data.model.ClubModel;
-import edu.cascadia.mobas.campusguidebook.data.model.UserModel;
+import edu.cascadia.mobas.campusguidebook.data.model.Club;
+import edu.cascadia.mobas.campusguidebook.data.model.User;
 
 
 @androidx.room.Dao
@@ -18,25 +18,25 @@ public interface ClubDao {
     // below method is use to
     // add data to database.
     @Insert
-    void insert(ClubModel model);
+    void insert(Club model);
 
     // below method is use to update
     // the data in our database.
     @Update
-    void update(ClubModel model);
+    void update(Club model);
 
     // below line is use to delete a
     // specific Event in our database.
     @Delete
-    void delete(ClubModel model);
+    void delete(Club model);
 
-    @Query("SELECT * FROM Club_Table")
-    LiveData<List<UserModel>> getAllUsers();
+    @Query("SELECT * FROM Club")
+    LiveData<List<User>> getAllUsers();
 
-    @Query("SELECT * FROM Club_Table WHERE id=:clubID")
-    LiveData<UserModel> getUserById(int clubID);
+    @Query("SELECT * FROM Club WHERE id=:clubID")
+    LiveData<User> getUserById(int clubID);
 
-    @Query("SELECT COUNT(*) FROM Club_Table")
+    @Query("SELECT COUNT(*) FROM Club")
     int getClubCount();
 
 }

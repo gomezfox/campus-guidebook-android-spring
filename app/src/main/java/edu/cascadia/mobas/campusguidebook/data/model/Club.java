@@ -2,10 +2,10 @@ package edu.cascadia.mobas.campusguidebook.data.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Sustainability_Table")
-public class SustainabilityModel {
+@Entity(tableName = "Club_Table")
+public class Club {
     // below line is to auto increment
-    // id for each Sustainability.
+    // id for each club.
     @PrimaryKey(autoGenerate = true)
 
     // variable for our id.
@@ -13,24 +13,24 @@ public class SustainabilityModel {
 
     // below line is a variable
     // for Event name.
-    private String SustainabilityName;
+    private String ClubName;
 
 
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
-    public SustainabilityModel(String SustainabilityName) {
-        this.SustainabilityName = SustainabilityName;
+    public Club(String ClubName) {
+        this.ClubName = ClubName;
     }
 
     // on below line we are creating
     // getter and setter methods.
-    public String getSustainabilityName() {
-        return SustainabilityName;
+    public String getClubName() {
+        return ClubName;
     }
 
-    public void setSustainabilityName(String SustainabilityName) {
-        this.SustainabilityName = SustainabilityName;
+    public void setClubName(String ClubName) {
+        this.ClubName = ClubName;
     }
 
 

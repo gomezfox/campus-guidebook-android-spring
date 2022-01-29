@@ -13,7 +13,7 @@ public class ViewModel extends AndroidViewModel {
 
     // below line is to create a variable for live
     // data where all the Event are present.
-    private LiveData<List<EventModel>> allEvent;
+    private LiveData<List<Event>> allEvent;
 
     // constructor for our view model.
     public ViewModel(@NonNull Application application) {
@@ -23,17 +23,17 @@ public class ViewModel extends AndroidViewModel {
     }
 
     // below method is use to insert the data to our repository.
-    public void insert(EventModel model) {
+    public void insert(Event model) {
         repository.insert(model);
     }
 
     // below line is to update data in our repository.
-    public void update(EventModel model) {
+    public void update(Event model) {
         repository.update(model);
     }
 
     // below line is to delete the data in our repository.
-    public void delete(EventModel model) {
+    public void delete(Event model) {
         repository.delete(model);
     }
 
