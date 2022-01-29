@@ -10,53 +10,61 @@ import edu.cascadia.mobas.campusguidebook.EventDao;
 import edu.cascadia.mobas.campusguidebook.SustainabilityDao;
 import edu.cascadia.mobas.campusguidebook.UserDao;
 
-public class appRepository {
+public class AppRepository {
+
+    // instance variables for singleton
+    private AppRepository mAppRepository = null;
+    private Application mApplication = null;
+    private AppDatabase mAppDatabase= null;
+
+
 
     // below line is the create a variable
     // for dao and list for all Event.
-    private EventDao Eventdao;
     private LiveData<List<EventModel>> allEvent;
 
     // below line is the create a variable
     // for dao and list for all Event.
-    private UserDao UserDao;
     private LiveData<List<EventModel>> allUser;
 
 
     // below line is the create a variable
     // for dao and list for all Club.
-    private ClubDao Clubdao;
     private LiveData<List<ClubModel>> allClub;
 
 
     // below line is the create a variable
     // for dao and list for all Club.
-    private SustainabilityDao Sustainabilitydao;
     private LiveData<List<SustainabilityModel>> allSustainability;
 
 
-
-    // creating a constructor for our variables
-    // and passing the variables to it.
-    public appRepository(Application application) {
-        appDatabase database = appDatabase.getInstance(application);
-        Eventdao = database.EventDao();
-
+    private AppRepository(Application app) {
+        if (mAppRepository != null) return;
+        mApplication = app;
+        mAppDatabase = AppDatabase.getInstance(app);
+        mAppRepository = this;
     }
 
+
+    public AppRepository getInstance(Application app) {
+        if (mAppRepository == null) {
+            mAppRepository = new AppRepository(app);
+        }
+        return mAppRepository;
+    }
     // creating a method to insert the data to our database.
     public void insert(EventModel model) {
-        new InsertEventAsyncTask(Eventdao).execute(model);
+        new InsertEventAsyncTask(mAppDatabase.EventDao()).execute(model);
     }
 
     // creating a method to update data in database.
     public void update(EventModel model) {
-        new UpdateEventAsyncTask(Eventdao).execute(model);
+        new UpdateEventAsyncTask(mAppDatabase.EventDao()).execute(model);
     }
 
     // creating a method to delete the data in our database.
     public void delete(EventModel model) {
-        new DeleteEventAsyncTask(Eventdao).execute(model);
+        new DeleteEventAsyncTask(mAppDatabase.EventDao()).execute(model);
     }
 
     // we are creating a async task method to insert new Event.
@@ -74,6 +82,7 @@ public class appRepository {
             return null;
         }
     }
+
     // we are creating a async task method to update our Event.
     private static class UpdateEventAsyncTask extends AsyncTask<EventModel, Void, Void> {
         private EventDao Eventdao;
@@ -110,17 +119,17 @@ public class appRepository {
 
     // creating a method to insert the data to our database.
     public void insert(ClubModel model) {
-        new InsertClubAsyncTask(Clubdao).execute(model);
+        new InsertClubAsyncTask(mAppDatabase.ClubDao()).execute(model);
     }
 
     // creating a method to update data in database.
     public void update(ClubModel model) {
-        new UpdateClubAsyncTask(Clubdao).execute(model);
+        new UpdateClubAsyncTask(mAppDatabase.ClubDao()).execute(model);
     }
 
     // creating a method to delete the data in our database.
     public void delete(ClubModel model) {
-        new DeleteClubAsyncTask(Clubdao).execute(model);
+        new DeleteClubAsyncTask(mAppDatabase.ClubDao()).execute(model);
     }
 
     // we are creating a async task method to insert new Event.
@@ -154,6 +163,7 @@ public class appRepository {
             return null;
         }
     }
+
     // we are creating a async task method to delete Event.
     private static class DeleteClubAsyncTask extends AsyncTask<ClubModel, Void, Void> {
         private ClubDao Clubdao;
@@ -172,27 +182,21 @@ public class appRepository {
     }
 
 
-    // creating a constructor for our variables
-// and passing the variables to it.
-    public appRepository(Application application) {
-        appDatabase database = appDatabase.getInstance(application);
-        UserDao = database.UserDao();
 
-    }
 
     // creating a method to insert the data to our database.
     public void insert(UserModel model) {
-        new InsertUserAsyncTask(UserDao).execute(model);
+        new InsertUserAsyncTask(mAppDatabase.UserDao()).execute(model);
     }
 
     // creating a method to update data in database.
     public void update(UserModel model) {
-        new UpdateUserAsyncTask(UserDao).execute(model);
+        new UpdateUserAsyncTask(mAppDatabase.UserDao()).execute(model);
     }
 
     // creating a method to delete the data in our database.
     public void delete(UserModel model) {
-        new DeleteUserAsyncTask(UserDao).execute(model);
+        new DeleteUserAsyncTask(mAppDatabase.UserDao()).execute(model);
     }
 
     // we are creating a async task method to insert new User.
@@ -247,17 +251,17 @@ public class appRepository {
 
     // creating a method to insert the data to our database.
     public void insert(SustainabilityModel model) {
-        new InsertSustainabilityAsyncTask(Sustainabilitydao).execute(model);
+        new InsertSustainabilityAsyncTask(mAppDatabase.SustainabilityDao()).execute(model);
     }
 
     // creating a method to update data in database.
     public void update(SustainabilityModel model) {
-        new UpdateSustainabilityAsyncTask(Sustainabilitydao).execute(model);
+        new UpdateSustainabilityAsyncTask(mAppDatabase.SustainabilityDao()).execute(model);
     }
 
     // creating a method to delete the data in our database.
     public void delete(SustainabilityModel model) {
-        new DeleteSustainabilityAsyncTask(Sustainabilitydao).execute(model);
+        new DeleteSustainabilityAsyncTask(mAppDatabase.SustainabilityDao()).execute(model);
     }
 
     // we are creating a async task method to insert new Event.

@@ -14,12 +14,16 @@ import edu.cascadia.mobas.campusguidebook.SustainabilityDao;
 import edu.cascadia.mobas.campusguidebook.UserDao;
 
 // adding annotation for our database entities and db version.
-@Database(entities = {EventModel.class, ClubModel.class, SustainabilityModel.class}, version = 1)
-public abstract class appDatabase extends RoomDatabase {
+@Database(entities = {
+        EventModel.class,
+        ClubModel.class,
+        SustainabilityModel.class,
+        UserModel.class}, version = 1)
+public abstract class AppDatabase extends RoomDatabase {
 
     // below line is to create instance
     // for our database class.
-    private static appDatabase instance;
+    private static AppDatabase instance;
 
     // below line is to create
     // abstract variable for dao.
@@ -29,7 +33,7 @@ public abstract class appDatabase extends RoomDatabase {
     public abstract UserDao UserDao();
 
     // on below line we are getting instance for our database.
-    public static synchronized appDatabase getInstance(Context context) {
+    public static synchronized AppDatabase getInstance(Context context) {
         // below line is to check if
         // the instance is null or not.
         if (instance == null) {
@@ -40,7 +44,7 @@ public abstract class appDatabase extends RoomDatabase {
                     // we are creating a database builder and passing
                     // our database class with our database name.
                     Room.databaseBuilder(context.getApplicationContext(),
-                            appDatabase.class, "appDatabase")
+                            AppDatabase.class, "appDatabase")
                             // below line is use to add fall back to
                             // destructive migration to our database.
                             .fallbackToDestructiveMigration()
@@ -69,7 +73,7 @@ public abstract class appDatabase extends RoomDatabase {
 
     // we are creating an async task class to perform task in background.
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-        PopulateDbAsyncTask(appDatabase instance) {
+        PopulateDbAsyncTask(AppDatabase instance) {
             EventDao dao = instance.EventDao();
         }
         @Override
