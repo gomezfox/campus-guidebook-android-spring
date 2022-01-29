@@ -13,12 +13,14 @@ import edu.cascadia.mobas.campusguidebook.UserDao;
 public class AppRepository {
 
     // instance variables for singleton
-    private AppRepository mAppRepository = null;
+    private static AppRepository mAppRepository = null;
     private Application mApplication = null;
     private AppDatabase mAppDatabase= null;
 
 
-    // private constructor for singleton
+    // private constructor to enforce singleton pattern
+    private AppRepository() {}
+
     private AppRepository(Application app) {
         if (mAppRepository != null) return;
         mApplication = app;
@@ -27,7 +29,7 @@ public class AppRepository {
     }
 
     // returns the AppRepository instance, creating if necessary
-    public AppRepository getInstance(Application app) {
+    public static AppRepository getInstance(Application app) {
         if (mAppRepository == null) {
             mAppRepository = new AppRepository(app);
         }
@@ -35,7 +37,7 @@ public class AppRepository {
     }
 
     // returns the AppRepository instance if it exists, otherwise null
-    public AppRepository getInstance() {
+    public static AppRepository getInstance() {
         return mAppRepository;
     }
 
