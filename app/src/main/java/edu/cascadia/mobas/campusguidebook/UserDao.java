@@ -29,13 +29,13 @@ public interface UserDao {
     @Delete
     void delete(User model);
 
-    @Query("SELECT * FROM User")
+    @Query("SELECT * FROM User_Table")
     LiveData<List<User>> getAllUsers();
 
-    @Query("SELECT * FROM User WHERE id=:userID")
+    @Query("SELECT * FROM User_Table WHERE id=:userID")
     LiveData<User> getUserById(int userID);
 
-    @Query("SELECT COUNT(*) FROM User")
+    @Query("SELECT COUNT(*) FROM User_Table")
     int getUserCount();
 
 }

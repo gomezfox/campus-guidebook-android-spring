@@ -30,13 +30,13 @@ public interface SustainabilityDao {
     @Delete
     void delete(Sustainability model);
 
-    @Query("SELECT * FROM Sustainability")
+    @Query("SELECT * FROM Sustainability_Table")
     LiveData<List<User>> getAllSustainability();
 
-    @Query("SELECT * FROM Sustainability WHERE id=:sustainabilityID")
+    @Query("SELECT * FROM Sustainability_Table WHERE id=:sustainabilityID")
     LiveData<User> getSustainabilityById(int sustainabilityID);
 
-    @Query("SELECT COUNT(*) FROM Sustainability")
+    @Query("SELECT COUNT(*) FROM Sustainability_Table")
     int getSustainabilityCount();
 }
 

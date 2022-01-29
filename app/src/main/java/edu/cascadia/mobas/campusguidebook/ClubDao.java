@@ -30,13 +30,13 @@ public interface ClubDao {
     @Delete
     void delete(Club model);
 
-    @Query("SELECT * FROM Club")
-    LiveData<List<User>> getAllUsers();
+    @Query("SELECT * FROM Club_Table")
+    LiveData<List<User>> getAllClubs();
 
-    @Query("SELECT * FROM Club WHERE id=:clubID")
-    LiveData<User> getUserById(int clubID);
+    @Query("SELECT * FROM Club_Table WHERE id=:clubID")
+    LiveData<User> getClubById(int clubID);
 
-    @Query("SELECT COUNT(*) FROM Club")
+    @Query("SELECT COUNT(*) FROM Club_Table")
     int getClubCount();
 
 }

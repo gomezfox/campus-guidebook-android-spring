@@ -28,13 +28,13 @@ public interface EventDao {
     @Delete
     void delete(Event model);
 
-    @Query("SELECT * FROM Event")
+    @Query("SELECT * FROM Event_Table")
     LiveData<List<Event>> getAllEvents();
 
-    @Query("SELECT * FROM Event WHERE id=:eventID")
+    @Query("SELECT * FROM Event_Table WHERE id=:eventID")
     LiveData<List<Event>> getEventByID(int eventID);
 
-    @Query("SELECT COUNT(*) FROM Event")
+    @Query("SELECT COUNT(*) FROM Event_Table")
     int getEventCount();
 
 }
