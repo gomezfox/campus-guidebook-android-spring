@@ -1,11 +1,16 @@
 package edu.cascadia.mobas.campusguidebook;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.Query;
 import androidx.room.Update;
 
 
+import java.util.List;
+
 import edu.cascadia.mobas.campusguidebook.data.model.SustainabilityModel;
+import edu.cascadia.mobas.campusguidebook.data.model.UserModel;
 
 @androidx.room.Dao
 public interface SustainabilityDao {
@@ -25,6 +30,13 @@ public interface SustainabilityDao {
     @Delete
     void delete(SustainabilityModel model);
 
+    @Query("SELECT * FROM Sustainability_Table")
+    LiveData<List<UserModel>> getAllSustainability();
 
+    @Query("SELECT * FROM Sustainability_Table WHERE id=:sustainabilityID")
+    LiveData<UserModel> getSustainabilityById(int sustainabilityID);
+
+    @Query("SELECT COUNT(*) FROM Sustainability_Table")
+    int getSustainabilityCount();
 }
 

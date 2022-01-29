@@ -1,8 +1,12 @@
 package edu.cascadia.mobas.campusguidebook;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.Query;
 import androidx.room.Update;
+
+import java.util.List;
 
 import edu.cascadia.mobas.campusguidebook.data.model.UserModel;
 
@@ -24,6 +28,15 @@ public interface UserDao {
     // specific Event in our database.
     @Delete
     void delete(UserModel model);
+
+    @Query("SELECT * FROM User_Table")
+    LiveData<List<UserModel>> getAllUsers();
+
+    @Query("SELECT * FROM User_Table WHERE id=:userID")
+    LiveData<UserModel> getUserById(int userID);
+
+    @Query("SELECT COUNT(*) FROM User_Table")
+    int getUserCount();
 
 }
 

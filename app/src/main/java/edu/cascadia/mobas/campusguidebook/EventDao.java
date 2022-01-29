@@ -1,8 +1,12 @@
 package edu.cascadia.mobas.campusguidebook;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.Query;
 import androidx.room.Update;
+
+import java.util.List;
 
 import edu.cascadia.mobas.campusguidebook.data.model.EventModel;
 
@@ -24,6 +28,14 @@ public interface EventDao {
     @Delete
     void delete(EventModel model);
 
+    @Query("SELECT * FROM Event_Table")
+    LiveData<List<EventModel>> getAllEvents();
+
+    @Query("SELECT * FROM Event_Table WHERE id=:eventID")
+    LiveData<List<EventModel>> getEventByID(int eventID);
+
+    @Query("SELECT COUNT(*) FROM Event_Table")
+    int getEventCount();
 
 }
 
