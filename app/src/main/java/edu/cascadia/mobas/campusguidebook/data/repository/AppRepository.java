@@ -5,15 +5,10 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 import java.util.List;
 
-import edu.cascadia.mobas.campusguidebook.ClubDao;
-import edu.cascadia.mobas.campusguidebook.EventDao;
-import edu.cascadia.mobas.campusguidebook.SustainabilityDao;
-import edu.cascadia.mobas.campusguidebook.UserDao;
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
-import edu.cascadia.mobas.campusguidebook.data.model.Club;
-import edu.cascadia.mobas.campusguidebook.data.model.Event;
-import edu.cascadia.mobas.campusguidebook.data.model.Sustainability;
-import edu.cascadia.mobas.campusguidebook.data.model.User;
+import edu.cascadia.mobas.campusguidebook.data.dao.*;
+import edu.cascadia.mobas.campusguidebook.data.model.*;
+
 
 public class AppRepository {
 
@@ -50,7 +45,7 @@ public class AppRepository {
     // returns a list of all events
     public LiveData<List<Event>> getAllEvents() {
         return mAppDatabase.EventDao().getAllEvents();
-    };
+    }
 
 
     // returns a list of all users
@@ -62,13 +57,13 @@ public class AppRepository {
     // returns a list of all clubs
     public LiveData<List<Club>> getAllClubs() {
         return mAppDatabase.ClubDao().getAllClubs();
-    };
+    }
 
 
     // returns a list of all sustainability
     public LiveData<List<Sustainability>> getAllSustainability() {
         return mAppDatabase.SustainabilityDao().getAllSustainability();
-    };
+    }
 
 
 
