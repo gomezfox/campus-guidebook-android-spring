@@ -6,16 +6,16 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import edu.cascadia.mobas.campusguidebook.ClubDao;
 import edu.cascadia.mobas.campusguidebook.EventDao;
 import edu.cascadia.mobas.campusguidebook.SustainabilityDao;
 import edu.cascadia.mobas.campusguidebook.UserDao;
-import edu.cascadia.mobas.campusguidebook.data.model.Club;
-import edu.cascadia.mobas.campusguidebook.data.model.Event;
-import edu.cascadia.mobas.campusguidebook.data.model.Sustainability;
-import edu.cascadia.mobas.campusguidebook.data.model.User;
+import edu.cascadia.mobas.campusguidebook.data.model.*;
+
+import edu.cascadia.mobas.campusguidebook.data.typeconverter.OffsetDateTimeConverter;
 
 // adding annotation for our database entities and db version.
 @Database(entities = {
@@ -23,6 +23,7 @@ import edu.cascadia.mobas.campusguidebook.data.model.User;
         Club.class,
         Sustainability.class,
         User.class}, version = 1)
+@TypeConverters(OffsetDateTimeConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 
     // below line is to create instance
