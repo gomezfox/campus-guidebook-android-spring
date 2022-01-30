@@ -28,8 +28,11 @@ public class Club {
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
-    public Club(String name) {
-        this.clubName = name;
+    public Club(String clubName, String clubDescription, String clubAdvisor, String clubContact) {
+        this.clubName = clubName;
+        this.clubDescription = clubDescription;
+        this.clubAdvisor = clubAdvisor;
+        this.clubContact = clubContact;
     }
 
     // on below line we are creating
@@ -45,7 +48,6 @@ public class Club {
     public String getClubName() {
         return clubName;
     }
-
     public void setClubName(String clubName) {
         this.clubName = clubName;
     }
@@ -53,7 +55,6 @@ public class Club {
     public String getClubDescription() {
         return this.clubDescription;
     }
-
     public void setClubDescription(String description) {
         this.clubDescription = description;
     }
@@ -68,7 +69,6 @@ public class Club {
     public String getClubContact() {
         return this.clubContact;
     }
-
     public void setClubContact(String contact) {
         this.clubContact = contact;
     }
