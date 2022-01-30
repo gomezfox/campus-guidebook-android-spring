@@ -1,4 +1,5 @@
 package edu.cascadia.mobas.campusguidebook.data.model;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -13,53 +14,47 @@ public class User {
 
     // below line is a variable
     // for User name.
-    private String UserName;
+    @ColumnInfo(name = "user_name")
+    private String userName;
 
     // below line is a variable
     // for User password.
-    private String Password;  //TODO: add some security like an encryption or something
+    private String password;  //TODO: add some security like an encryption or something
 
     // below line is use for
     // User Subscriptions.
-    private String Subscriptions;
-
-
+    private String subscriptions;
 
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
-    public User(String UserName, String Subscriptions, String Password) {
-        this.UserName = UserName;
-        this.Password = Password;
-        this.Subscriptions = Subscriptions;
-
-
+    public User(String userName, String subscriptions, String password) {
+        this.userName = userName;
+        this.password = password;
+        this.subscriptions = subscriptions;
     }
 
     // on below line we are creating
     // getter and setter methods.
     public String getUserName() {
-        return UserName;
+        return userName;
     }
-
-    public void setUserName(String UserName) {
-        this.UserName = UserName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getSubscriptions() {
-        return Subscriptions;
+        return subscriptions;
     }
-
-    public void setSubscriptions(String Subscriptions) {
-        this.Subscriptions = Subscriptions;
+    public void setSubscriptions(String subscriptions) {
+        this.subscriptions = subscriptions;
     }
 
     public int getId() {
