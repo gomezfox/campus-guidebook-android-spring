@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.data.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
@@ -16,17 +16,17 @@ public interface EventDao {
     // below method is use to
     // add data to database.
     @Insert
-    void insert(Event model);
+    void insert(Event event);
 
     // below method is use to update
     // the data in our database.
     @Update
-    void update(Event model);
+    void update(Event event);
 
     // below line is use to delete a
     // specific Event in our database.
     @Delete
-    void delete(Event model);
+    void delete(Event event);
 
     @Query("SELECT * FROM Event_Table")
     LiveData<List<Event>> getAllEvents();

@@ -1,14 +1,14 @@
-package edu.cascadia.mobas.campusguidebook.data.model;
+package edu.cascadia.mobas.campusguidebook.data.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 import java.util.List;
 
-import edu.cascadia.mobas.campusguidebook.ClubDao;
-import edu.cascadia.mobas.campusguidebook.EventDao;
-import edu.cascadia.mobas.campusguidebook.SustainabilityDao;
-import edu.cascadia.mobas.campusguidebook.UserDao;
+import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
+import edu.cascadia.mobas.campusguidebook.data.dao.*;
+import edu.cascadia.mobas.campusguidebook.data.model.*;
+
 
 public class AppRepository {
 
@@ -45,7 +45,7 @@ public class AppRepository {
     // returns a list of all events
     public LiveData<List<Event>> getAllEvents() {
         return mAppDatabase.EventDao().getAllEvents();
-    };
+    }
 
 
     // returns a list of all users
@@ -57,13 +57,13 @@ public class AppRepository {
     // returns a list of all clubs
     public LiveData<List<Club>> getAllClubs() {
         return mAppDatabase.ClubDao().getAllClubs();
-    };
+    }
 
 
     // returns a list of all sustainability
     public LiveData<List<Sustainability>> getAllSustainability() {
         return mAppDatabase.SustainabilityDao().getAllSustainability();
-    };
+    }
 
 
 
@@ -93,9 +93,11 @@ public class AppRepository {
         }
 
         @Override
-        protected Void doInBackground(Event... model) {
+        protected Void doInBackground(Event... events) {
             // below line is use to insert our model in dao.
-            Eventdao.insert(model[0]);
+            for (Event event : events) {
+                Eventdao.insert(event);
+            }
             return null;
         }
     }

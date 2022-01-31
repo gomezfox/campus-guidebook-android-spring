@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.data.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
@@ -18,17 +18,17 @@ public interface SustainabilityDao {
     // below method is use to
     // add data to database.
     @Insert
-    void insert(Sustainability model);
+    void insert(Sustainability sustainability);
 
     // below method is use to update
     // the data in our database.
     @Update
-    void update(Sustainability model);
+    void update(Sustainability sustainability);
 
     // below line is use to delete a
     // specific Sustainability in our database.
     @Delete
-    void delete(Sustainability model);
+    void delete(Sustainability sustainability);
 
     @Query("SELECT * FROM Sustainability_Table")
     LiveData<List<Sustainability>> getAllSustainability();
