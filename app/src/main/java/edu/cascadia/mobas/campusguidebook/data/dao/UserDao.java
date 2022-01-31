@@ -17,17 +17,17 @@ public interface UserDao {
     // below method is use to
     // add data to database.
     @Insert
-    void insert(User model);
+Cor    void insert(User user);
 
     // below method is use to update
     // the data in our database.
     @Update
-    void update(User model);
+    void update(User user);
 
     // below line is use to delete a
     // specific Event in our database.
     @Delete
-    void delete(User model);
+    void delete(User user);
 
     @Query("SELECT * FROM User_Table")
     LiveData<List<User>> getAllUsers();
