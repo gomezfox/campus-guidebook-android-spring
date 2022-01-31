@@ -23,7 +23,7 @@ public interface ClubDao {
     // below method is use to update
     // the data in our database.
     @Update
-    void update(Club xlub);
+    void update(Club club);
 
     // below line is use to delete a
     // specific Event in our database.
