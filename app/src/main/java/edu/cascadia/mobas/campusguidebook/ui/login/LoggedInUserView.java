@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook.login;
+package edu.cascadia.mobas.campusguidebook.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.

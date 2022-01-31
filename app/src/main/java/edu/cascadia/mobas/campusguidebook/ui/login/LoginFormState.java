@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook.login;
+package edu.cascadia.mobas.campusguidebook.ui.login;
 
 import androidx.annotation.Nullable;
 
