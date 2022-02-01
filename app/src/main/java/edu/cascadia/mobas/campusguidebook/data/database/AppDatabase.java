@@ -2,7 +2,6 @@ package edu.cascadia.mobas.campusguidebook.data.database;
 
 import android.app.Application;
 import android.os.Build;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.room.Database;
@@ -33,7 +32,6 @@ public abstract class AppDatabase extends RoomDatabase {
 
     // below line is to save the executor pool
     // to create database and supply repositories
-    private AppExecutors appExecutors;
 
     // below line is to create
     // abstract variable for dao.
@@ -43,7 +41,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDao UserDao();
 
     // on below line we are getting instance for our database.
-    public AppDatabase getInstance(Application application, AppExecutors appExecutors) {
+    public static AppDatabase getInstance(Application application, AppExecutors appExecutors) {
         // return existing singleton instance
         // unless the instance is null
         if (instance != null) { return instance; }
@@ -51,7 +49,6 @@ public abstract class AppDatabase extends RoomDatabase {
         synchronized (AppDatabase.class) {
             // if the instance is null we
             // are creating a new instance
-            this.appExecutors = appExecutors;
             instance =
                 // for creating a instance for our database
                 // we are creating a database builder and passing
@@ -66,7 +63,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     .addCallback(new RoomDatabase.Callback() {
                         @RequiresApi(api = Build.VERSION_CODES.O)
                         @Override
-                        public void onCreate(SupportSQLiteDatabase sqLiteDatabase) {
+                        public void onCreate(@NonNull SupportSQLiteDatabase sqLiteDatabase) {
                             super.onCreate(sqLiteDatabase);
                             // this method is called after
                             // the database build
