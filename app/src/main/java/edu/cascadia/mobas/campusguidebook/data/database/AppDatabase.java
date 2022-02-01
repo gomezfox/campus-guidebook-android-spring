@@ -1,7 +1,10 @@
 package edu.cascadia.mobas.campusguidebook.data.database;
 
 import android.app.Application;
+import android.os.Build;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.room.Database;
 import androidx.room.TypeConverters;
 import androidx.room.Room;
@@ -61,6 +64,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     // below line add callback that the builder executes
                     // after build is complete and instance exists
                     .addCallback(new RoomDatabase.Callback() {
+                        @RequiresApi(api = Build.VERSION_CODES.O)
                         @Override
                         public void onCreate(SupportSQLiteDatabase sqLiteDatabase) {
                             super.onCreate(sqLiteDatabase);
@@ -70,10 +74,17 @@ public abstract class AppDatabase extends RoomDatabase {
                                 // use a transaction to insert
                                 // all the sample data in one pass
                                 getInstance(application, appExecutors).runInTransaction(() -> {
-                                    instance.EventDao().insert(SampleData.events());
-                                    instance.ClubDao().insert(SampleData.clubs());
-                                    instance.SustainabilityDao().insert(SampleData.sustainability());
-                                    instance.UserDao().insert(SampleData.users());
+                                    for (Event event : SampleData.events) {
+                                        instance.EventDao().insert(event);
+                                    }
+                                    for (Club club : SampleData.clubs) {
+                                        instance.ClubDao().insert(club);
+                                    }
+                                    for (Sustainability sustainability : SampleData.sustainabilities) {
+                                        instance.SustainabilityDao().insert(sustainability);
+                                    }
+                                    for (User user : SampleData.users)
+                                        instance.UserDao().insert(user);
                                 });
                             });
                         }
