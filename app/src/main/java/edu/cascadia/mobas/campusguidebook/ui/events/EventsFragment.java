@@ -18,6 +18,7 @@ import androidx.navigation.Navigation;
 import edu.cascadia.mobas.campusguidebook.Fragment_Event_Info;
 import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.databinding.FragmentEventsBinding;
+import edu.cascadia.mobas.campusguidebook.viewmodel.EventsViewModel;
 
 public class EventsFragment extends Fragment {
 
