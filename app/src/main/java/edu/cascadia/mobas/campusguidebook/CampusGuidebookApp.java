@@ -1,6 +1,9 @@
 package edu.cascadia.mobas.campusguidebook;
 
 import android.app.Application;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
@@ -9,6 +12,7 @@ import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
 // and make database access through viewmodels/repositories
 // available everywhere it is needed in the app
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class CampusGuidebookApp extends Application {
     private AppExecutors appExecutors;
 

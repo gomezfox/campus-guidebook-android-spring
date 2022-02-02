@@ -27,7 +27,6 @@ public class AppRepository {
         if (sAppRepository != null) return;
         mAppDatabase = db;
         mAppExecutors = executors;
-        sAppRepository = this;
     }
 
     // returns the AppRepository instance, creating if necessary
