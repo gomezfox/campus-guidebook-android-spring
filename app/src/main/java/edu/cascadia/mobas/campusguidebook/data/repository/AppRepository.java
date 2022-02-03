@@ -16,8 +16,8 @@ public class AppRepository {
     // instance variable for singleton
     private static AppRepository sAppRepository = null;
 
-    private AppDatabase mAppDatabase = null;
-    private AppExecutors mAppExecutors = null;
+    private static AppDatabase mAppDatabase = null;
+    private static AppExecutors mAppExecutors = null;
 
 
     // private constructor to enforce singleton pattern
@@ -60,7 +60,7 @@ public class AppRepository {
 
 
     // Additional Event CRUD operations
-    public void insert(Event... events) {
+    public static void insert(Event... events) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (Event event:events) {
@@ -69,7 +69,7 @@ public class AppRepository {
             });
         });
     }
-    public void update(Event... events) {
+    public static void update(Event... events) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (Event event:events) {
@@ -79,7 +79,7 @@ public class AppRepository {
         });
     }
 
-    public void delete(Event... events) {
+    public static void delete(Event... events) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (Event event : events) {
@@ -90,7 +90,7 @@ public class AppRepository {
     }
 
     // Additional Club CRUD operations
-    public void insert(Club... clubs) {
+    public static void insert(Club... clubs) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (Club club : clubs) {
@@ -100,7 +100,7 @@ public class AppRepository {
         });
     }
 
-    public void update(Club... clubs) {
+    public static void update(Club... clubs) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (Club club : clubs) {
@@ -110,7 +110,7 @@ public class AppRepository {
         });
     }
 
-    public void delete(Club... clubs) {
+    public static void delete(Club... clubs) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (Club club : clubs) {
@@ -121,7 +121,7 @@ public class AppRepository {
     }
 
     // Additional Sustainability CRUD operations
-    public void insert(Sustainability... sustainabilities) {
+    public static void insert(Sustainability... sustainabilities) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (Sustainability sustainability : sustainabilities) {
@@ -131,7 +131,7 @@ public class AppRepository {
         });
     }
 
-    public void update(Sustainability... sustainabilities) {
+    public static void update(Sustainability... sustainabilities) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (Sustainability sustainability : sustainabilities) {
@@ -141,7 +141,7 @@ public class AppRepository {
         });
     }
 
-    public void delete(Sustainability... sustainabilities) {
+    public static void delete(Sustainability... sustainabilities) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (Sustainability sustainability : sustainabilities) {
@@ -152,7 +152,7 @@ public class AppRepository {
     }
 
     // Additional User CRUD operations
-    public void insert(User... users) {
+    public static void insert(User... users) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (User user : users) {
@@ -162,7 +162,7 @@ public class AppRepository {
         });
     }
 
-    public void update(User... users) {
+    public static void update(User... users) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (User user : users) {
@@ -172,7 +172,7 @@ public class AppRepository {
         });
     }
 
-    public void delete(User... users) {
+    public static void delete(User... users) {
         mAppExecutors.diskIO().execute( () -> {
             mAppDatabase.runInTransaction( () -> {
                 for (User user : users) {

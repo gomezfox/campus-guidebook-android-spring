@@ -13,7 +13,7 @@ import edu.cascadia.mobas.campusguidebook.data.model.User;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class SampleData {
     //TODO: Investigate ZoneOffsetTransitionRule;
-    private static final ZoneOffset zone = ZoneOffset.of("America/Los Angeles");
+    private static final ZoneOffset zone = ZoneOffset.of("-08:00");
     public static final Event[] events = {
             new Event("Math Club - Weekly Meeting", "Meets every other Tuesday at 3:30", "CC1-210", OffsetDateTime.of(2022, 10, 4, 15, 30, 0, 0, zone)),
             new Event("Engineering Club - Symposium", "The biggest Engineering event of the year", "CC2-120", OffsetDateTime.of(2022, 10, 7, 11, 0, 0, 0, zone)),
