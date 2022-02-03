@@ -2,8 +2,9 @@ package edu.cascadia.mobas.campusguidebook;
 
 import android.app.Application;
 import android.os.Build;
-
 import androidx.annotation.RequiresApi;
+import java.time.ZoneId;
+import java.util.TimeZone;
 
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
@@ -14,27 +15,31 @@ import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class CampusGuidebookApp extends Application {
-    private AppExecutors appExecutors;
+
+    // Cascadia College local time zone
+    public static final ZoneId TIMEZONE = TimeZone.getTimeZone("America/Los_Angeles").toZoneId();
+
+    private AppExecutors mAppExecutors;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        appExecutors = new AppExecutors();
+        mAppExecutors = new AppExecutors();
     }
 
     // return an instance of the database
     public AppDatabase getAppDatabase() {
-        return AppDatabase.getInstance(this, appExecutors);
+        return AppDatabase.getInstance(this, mAppExecutors);
     }
 
     // return an instance of the repository
     public AppRepository getAppRepository() {
-        return AppRepository.getInstance(getAppDatabase(), appExecutors);
+        return AppRepository.getInstance(getAppDatabase(), mAppExecutors);
     }
 
     // make this executor pool available
     public AppExecutors getAppExecutors() {
-        return appExecutors;
+        return mAppExecutors;
     }
 }
 
