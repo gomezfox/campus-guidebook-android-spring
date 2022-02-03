@@ -3,7 +3,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 
 @Entity(tableName = "Event_Table")
 public class Event {
@@ -32,12 +32,12 @@ public class Event {
     // below line is use
     // for Event Date and Time.
     @ColumnInfo(name = "date_time")
-    private OffsetDateTime dateTime;
+    private ZonedDateTime dateTime;
 
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
-    public Event(String eventName, String description, String location, OffsetDateTime dateTime) {
+    public Event(String eventName, String description, String location, ZonedDateTime dateTime) {
         this.eventName = eventName;
         this.description = description;
         this.location = location;
@@ -70,9 +70,8 @@ public class Event {
         this.location = location;
     }
 
-    public OffsetDateTime getDateTime(){ return this.dateTime; }
-    public void setDateTime(OffsetDateTime dateTime){
+    public ZonedDateTime getDateTime(){ return this.dateTime; }
+    public void setDateTime(ZonedDateTime dateTime){
         this.dateTime = dateTime;
     }
-
 }
