@@ -28,7 +28,7 @@ public class ZonedDateTimeConverter {
     }
 
     @TypeConverter
-    public static String fromLocalDateTime(@Nullable ZonedDateTime zonedDateTime) {
+    public static String fromZonedDateTime(@Nullable ZonedDateTime zonedDateTime) {
 
         // null input returns null output
         if (zonedDateTime == null) {
