@@ -24,8 +24,9 @@ public class Sustainability {
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
-    public Sustainability(String sustainabilityName) {
+    public Sustainability(String sustainabilityName, String sustainabilityDescription) {
         this.sustainabilityName = sustainabilityName;
+        this.sustainabilityDescription = sustainabilityDescription;
     }
 
     // on below lines we are creating

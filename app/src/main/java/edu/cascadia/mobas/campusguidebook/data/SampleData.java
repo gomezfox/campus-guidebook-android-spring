@@ -32,7 +32,7 @@ public class SampleData {
     };
 
     public static final Sustainability[] sustainabilities = {
-            new Sustainability("Wetlands"),
+            new Sustainability("Wetlands", "Wetlands along North Creek have been restored, benefiting local wildlife and salmon populations"),
     };
 
     public static final User[] users = new User[]{
