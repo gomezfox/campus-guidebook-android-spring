@@ -3,6 +3,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.time.ZonedDateTime;
+
 @Entity(tableName = "Club_Table")
 public class Club {
     // below line is to auto increment
@@ -23,6 +25,13 @@ public class Club {
 
     @ColumnInfo(name = "club_contact")
     private String clubContact;
+
+    @ColumnInfo(name = "image_uri")
+    private String imageUri;
+
+    @ColumnInfo(name = "last_updated")
+    private ZonedDateTime lastUpdated;
+
 
 
     // below line we are creating constructor class.
@@ -72,5 +81,13 @@ public class Club {
     public void setClubContact(String contact) {
         this.clubContact = contact;
     }
+
+    public String getImageUri() { return this.imageUri; };
+    public void setImageUri(String uri) { this.imageUri = uri; };
+
+    public ZonedDateTime getLastUpdated() { return this.lastUpdated; }
+    public void setLastUpdated(ZonedDateTime updatedOn) { this.lastUpdated = updatedOn; }
+
+
 }
 
