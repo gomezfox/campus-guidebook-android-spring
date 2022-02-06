@@ -5,7 +5,6 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MediatorLiveData;
 import java.util.List;
 import edu.cascadia.mobas.campusguidebook.CampusGuidebookApp;
 import edu.cascadia.mobas.campusguidebook.data.model.Club;
@@ -15,15 +14,19 @@ import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
 public class ClubsViewModel extends AndroidViewModel {
 
     private AppRepository mAppRepository = null;
+    private LiveData<List<Club>> mAllClubs;
 
     public ClubsViewModel(Application application) {
         super(application);
+        // gets a reference to the repository
         mAppRepository = ((CampusGuidebookApp) application).getAppRepository();
+        // obtains the LiveData list of all clubs provided from the repository
+        mAllClubs = mAppRepository.getAllClubs();
     }
 
-    // passes a reference to the LiveData list of all clubs provided from the repo
+
     public LiveData<List<Club>> getAllClubs() {
-        return mAppRepository.getAllClubs();
+        return mAppRepository;
     }
 }
 
