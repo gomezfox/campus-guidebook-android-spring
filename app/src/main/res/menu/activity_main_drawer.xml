@@ -10,7 +10,7 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_info"
-            android:icon="@drawable/ic_menu_info"
+            android:icon="@drawable/ic_menu_sustainability"
             android:title="@string/menu_info" />
         <item
             android:id="@+id/nav_events"
@@ -18,7 +18,7 @@
             android:title="@string/menu_events" />
         <item
             android:id="@+id/nav_clubs"
-            android:icon="@drawable/ic_menu_events"
+            android:icon="@drawable/ic_menu_group"
             android:title="Clubs" />
     </group>
 </menu>
