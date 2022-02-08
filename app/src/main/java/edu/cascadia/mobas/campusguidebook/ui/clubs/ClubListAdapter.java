@@ -56,7 +56,7 @@ public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHo
      * @param liveDataClubList LiveData<List<Club>> containing the data to populate views to be used
      * bythe Club List RecyclerView.
      */
-    public ClubListAdapter(LiveData<List<Club>> liveDataClubList) {
+    public ClubListAdapter(MutableLiveData<ArrayList<Club>> liveDataClubList) {
         clubList.setValue((ArrayList<Club>) liveDataClubList.getValue());
     }
 
