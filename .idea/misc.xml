@@ -3,22 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/content_main.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_blank_events.xml" value="0.33" />
-        <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_event_items.xml" value="0.33" />
-        <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_events.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_events_items.xml" value="0.5" />
-        <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_events_page.xml" value="0.2015625" />
-        <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_home.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_wetlands.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21770833333333334" />
-        <entry key="..\:/Users/michaelz/AndroidStudioProjects/CampusGuidebookTemplate/app/src/main/res/layout/content_main.xml" value="0.1640625" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/fragment_blank_events.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_event_items.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_events.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/fragment_events_items.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_events_page.xml" value="0.2015625" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28940217391304346" />
+        <entry key="app/src/main/res/layout/fragment_wetlands.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21770833333333334" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.1640625" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.26268115942028986" />
         <entry key="app/src/main/res/layout/club_list_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/club_list_item_fragment.xml" value="0.25625" />
         <entry key="app/src/main/res/layout/fragment_club_list.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_clubs.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/fragment_clubs_details.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_events.xml" value="0.1540020263424519" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1540020263424519" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.31666666666666665" />
+        <entry key="app/src/main/res/menu/main.xml" value="0.31666666666666665" />
       </map>
     </option>
   </component>
