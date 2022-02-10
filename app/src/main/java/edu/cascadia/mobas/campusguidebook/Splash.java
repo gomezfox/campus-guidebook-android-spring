@@ -19,7 +19,7 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        (new Handler).postDelayed( () -> {
+        (new Handler()).postDelayed( () -> {
             // prepare to navigate directly to main activity
             Intent intent = new Intent(Splash.this, MainActivity.class);
             startActivity(intent);
