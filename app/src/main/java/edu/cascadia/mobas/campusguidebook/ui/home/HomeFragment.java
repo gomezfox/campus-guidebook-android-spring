@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment {
         CardView cardViewClubs = root.findViewById(R.id.cardview_home_clubs);
 
         cardViewClubs.setOnClickListener(CardView -> {
-            Navigation.findNavController(cardViewEvents).navigate(R.id.nav_events);
+            Navigation.findNavController(cardViewClubs).navigate(R.id.action_nav_home_to_nav_club_list);
         });
 
         return root;
