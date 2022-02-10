@@ -1,5 +1,7 @@
 package edu.cascadia.mobas.campusguidebook.ui.clubs;
 
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -19,24 +22,25 @@ import edu.cascadia.mobas.campusguidebook.data.model.Club;
 
 public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHolder> {
 
-    private MutableLiveData<ArrayList<Club>> clubList;
+    private List<Club> mClubList;
+    private Context mContext;
 
-    /**
-     * Provide reference to the views that will be populated using the ViewHolder
-     */
+    // Viewholder provides access to the individual views in a row of the RecyclerView's row
     public static class ViewHolder extends RecyclerView.ViewHolder {
+
         private final CardView clubCardView;
         private final ImageView clubImageView;
         private final TextView clubTextView;
 
-        public ViewHolder(View view) {
-            super(view);
-            // Define click listener for the ViewHolder's View
-            clubCardView = (CardView) view.findViewById(R.id.cardView_club_list);
-            clubImageView = (ImageView) view.findViewById(R.id.imageView_club_banner);
-            clubTextView = (TextView) view.findViewById(R.id.textView);
+        public ViewHolder(View parentView) {
+            super(parentView);
+            // TODO: Define click listener(s) for the ViewHolder's Views
+            clubCardView = (CardView) parentView.findViewById(R.id.cardView_club_list);
+            clubImageView = (ImageView) parentView.findViewById(R.id.imageView_club_banner);
+            clubTextView = (TextView) parentView.findViewById(R.id.textView_club_title);
         }
 
+        // These methods return references to the views on the current row
         public TextView getTextView() {
             return clubTextView;
         }
@@ -48,52 +52,64 @@ public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHo
         public CardView getCardView() {
             return clubCardView;
         }
+
     }
 
-    /**
-     * Initialize the datasource used by the Adapter.
-     *
-     * @param liveDataClubList LiveData<List<Club>> containing the data to populate views to be used
-     * bythe Club List RecyclerView.
-     */
-    public ClubListAdapter(MutableLiveData<ArrayList<Club>> liveDataClubList) {
-        clubList.setValue((ArrayList<Club>) liveDataClubList.getValue());
+    // Updates the list of clubs used
+    public void setData(List<Club> newClubList) {
+        this.mClubList = newClubList;
+        notifyDataSetChanged();
+    }
+
+    // Initialize the datasource used by the Adapter.
+    public ClubListAdapter(List<Club> clubList) {
+        mClubList = clubList;
     }
 
     // Used by the layout manager to return a ViewHolder for a row containing club info
-    @Override @NonNull
+    @Override
+    @NonNull
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.fragment_club_list_item , viewGroup, false);
+                .inflate(R.layout.fragment_club_list_item, viewGroup, false);
         return new ViewHolder(view);
     }
 
-    // Usedby the layout manager to change the displayed values in a bound viewholder
-    @Override @NonNull
+    // Used by the layout manager to change the displayed values in a bound ViewHolder
+    @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-
-        // Get the data for a particular row within the list
-        Club clubItem = clubList.getValue().get(position);
-
-        // display the data from clubItem in the ViewHolder
-        if (clubItem != null) {
-
-            // Set the text view to display the club name
-            viewHolder.getTextView().setText(clubItem.getClubName());
-
-            // TODO: replace static image below with one based on uri in Club.getUri
-            viewHolder.getImageView().setImageResource(R.drawable.engineer_s_mindset__1_);
+        // Get the data for a particular row within the list; return if null
+        Club clubItem = mClubList.get(position);
+        if (clubItem == null) {
+            Log.d("ClubListAdapter", "Club item is null");
+            return;
         }
+
+        String clubName = clubItem.getClubName();
+        Log.d("ClubListAdapter", "Club name is " + clubName);
+
+
+        // display the data from clubItem in the Views provided by the ViewHolder
+        TextView tv = viewHolder.getTextView();
+        Log.d("ClubListAdapter", "getTextView returns " + (tv == null ? "null" : "view"));
+        if (tv == null) {
+            return;
+        }
+        Log.d("ClubListAdapter", "Setting textview to " + clubName);
+        tv.setText(clubName);
+        // TODO: replace static image below with one based on uri in Club.getUri
+        // viewHolder.getImageView().setImageResource(R.drawable.engineer_s_mindset__1_);
     }
 
     // Used by the layout manager to determine the number of clubs in the list
-    @Override @NonNull
+    @Override
     public int getItemCount() {
-        if (clubList == null || clubList.getValue() == null) {
+        if (mClubList == null) {
             return 0;
         } else {
-            return clubList.getValue().size();
+            return mClubList.size();
         }
     }
+
 }
