@@ -25,23 +25,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * ClubsList Fragment
- * Displays the list of all clubs
- */
+// ClubsListFragment
+// Displays the list of all clubs
 public class ClubListFragment extends Fragment {
 
     private static final String TAG = "ClubListFragment";
-    private ClubListViewModel viewModel;
+    private ClubListViewModel mViewModel;
     private RecyclerView mRecyclerView;
     private ClubListAdapter mClubListAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private MutableLiveData<ArrayList<Club>> mClubList;
+    private LiveData<List<Club>> mClubList = null;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this).get(ClubListViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ClubListViewModel.class);
+        mClubList = mViewModel.getAllClubs();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -51,12 +51,19 @@ public class ClubListFragment extends Fragment {
         View viewRoot = inflater.inflate(R.layout.fragment_club_list, container, false);
         viewRoot.setTag(TAG);
 
-        // BEGIN_INCLUDE(initializeRecyclerView)
+        // RecyclerView setup
         mRecyclerView = (RecyclerView) viewRoot.findViewById(R.id.club_list_recycler);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity(), LinearLayoutManager.VERTICAL, false));
-        mClubList = viewModel.getAllClubs();
-        mRecyclerView.setAdapter(new ClubListAdapter(mClubList));
+        mClubList = mViewModel.getAllClubs();
+        mClubListAdapter = new ClubListAdapter(mClubList.getValue());
+        mRecyclerView.setAdapter(mClubListAdapter);
+
+        // Respond to changes in LiveData
+        mClubList.observe(this, (mClubList) -> {
+            List<Club> data = mClubList;
+            mClubListAdapter.setData(data);
+        });
         return viewRoot;
     }
 
