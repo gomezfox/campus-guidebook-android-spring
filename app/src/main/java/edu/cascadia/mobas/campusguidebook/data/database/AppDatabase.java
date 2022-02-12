@@ -2,7 +2,10 @@ package edu.cascadia.mobas.campusguidebook.data.database;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Build;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -18,11 +21,12 @@ import edu.cascadia.mobas.campusguidebook.data.model.*;
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.OffsetDateTimeConverter;
 
 // adding annotation for our database entities and db version.
+@RequiresApi(api = Build.VERSION_CODES.O)
 @Database(entities = {
         Event.class,
         Club.class,
         Sustainability.class,
-        User.class}, version = 1)
+        User.class}, version = 1, exportSchema = false)
 @TypeConverters(OffsetDateTimeConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 

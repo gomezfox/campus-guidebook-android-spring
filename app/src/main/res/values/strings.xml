@@ -22,6 +22,13 @@
     <string name = "prompt_username">"username"</string>
     <string name = "action_register">"Create an Account"</string>
 
+    <string-array name="events_array">
+        <item>engineering</item>
+        <item>math</item>
+        <item>sustainability</item>
+        <item>robotics</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
