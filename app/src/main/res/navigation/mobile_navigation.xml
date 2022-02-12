@@ -20,9 +20,9 @@
 
     <fragment
         android:id="@+id/nav_info"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.info.InfoFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.info.SustainabilityListFrag"
         android:label="@string/menu_info"
-        tools:layout="@layout/fragment_info" >
+        tools:layout="@layout/Sustainability_info_frag" >
         <action
             android:id="@+id/action_nav_info_to_fragment_wetlands2"
             app:destination="@id/fragment_wetlands" />

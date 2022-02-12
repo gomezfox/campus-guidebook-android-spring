@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,19 +14,19 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.databinding.FragmentInfoBinding;
+import edu.cascadia.mobas.campusguidebook.databinding.FragSustainabilityListBinding;
 
-public class InfoFragment extends Fragment {
+public class SustainabilityListFrag extends Fragment {
 
-    private InfoViewModel galleryViewModel;
-    private FragmentInfoBinding binding;
+    private SustainabilityList_ViewModel galleryViewModel;
+    private FragSustainabilityListBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         galleryViewModel =
-                new ViewModelProvider(this).get(InfoViewModel.class);
+                new ViewModelProvider(this).get(SustainabilityList_ViewModel.class);
 
-        binding = FragmentInfoBinding.inflate(inflater, container, false);
+        binding = FragSustainabilityListBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 //
         CardView card1 = root.findViewById(R.id.card);
