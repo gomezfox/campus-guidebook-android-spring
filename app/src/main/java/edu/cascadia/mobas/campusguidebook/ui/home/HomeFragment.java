@@ -27,21 +27,13 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
-
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //final TextView textView = binding.textHome;
-//        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
-        CardView card1 = root.findViewById(R.id.cardView1);
+        CardView cardViewEventList = root.findViewById(R.id.cardView_event_list);
 
-        card1.setOnClickListener(CardView -> {
-            Navigation.findNavController(card1).navigate(R.id.nav_events);
+        cardViewEventList.setOnClickListener(CardView -> {
+            Navigation.findNavController(cardViewEventList).navigate(R.id.nav_events);
         });
 
         CardView card2 = root.findViewById(R.id.cardView2);
@@ -49,7 +41,6 @@ public class HomeFragment extends Fragment {
         card2.setOnClickListener(CardView -> {
             Navigation.findNavController(card2).navigate(R.id.nav_info);
         });
-
         return root;
     }
 
