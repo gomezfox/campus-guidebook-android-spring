@@ -1,6 +1,6 @@
 package edu.cascadia.mobas.campusguidebook.ui.info;
 
-public class sustainability_addapter {
+public class sustainability_adapter {
     private String title;
     private String description;
     private String imgIcon;
