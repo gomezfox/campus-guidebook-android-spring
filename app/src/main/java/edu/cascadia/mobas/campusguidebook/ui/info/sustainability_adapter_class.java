@@ -1,57 +1,57 @@
 package edu.cascadia.mobas.campusguidebook.ui.info;
 
 
-        import android.app.Activity;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.ImageView;
-        import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-        import androidx.annotation.NonNull;
-        import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-        import com.jadgroup.recyclerviewlivedata.R;
+import edu.cascadia.mobas.campusguidebook.R;
 
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
 
-        import edu.cascadia.mobas.campusguidebook.data.model.User;
+
+import edu.cascadia.mobas.campusguidebook.data.model.Sustainability;
+
 
 public class sustainability_adapter_class extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    ArrayList<User> userArrayList;
+    ArrayList<edu.cascadia.mobas.campusguidebook.data.model.Sustainability> SustArrayList;
 
     public sustainability_adapter_class() {
-        this.userArrayList = new ArrayList<User>;
+        this.SustArrayList = new ArrayList<Sustainability>;
     }
 
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false);
+        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.sustainability_card,parent,false);
         return new RecyclerViewViewHolder(rootView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
-        User user = userArrayList.get(position);
+        Sustainability Sust = SustArrayList.get(position);
         RecyclerViewViewHolder viewHolder= (RecyclerViewViewHolder) holder;
 
-        viewHolder.txtView_title.setText(user.getTitle());
-        viewHolder.txtView_description.setText(user.getDescription());
+        viewHolder.txtView_title.setText(Sust.getSustainabilityName());
+        viewHolder.txtView_description.setText(Sust.getSustainabilityDescription());
     }
 
     @Override
     public int getItemCount() {
-        return userArrayList.size();
+        return SustArrayList.size();
     }
 
-    public void updateUserList(final List<User> userArrayList) {
-        this.userArrayList.clear();
-        this.userArrayList = userArrayList;
+    public void updateUserList(final ArrayList<edu.cascadia.mobas.campusguidebook.data.model.Sustainability> SustArrayList) {
+        this.SustArrayList.clear();
+        this.SustArrayList = SustArrayList;
         notifyDataSetChanged();
     }
 
