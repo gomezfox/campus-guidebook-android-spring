@@ -24,7 +24,7 @@ public class sustainability_adapter_class extends RecyclerView.Adapter<RecyclerV
     ArrayList<edu.cascadia.mobas.campusguidebook.data.model.Sustainability> SustArrayList;
 
     public sustainability_adapter_class() {
-        this.SustArrayList = new ArrayList<Sustainability>;
+        this.SustArrayList = new ArrayList<Sustainability>();
     }
 
 
@@ -41,7 +41,9 @@ public class sustainability_adapter_class extends RecyclerView.Adapter<RecyclerV
         RecyclerViewViewHolder viewHolder= (RecyclerViewViewHolder) holder;
 
         viewHolder.txtView_title.setText(Sust.getSustainabilityName());
-        viewHolder.txtView_description.setText(Sust.getSustainabilityDescription());
+        viewHolder.txtView_description.setText(Sust.get_SustainabilityDescription());
+        viewHolder.txtView_location.setText(Sust.get_SustainabilityLocation());
+
     }
 
     @Override
@@ -49,16 +51,18 @@ public class sustainability_adapter_class extends RecyclerView.Adapter<RecyclerV
         return SustArrayList.size();
     }
 
-    public void updateUserList(final ArrayList<edu.cascadia.mobas.campusguidebook.data.model.Sustainability> SustArrayList) {
+    public void updateSustList(final ArrayList<edu.cascadia.mobas.campusguidebook.data.model.Sustainability> SustArrayList) {
         this.SustArrayList.clear();
         this.SustArrayList = SustArrayList;
         notifyDataSetChanged();
     }
 
     class RecyclerViewViewHolder extends RecyclerView.ViewHolder {
+
         ImageView imgView_icon;
         TextView txtView_title;
         TextView txtView_description;
+        TextView txtView_location;
 
         public RecyclerViewViewHolder(@NonNull View itemView) {
             super(itemView);

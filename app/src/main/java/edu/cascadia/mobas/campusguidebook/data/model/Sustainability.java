@@ -15,12 +15,22 @@ public class Sustainability {
 
     @ColumnInfo(name = "sustainability_name")
     private String sustainabilityName;
+    public String getSustainabilityName() { return sustainabilityName; }
+    public void set_SustainabilityName(String name) { this.sustainabilityName = name; }
 
     @ColumnInfo(name = "sustainability_description")
     private String sustainabilitydescription;
+    public String get_SustainabilityDescription() {
+        return sustainabilitydescription;
+    }
+    public void set_SustainabilityDescription(String name) { this.sustainabilitydescription = name; }
 
     @ColumnInfo(name = "sustainability_location")
     private String sustainabilitylocation;
+    public String get_SustainabilityLocation() {
+        return sustainabilitylocation;
+    }
+    public void set_SustainabilityLocation(String name) { this.sustainabilitylocation = name; }
 
 
     // below line we are creating constructor class.
@@ -33,22 +43,9 @@ public class Sustainability {
         this.sustainabilitylocation = sustainabilitylocation;
     }
 
-    // on below line we are creating
-    // getter and setter methods.
-    public String getSustainabilityName() {
-        return sustainabilityName;
-    }
-    public void setSustainabilityName(String name) { this.sustainabilityName = name; }
 
-    public String getSustainabilityDescription() {
-        return sustainabilitydescription;
-    }
-    public void setSustainabilityDescription(String name) { this.sustainabilitydescription = name; }
 
-    public String getSustainabilityLocation() {
-        return sustainabilitylocation;
-    }
-    public void setsSustainabilityLocation(String name) { this.sustainabilitylocation = name; }
+
 
     public int getId() {
         return id;
