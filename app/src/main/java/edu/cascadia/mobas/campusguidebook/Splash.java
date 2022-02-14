@@ -26,29 +26,16 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Initialize the database and repositories
-        AppRepository appRepository = ((CampusGuidebookApp) getApplication()).getAppRepository();
-        ImageRepository imageRepository = ((CampusGuidebookApp) getApplication()).getImageRepository();
-
-        Handler handler = new Handler();
-        ImageView view = (ImageView) findViewById(R.id.imageview_splash_mascot);
-
-        final Observer<Drawable> mascotObserver = new Observer<Drawable>() {
-            @Override
-            public void onChanged(Drawable drawable) {
-                view.setImageDrawable(drawable);
-            }
-        };
-        LiveData<Drawable> mascotImage = imageRepository.getImage("https://static.vecteezy.com/system/resources/previews/000/546/910/original/fox-face-logo-vector-icon.jpg");
-
-        mascotImage.observe(this, mascotObserver);
-
-        handler.postDelayed( () -> {
+        new Handler().postDelayed( () -> {
             Intent intent = new Intent(Splash.this, LoginActivity.class);
             startActivity(intent);
             finish();
 
-        },6000);
+        },2500);
+
+        // Initialize the database and repositories while splash displays
+        AppRepository appRepository = ((CampusGuidebookApp) getApplication()).getAppRepository();
+        ImageRepository imageRepository = ((CampusGuidebookApp) getApplication()).getImageRepository();
     }
 }
 

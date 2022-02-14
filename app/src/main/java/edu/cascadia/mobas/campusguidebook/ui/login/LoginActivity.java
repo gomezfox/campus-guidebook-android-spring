@@ -42,16 +42,6 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = binding.login;
         final Button registerButton = binding.login2;
         final ProgressBar loadingProgressBar = binding.loading;
-        final ImageView mascotView = this.findViewById(R.id.imageview_login_mascot);
-        ImageRepository imageRepository = ((CampusGuidebookApp) getApplication()).getImageRepository();
-        LiveData<Drawable> mascotImage = imageRepository.getImage("https://static.vecteezy.com/system/resources/previews/000/546/910/original/fox-face-logo-vector-icon.jpg");
-        final Observer<Drawable> mascotObserver = new Observer<Drawable>() {
-            @Override
-            public void onChanged(Drawable drawable) {
-                mascotView.setImageDrawable(drawable);
-            }
-        };
-        mascotImage.observe(this, mascotObserver);
 
 
         loginButton.setOnClickListener(v -> {
