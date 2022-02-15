@@ -22,7 +22,7 @@ public class HomeFragment extends Fragment {
 
 
     // All UI behavior has moved from MainActivity to fragments
-// View initialization logic goes in onCreateView
+    // View initialization logic goes in onCreateView
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment {
         //Initialize ViewModel (and any other dependencies)
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
-        // Inititialize properties of individual views
+        // Initialize properties of individual views, such as onClickListeners
         binding.cardViewHomeEvents.setOnClickListener(CardView -> {
             Navigation.findNavController(binding.cardViewHomeEvents)
                     .navigate(R.id.action_nav_home_to_nav_events);
@@ -51,9 +51,8 @@ public class HomeFragment extends Fragment {
         });
         binding.cardViewHomeClubs.setOnClickListener(CardView -> {
                 Navigation.findNavController(binding.cardViewHomeClubs)
-                        .navigate(R.id.action_nav_home_to_nav_info);
+                        .navigate(R.id.action_nav_home_to_nav_clubs);
         });
-
     }
 
     @Override

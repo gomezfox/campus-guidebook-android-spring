@@ -17,7 +17,7 @@
             android:icon="@drawable/ic_menu_events"
             android:title="@string/menu_events" />
         <item
-            android:id="@+id/nav_clubs"
+            android:id="@+id/nav_clubs_menu"
             android:icon="@drawable/ic_menu_group"
             android:title="Clubs" />
     </group>
