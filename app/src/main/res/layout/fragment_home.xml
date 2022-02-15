@@ -18,7 +18,7 @@
             android:clickable="true"
             android:focusable="true"
 
-            android:id="@+id/cardview_home_events"
+            android:id="@+id/cardView_home_events"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
@@ -42,20 +42,18 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:background="#B3002F6C"
                 android:padding="10dp"
-                android:text="Events"
+                android:text="@string/menu_events"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardview_home_sustainability"
+            android:id="@+id/cardView_home_info"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:clickable="true"
-            android:focusable="true"
             app:cardCornerRadius="15dp"
             app:cardElevation="10dp"
             app:cardMaxElevation="12dp"
@@ -75,15 +73,14 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:background="#B3002F6C"
                 android:padding="10dp"
-                android:text="Sustainability Info"
+                android:text="@string/menu_info"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
+
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardview_home_clubs"
-            android:clickable="true"
-            android:focusable="true"
+            android:id="@+id/cardView_home_clubs"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
@@ -95,16 +92,13 @@
             app:cardUseCompatPadding="true">
 
             <ImageView
-                android:id="@+id/imageview_home_clubs"
-                android:layout_width="193dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:clickable="false"
                 android:scaleType="centerCrop"
                 android:src="@drawable/img" />
 
             <TextView
-                android:id="@+id/textview_home_clubs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
@@ -117,9 +111,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardView4"
-            android:clickable="true"
-            android:focusable="true"
+            android:id="@+id/cardView_home_UNUSED4"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
@@ -146,11 +138,11 @@
                 android:text="Sustainability"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardView5"
+            android:id="@+id/cardView_home_UNUSED5"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
@@ -181,7 +173,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardView6"
+            android:id="@+id/cardView_home_UNUSED6"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
@@ -211,7 +203,7 @@
                 android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardView7"
+            android:id="@+id/cardView_home_UNUSED7"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
@@ -242,7 +234,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardView8"
+            android:id="@+id/cardView_home_UNUSED8"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
@@ -272,7 +264,7 @@
                 android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardView9"
+            android:id="@+id/cardView_home_UNUSED9"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
@@ -303,7 +295,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardView10"
+            android:id="@+id/cardView_home_UNUSED10"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
@@ -332,7 +324,5 @@
                 android:textColor="@color/white"
                 android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
-
-
     </GridLayout>
 </ScrollView>
