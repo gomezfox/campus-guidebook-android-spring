@@ -6,10 +6,11 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import java.util.List;
 
+import edu.cascadia.mobas.campusguidebook.CampusGuidebookApp;
 import edu.cascadia.mobas.campusguidebook.data.model.Event;
 import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
 
-public class EventViewModel extends AndroidViewModel {
+public class EventsViewModel extends AndroidViewModel {
 
     // creating a new variable for Event repository.
     private AppRepository repository = null;
@@ -19,10 +20,13 @@ public class EventViewModel extends AndroidViewModel {
     private LiveData<List<Event>> allEvents;
 
     // constructor for our view model.
-    public EventViewModel(@NonNull Application application) {
+    public EventsViewModel(@NonNull Application application) {
         super(application);
 
-        this.repository = AppRepository.getInstance();
+        // retrieve the appropriate repository from the app
+        this.repository = ((CampusGuidebookApp)application).getAppRepository();
+
+        // get a reference to the LiveData from the repository
         allEvents = this.repository.getAllEvents();
     }
 

@@ -24,12 +24,9 @@
         android:label="@string/menu_info"
         tools:layout="@layout/Sustainability_info_frag" >
         <action
-            android:id="@+id/action_nav_info_to_fragment_wetlands2"
+            android:id="@+id/action_nav_info_to_fragment_wetlands"
             app:destination="@id/fragment_wetlands" />
     </fragment>
-    <action
-        android:id="@+id/action_nav_info_to_fragment_wetlands"
-        app:destination="@id/fragment_wetlands" />
     <fragment
         android:id="@+id/fragment_wetlands"
         android:name="edu.cascadia.mobas.campusguidebook.Fragment_Wetlands"

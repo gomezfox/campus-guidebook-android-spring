@@ -17,7 +17,7 @@ public interface UserDao {
     // below method is use to
     // add data to database.
     @Insert
-   void insert(User user);
+    void insert(User user);
 
     // below method is use to update
     // the data in our database.

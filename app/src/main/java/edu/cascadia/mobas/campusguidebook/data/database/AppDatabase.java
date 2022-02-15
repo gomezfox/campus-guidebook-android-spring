@@ -1,38 +1,43 @@
 package edu.cascadia.mobas.campusguidebook.data.database;
 
-import android.content.Context;
-import android.os.AsyncTask;
+import android.app.Application;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.room.Database;
+import androidx.room.TypeConverters;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import edu.cascadia.mobas.campusguidebook.data.dao.ClubDao;
-import edu.cascadia.mobas.campusguidebook.data.dao.EventDao;
-import edu.cascadia.mobas.campusguidebook.data.dao.SustainabilityDao;
-import edu.cascadia.mobas.campusguidebook.data.dao.UserDao;
+import edu.cascadia.mobas.campusguidebook.data.SampleData;
+import edu.cascadia.mobas.campusguidebook.data.dao.*;
 import edu.cascadia.mobas.campusguidebook.data.model.*;
+import edu.cascadia.mobas.campusguidebook.data.typeconverter.*;
+import edu.cascadia.mobas.campusguidebook.AppExecutors;
 
-import edu.cascadia.mobas.campusguidebook.data.typeconverter.OffsetDateTimeConverter;
+
 
 // adding annotation for our database entities and db version.
-@RequiresApi(api = Build.VERSION_CODES.O)
 @Database(entities = {
         Event.class,
         Club.class,
         Sustainability.class,
-        User.class}, version = 1, exportSchema = false)
-@TypeConverters(OffsetDateTimeConverter.class)
+        User.class}, version = 1)
+@TypeConverters(ZonedDateTimeConverter.class)
+@RequiresApi(api = Build.VERSION_CODES.O)
 public abstract class AppDatabase extends RoomDatabase {
 
+    private static final String DATABASE_FILENAME = "CampusGuidebook.db";
+
     // below line is to create instance
-    // for our database class.
-    private static AppDatabase instance;
+    // for our singleton database class.
+    private static AppDatabase sAppDatabase;
+
+    // below line is to save the executor pool
+    // to create database and supply repositories
 
     // below line is to create
     // abstract variable for dao.
@@ -42,52 +47,36 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDao UserDao();
 
     // on below line we are getting instance for our database.
-    public static synchronized AppDatabase getInstance(Context context) {
-        // below line is to check if
-        // the instance is null or not.
-        if (instance == null) {
-            // if the instance is null we
-            // are creating a new instance
-            instance =
-                    // for creating a instance for our database
-                    // we are creating a database builder and passing
-                    // our database class with our database name.
-                    Room.databaseBuilder(context.getApplicationContext(),
-                            AppDatabase.class, "appDatabase")
-                            // below line is use to add fall back to
-                            // destructive migration to our database.
-                            .fallbackToDestructiveMigration()
-                            // below line is to add callback
-                            // to our database.
-                            .addCallback(roomCallback)
-                            // below line is to
-                            // build our database.
-                            .build();
+    public static AppDatabase getInstance(final Application application, final AppExecutors appExecutors) {
+        // return existing singleton instance
+        // unless the instance is null
+        if (sAppDatabase == null) {
+            // otherwise block access until database is built
+            synchronized (AppDatabase.class) {
+                // if the instance is still null under synchronization,
+                // we are creating a new instance
+                if (sAppDatabase == null) {
+                    sAppDatabase =
+                            // for creating a instance for our database
+                            // we are creating a database builder and passing
+                            // our database class with our database name.
+                            Room.databaseBuilder(application.getApplicationContext(),
+                                    AppDatabase.class, DATABASE_FILENAME)
+                                    // below line adds callback (only logs its execution)
+                                    .addCallback(new RoomDatabase.Callback() {
+                                        @Override
+                                        public void onCreate(@NonNull SupportSQLiteDatabase sqLiteDatabase) {
+                                            super.onCreate(sqLiteDatabase);
+                                            Log.d("AppDatabase", "RoomDatabase.Callback Executed");
+                                        }
+                                    })
+                                    .build();  // end of RoomDatabaseBuilder
+                    // TODO: REPLACE THE FOLLOWING BEFORE RELEASE
+                    SampleData.addAll(sAppDatabase, appExecutors);
+                }
+            } // End of synchronized block
         }
-        // after creating an instance
-        // we are returning our instance
-        return instance;
-    }
+        return sAppDatabase;
+    } // End of getInstance
 
-    // below line is to create a callback for our room database.
-    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-            // this method is called when database is created
-            // and below line is to populate our data.
-            new PopulateDbAsyncTask(instance).execute();
-        }
-    };
-
-    // we are creating an async task class to perform task in background.
-    private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-        PopulateDbAsyncTask(AppDatabase instance) {
-            EventDao dao = instance.EventDao();
-        }
-        @Override
-        protected Void doInBackground(Void... voids) {
-            return null;
-        }
-    }
 }

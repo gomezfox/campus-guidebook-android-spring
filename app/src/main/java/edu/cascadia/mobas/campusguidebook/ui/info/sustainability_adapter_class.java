@@ -42,7 +42,7 @@ public class sustainability_adapter_class extends RecyclerView.Adapter<RecyclerV
 
         viewHolder.txtView_title.setText(Sust.getSustainabilityName());
         viewHolder.txtView_description.setText(Sust.getSustainabilityDescription());
-        viewHolder.txtView_location.setText(Sust.getSustainabilityLocation());
+
 
     }
 
@@ -62,7 +62,7 @@ public class sustainability_adapter_class extends RecyclerView.Adapter<RecyclerV
         ImageView imgView_icon;
         TextView txtView_title;
         TextView txtView_description;
-        TextView txtView_location;
+
 
         public RecyclerViewViewHolder(@NonNull View itemView) {
             super(itemView);
