@@ -16,31 +16,31 @@ public class Sustainability {
     @ColumnInfo(name = "sustainability_name")
     private String sustainabilityName;
     public String getSustainabilityName() { return sustainabilityName; }
-    public void set_SustainabilityName(String name) { this.sustainabilityName = name; }
+    public void setSustainabilityName(String name) { this.sustainabilityName = name; }
 
     @ColumnInfo(name = "sustainability_description")
-    private String sustainabilitydescription;
-    public String get_SustainabilityDescription() {
-        return sustainabilitydescription;
+    private String sustainabilityDescription;
+    public String getSustainabilityDescription() {
+        return sustainabilityDescription;
     }
-    public void set_SustainabilityDescription(String name) { this.sustainabilitydescription = name; }
+    public void setSustainabilityDescription(String name) { this.sustainabilityDescription = name; }
 
     @ColumnInfo(name = "sustainability_location")
-    private String sustainabilitylocation;
-    public String get_SustainabilityLocation() {
-        return sustainabilitylocation;
+    private String sustainabilityLocation;
+    public String getSustainabilityLocation() {
+        return sustainabilityLocation;
     }
-    public void set_SustainabilityLocation(String name) { this.sustainabilitylocation = name; }
+    public void setSustainabilityLocation(String name) { this.sustainabilityLocation = name; }
 
 
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
 
-    public Sustainability(String sustainabilityName, String sustainabilitydescription, String sustainabilitylocation) {
+    public Sustainability(String sustainabilityName, String sustainabilityDescription, String sustainabilityLocation) {
         this.sustainabilityName = sustainabilityName;
-        this.sustainabilitydescription = sustainabilitydescription;
-        this.sustainabilitylocation = sustainabilitylocation;
+        this.sustainabilityDescription = sustainabilityDescription;
+        this.sustainabilityLocation = sustainabilityLocation;
     }
 
 

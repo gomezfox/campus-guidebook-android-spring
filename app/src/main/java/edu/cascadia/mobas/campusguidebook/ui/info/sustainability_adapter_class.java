@@ -41,8 +41,8 @@ public class sustainability_adapter_class extends RecyclerView.Adapter<RecyclerV
         RecyclerViewViewHolder viewHolder= (RecyclerViewViewHolder) holder;
 
         viewHolder.txtView_title.setText(Sust.getSustainabilityName());
-        viewHolder.txtView_description.setText(Sust.get_SustainabilityDescription());
-        viewHolder.txtView_location.setText(Sust.get_SustainabilityLocation());
+        viewHolder.txtView_description.setText(Sust.getSustainabilityDescription());
+        viewHolder.txtView_location.setText(Sust.getSustainabilityLocation());
 
     }
 
