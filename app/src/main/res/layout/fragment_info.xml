@@ -19,6 +19,8 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
+        android:clickable="true"
+        android:focusable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -37,8 +39,6 @@
             <!-- Media -->
 
             <ImageView
-                android:clickable="true"
-                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
                 android:scaleType="centerCrop"
@@ -89,14 +89,9 @@
             <!-- Media -->
 
             <ImageView
-                android:clickable="true"
-                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
-
-
                 android:scaleType="centerCrop"
-
                 android:src="@drawable/green_buildings" />
 
             <androidx.constraintlayout.widget.ConstraintLayout

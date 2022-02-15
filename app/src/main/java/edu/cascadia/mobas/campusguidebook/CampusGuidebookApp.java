@@ -8,6 +8,7 @@ import java.util.TimeZone;
 
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
+import edu.cascadia.mobas.campusguidebook.data.repository.ImageRepository;
 
 // Top level class to implement inject dependencies
 // and make database access through viewmodels/repositories
@@ -37,9 +38,14 @@ public class CampusGuidebookApp extends Application {
         return AppRepository.getInstance(getAppDatabase(), mAppExecutors);
     }
 
+    public ImageRepository getImageRepository() {
+        return ImageRepository.getInstance(this, getAppDatabase(), getAppExecutors() );
+    }
+
     // make this executor pool available
     public AppExecutors getAppExecutors() {
         return mAppExecutors;
     }
+
 }
 
