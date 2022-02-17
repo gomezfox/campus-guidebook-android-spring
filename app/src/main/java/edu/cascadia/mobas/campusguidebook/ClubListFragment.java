@@ -8,32 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ClubListFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+// This fragment displays a RecyclerView of clubs
 public class ClubListFragment extends Fragment {
 
     public ClubListFragment() {
         // Required empty public constructor
     }
 
-    // TODO: Determine if parameters are useful and include them if so
-    public static ClubListFragment newInstance() {
-        ClubListFragment fragment = new ClubListFragment();
-        Bundle args = new Bundle();
-        // Any parameter based arguments for returning the fragment instance go here
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            // load the arguments into variables if they exist
-        }
     }
 
     @Override

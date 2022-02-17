@@ -46,6 +46,4 @@ public class CampusGuidebookApp extends Application {
     public AppExecutors getAppExecutors() {
         return mAppExecutors;
     }
-
 }
-
