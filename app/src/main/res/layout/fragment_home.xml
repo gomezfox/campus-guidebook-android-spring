@@ -95,8 +95,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img" />
+                android:scaleType="centerInside"
+                android:src="@drawable/clubs_logo" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img" />
+                android:src="@drawable/college_students" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -135,7 +135,7 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:background="#B3002F6C"
                 android:padding="10dp"
-                android:text="Sustainability"
+                android:text="ARC"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -157,8 +157,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img" />
+                android:scaleType="centerInside"
+                android:src="@drawable/engineer_s_mindset__1_" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -166,7 +166,7 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:background="#B3002F6C"
                 android:padding="10dp"
-                android:text="Events"
+                android:text="Library"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -188,8 +188,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img" />
+                android:scaleType="fitCenter"
+                android:src="@drawable/cascadia_mascot" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -197,7 +197,7 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:background="#B3002F6C"
                 android:padding="10dp"
-                android:text="Sustainability"
+                android:text="Kodiak Corner"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -219,7 +219,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img" />
+                android:src="@drawable/FoodTruck" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -227,7 +227,7 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:background="#B3002F6C"
                 android:padding="10dp"
-                android:text="Events"
+                android:text="Food Trucks"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -250,7 +250,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img" />
+                android:src="@drawable/cascadia_walkway" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -258,7 +258,7 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:background="#B3002F6C"
                 android:padding="10dp"
-                android:text="Sustainability"
+                android:text="Campus Map"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />

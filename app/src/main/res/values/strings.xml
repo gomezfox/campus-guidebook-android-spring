@@ -4,7 +4,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Campus Guidebook</string>
     <string name="nav_header_subtitle">kodiak@cascadia.edu</string>
-    <string name="nav_header_desc">Casscadia College</string>
+    <string name="nav_header_desc">Cascadia College</string>
     <string name="action_settings">Settings</string>
     <string name="menu_home">Home</string>
     <string name="menu_info">Campus Sustainability</string>
@@ -21,7 +21,12 @@
     <string name="login_failed">"Login failed"</string>
     <string name="prompt_username">"username"</string>
     <string name="action_register">"Create an Account"</string>
+
+    <!-- Strings for accessibility -->
+    <string name="image_club_banner">Student club banner</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sustainability">Sustainability</string>
 
 </resources>
