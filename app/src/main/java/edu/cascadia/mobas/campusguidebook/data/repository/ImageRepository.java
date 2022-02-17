@@ -34,7 +34,7 @@ import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 public class ImageRepository {
 
     // This image that will be used when a uri is loading or not found
-    public static final int DEFAULT_IMAGE = R.drawable.cascadia_banner;
+    public static final int DEFAULT_IMAGE = R.drawable.cascadia_banner_cropped;
 
     // number of images to maintain in memory once loaded from disk/web
     public static final int LRU_CACHE_ENTRIES = 32;
@@ -164,7 +164,6 @@ public class ImageRepository {
         // TODO: Implement file cache
         return fileCache;
     }
-
 }
 
 
