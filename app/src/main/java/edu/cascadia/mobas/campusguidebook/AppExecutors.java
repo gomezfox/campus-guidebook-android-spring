@@ -5,31 +5,25 @@ import android.os.Looper;
 import androidx.annotation.NonNull;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
-/**
- * Global executor pools for the whole application.
- *
- * Grouping tasks like this avoids the effects of task starvation (e.g. disk reads don't wait behind
- * webservice requests).
- */
+// Global executor pools for sequential (disk), concurrent (web), or scheduled task execution
 
 public class AppExecutors {
 
     private final Executor mDiskIO;
-
     private final Executor mNetworkIO;
+    private final ScheduledExecutorService mScheduled;
 
-    private final Executor mMainThread;
-
-    private AppExecutors(Executor diskIO, Executor networkIO, Executor mainThread) {
+    private AppExecutors(Executor diskIO, Executor networkIO, ScheduledExecutorService scheduled) {
         this.mDiskIO = diskIO;
         this.mNetworkIO = networkIO;
-        this.mMainThread = mainThread;
+        this.mScheduled = scheduled;
     }
 
     public AppExecutors() {
         this(Executors.newSingleThreadExecutor(), Executors.newFixedThreadPool(3),
-                new MainThreadExecutor());
+                Executors.newScheduledThreadPool(2));
     }
 
     public Executor diskIO() {
@@ -40,16 +34,7 @@ public class AppExecutors {
         return mNetworkIO;
     }
 
-    public Executor mainThread() {
-        return mMainThread;
-    }
-
-    private static class MainThreadExecutor implements Executor {
-        private Handler mainThreadHandler = new Handler(Looper.getMainLooper());
-
-        @Override
-        public void execute(@NonNull Runnable command) {
-            mainThreadHandler.post(command);
-        }
+    public ScheduledExecutorService scheduled() {
+        return mScheduled;
     }
 }
