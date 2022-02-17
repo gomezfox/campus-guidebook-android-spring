@@ -219,7 +219,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/FoodTruck" />
+                android:src="@drawable/food_truck" />
 
             <TextView
                 android:layout_width="match_parent"
