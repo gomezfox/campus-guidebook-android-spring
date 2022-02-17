@@ -13,8 +13,8 @@ import edu.cascadia.mobas.campusguidebook.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     // Get the NavController
-
     private NavController navController;
+
     // No need to load the start destination, handled automatically by the Navigation component
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,11 +28,4 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
-    //@Override
-    //public boolean onSupportNavigateUp() {
-    //
-    //    return NavigationUI.navigateUp(navController, new AppBarConfiguration.Builder())
-    //            || super.onSupportNavigateUp();
-    // }
 }
