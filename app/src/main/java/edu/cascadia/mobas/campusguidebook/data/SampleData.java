@@ -31,8 +31,9 @@ public class SampleData {
     };
 
     public static final Club[] clubs = {
-            new Club("Math Club", "A group for students who love math or who would like to learn more", "Mathy McMathface <mathy@mathface.com", "Almathia Newton <anewton@gmail.com>"),
-            new Club("Engineering Club", "A group for students who love to design, fabricate, and build", "Howard Wolowitz <hwolowitz@caltech.edu", "Motor Close <motorclose@badjoke.com>"),
+            new Club("Japanese Culture Club", "The purpose of this club is to provide a comfortable place for the students at Cascadia college to learn and experience Japanese culture together. In our club, we will share traditional Japanese culture such as Japanese calligraphy, origami, karate, etc. together.","","jcc.cascadia@gmail.com", "https://www.cascadia.edu/images_calendar/collegerelations/JapaneseCultureClub.png"),
+            new Club("CC Engineers Club", "The engineering club is open to any student who is interested in science, technology, engineering, and math (STEM). Through hands on activities, members of all skill levels will have the opportunity to design, build, and share engineered projects with other creative problem solvers. Get ready to strengthen your skills, create a collection of projects related to your career, and connect with your peers! Some of the club projects we've undertaken include designing 3d printing models, making a video game with python, and electronic prototyping with Arduino.", "Howard Wolowitz <hwolowitz@caltech.edu>", "cascadiaengineers@gmail.com", "https://www.cascadia.edu/images_calendar/collegerelations/CCEngineersClub.png"),
+            new Club("Math Club", "A group for students who love math or who would like to learn more", "Mathy McMathface <mathy@mathface.com>", "Almathia Newton <anewton@gmail.com>"),
             new Club("Science Club", "A group for students who love science or who would like to learn more", "Mathy McMathface <mathy@mathface.com", "Almathia Newton <anewton@gmail.com>"),
             new Club("Art Club", "A group for students who love to paint, sculpture, and design", "Howard Wolowitz <hwolowitz@caltech.edu", "Motor Close <motorclose@badjoke.com>"),
             new Club("Programming Club", "A group for students who love coding or who would like to learn more", "Mathy McMathface <mathy@mathface.com", "Almathia Newton <anewton@gmail.com>"),
@@ -52,15 +53,10 @@ public class SampleData {
     };
 
     public static void addAll(AppDatabase appDatabase, AppExecutors appExecutors) {
-        // clear existing data from all tables
-        // this will trigger the RoomDatabase.Callback to add sample data
-        Log.d("AppDatabase", "Clearing all tables BEGIN");
+        // clear existing data from all tables and add all the sample data above
         appExecutors.diskIO().execute(() -> {
             appDatabase.clearAllTables();
-            Log.d("AppDatabase", "Clearing all tables FINISHED");
-            // use a transaction to insert
-            // all the sample data in one pass
-            Log.d("AppDatabasse", "Adding sample data BEGIN");
+            // use a transaction to insert all the sample data in one pass
             appDatabase.runInTransaction(() -> {
                 for (Event event : SampleData.events) {
                     appDatabase.EventDao().insert(event);
@@ -77,6 +73,4 @@ public class SampleData {
             });
         });
     }
- }
-
-
+}

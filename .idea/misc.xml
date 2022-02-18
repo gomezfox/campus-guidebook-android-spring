@@ -5,7 +5,7 @@
       <map>
         <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment__event__info.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_events.xml" value="0.25" />
-        <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_info.xml" value="0.25" />
+        <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_info.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_wetlands.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
@@ -20,6 +20,20 @@
         <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_wetlands.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/michaelz/AndroidStudioProjects/CampusGuidebookTemplate/app/src/main/res/layout/content_main.xml" value="0.1640625" />
+        <entry key="app/src/main/res/drawable/ic_menu_sustainability.xml" value="0.3155" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29717457114026236" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.41440217391304346" />
+        <entry key="app/src/main/res/layout/fragment_app_bar.xml" value="0.15436241610738255" />
+        <entry key="app/src/main/res/layout/fragment_club_details.xml" value="0.41440217391304346" />
+        <entry key="app/src/main/res/layout/fragment_club_list.xml" value="0.41440217391304346" />
+        <entry key="app/src/main/res/layout/fragment_club_list_item.xml" value="0.41440217391304346" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.23385469223007063" />
+        <entry key="app/src/main/res/layout/fragment_nav_drawer_header.xml" value="0.3075897386167894" />
+        <entry key="app/src/main/res/layout/fragment_nav_host_content_main.xml" value="0.41440217391304346" />
+        <entry key="app/src/main/res/layout/fragment_wetlands.xml" value="0.41440217391304346" />
+        <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.23385469223007063" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.4822916666666667" />
+        <entry key="app/src/main/res/menu/main.xml" value="0.6135416666666667" />
       </map>
     </option>
   </component>
