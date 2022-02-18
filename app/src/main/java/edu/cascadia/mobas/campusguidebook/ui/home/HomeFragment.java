@@ -4,13 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
@@ -38,16 +35,22 @@ public class HomeFragment extends Fragment {
 //                textView.setText(s);
 //            }
 //        });
-        CardView card1 = root.findViewById(R.id.cardView1);
+        CardView cardViewEvents = root.findViewById(R.id.cardview_home_events);
 
-        card1.setOnClickListener(CardView -> {
-            Navigation.findNavController(card1).navigate(R.id.nav_events);
+        cardViewEvents.setOnClickListener(CardView -> {
+            Navigation.findNavController(cardViewEvents).navigate(R.id.nav_events);
         });
 
-        CardView card2 = root.findViewById(R.id.cardView2);
+        CardView cardViewSustainability = root.findViewById(R.id.cardview_home_sustainability);
 
-        card2.setOnClickListener(CardView -> {
-            Navigation.findNavController(card2).navigate(R.id.nav_info);
+        cardViewSustainability.setOnClickListener(CardView -> {
+            Navigation.findNavController(cardViewSustainability).navigate(R.id.nav_info);
+        });
+
+        CardView cardViewClubs = root.findViewById(R.id.cardview_home_clubs);
+
+        cardViewClubs.setOnClickListener(CardView -> {
+            Navigation.findNavController(cardViewClubs).navigate(R.id.action_nav_home_to_nav_club_list);
         });
 
         return root;
