@@ -31,7 +31,7 @@ public class SustainabilityAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.sustainability_card,parent,false);
+        View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.sustainability_card_keep_notusedyet,parent,false);
         return new RecyclerViewViewHolder(rootView);
     }
 

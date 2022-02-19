@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Isaak Wheeler/StudioProjects/campus-guidebook-android/app/src/main/res/layout/frag_sustainability_item.xml" value="0.2977777777777778" />
         <entry key="..\:/Users/Isaak Wheeler/StudioProjects/campus-guidebook-android/app/src/main/res/layout/frag_sustainability_list.xml" value="0.19701086956521738" />
+        <entry key="..\:/Users/Isaak Wheeler/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment__event__info.xml" value="0.2234375" />
         <entry key="..\:/Users/Isaak Wheeler/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_club_list.xml" value="0.2234375" />
         <entry key="..\:/Users/Isaak Wheeler/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_club_list_item.xml" value="0.2234375" />
         <entry key="..\:/Users/Isaak Wheeler/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_info.xml" value="0.1" />
+        <entry key="..\:/Users/Isaak Wheeler/StudioProjects/campus-guidebook-android/app/src/main/res/layout/sustainability_card.xml" value="0.2234375" />
         <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/content_main.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/isaak wheeler/AndroidStudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_blank_events.xml" value="0.33" />
