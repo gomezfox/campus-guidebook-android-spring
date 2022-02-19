@@ -17,8 +17,10 @@ public class AppConfig {
     // Database
     public static final String DATABASE_FILENAME = "CampusGuidebook.sqlite";
 
-    // Image repository default image
+    // Image repository
     public static final int DEFAULT_IMAGE = R.drawable.cascadia_banner;
+    public static final int IMAGE_FILE_CACHE_ENTRIES = 32;
+    public static final int IMAGE_MEMORY_CACHE_ENTRIES = 32;
 
     // Splash screen display time in ms
     public static final int SPLASH_DISPLAY_TIME = 1500;
