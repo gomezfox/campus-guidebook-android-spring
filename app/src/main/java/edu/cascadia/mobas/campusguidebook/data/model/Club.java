@@ -11,6 +11,7 @@ import androidx.room.PrimaryKey;
 
 import java.time.ZonedDateTime;
 
+import edu.cascadia.mobas.campusguidebook.AppConfig;
 import edu.cascadia.mobas.campusguidebook.CampusGuidebookApp;
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
 @RequiresApi(api = Build.VERSION_CODES.O)
@@ -51,7 +52,7 @@ public class Club {
         this.clubContact = clubContact;
         this.imageUri = imageUri;
         this.lastUpdated = (lastUpdated == null ?
-                ZonedDateTime.of(2022, 3, 1, 15, 30, 0, 0, CampusGuidebookApp.TIMEZONE)
+                ZonedDateTime.of(2022, 3, 1, 15, 30, 0, 0, AppConfig.TIMEZONE)
                 : lastUpdated);
     }
 

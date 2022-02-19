@@ -12,6 +12,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import edu.cascadia.mobas.campusguidebook.AppConfig;
 import edu.cascadia.mobas.campusguidebook.data.SampleData;
 import edu.cascadia.mobas.campusguidebook.data.dao.*;
 import edu.cascadia.mobas.campusguidebook.data.model.*;
@@ -30,8 +31,6 @@ import edu.cascadia.mobas.campusguidebook.AppExecutors;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public abstract class AppDatabase extends RoomDatabase {
 
-    private static final String DATABASE_FILENAME = "CampusGuidebook.db";
-
     // below line is to create instance
     // for our singleton database class.
     private static AppDatabase sAppDatabase;
@@ -39,7 +38,7 @@ public abstract class AppDatabase extends RoomDatabase {
     // below line is to save the executor pool
     // to create database and supply repositories
 
-    // below line is to create`
+    // below line is to create
     // abstract variable for dao.
     public abstract EventDao EventDao();
     public abstract ClubDao ClubDao();
@@ -61,7 +60,7 @@ public abstract class AppDatabase extends RoomDatabase {
                             // we are creating a database builder and passing
                             // our database class with our database name.
                             Room.databaseBuilder(application.getApplicationContext(),
-                                    AppDatabase.class, DATABASE_FILENAME)
+                                    AppDatabase.class, AppConfig.DATABASE_FILENAME)
                                     // below line adds callback (only logs its execution)
                                     .addCallback(new RoomDatabase.Callback() {
                                         @Override
