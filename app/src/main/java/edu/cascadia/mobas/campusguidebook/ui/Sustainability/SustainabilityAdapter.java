@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook.ui.info;
+package edu.cascadia.mobas.campusguidebook.ui.Sustainability;
 
 
 import android.view.LayoutInflater;
@@ -19,11 +19,11 @@ import java.util.ArrayList;
 import edu.cascadia.mobas.campusguidebook.data.model.Sustainability;
 
 
-public class sustainability_adapter_class extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class SustainabilityAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     ArrayList<edu.cascadia.mobas.campusguidebook.data.model.Sustainability> SustArrayList;
 
-    public sustainability_adapter_class() {
+    public SustainabilityAdapter() {
         this.SustArrayList = new ArrayList<Sustainability>();
     }
 

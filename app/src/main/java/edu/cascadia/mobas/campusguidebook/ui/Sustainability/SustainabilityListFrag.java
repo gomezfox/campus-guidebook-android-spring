@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook.ui.info;
+package edu.cascadia.mobas.campusguidebook.ui.Sustainability;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -24,6 +24,7 @@
 
     <!-- Strings for accessibility -->
     <string name="image_club_banner">Student club banner</string>
+    <string name="image_sustainability_banner">Sustainability Banner</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
