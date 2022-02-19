@@ -17,9 +17,6 @@ import edu.cascadia.mobas.campusguidebook.data.repository.ImageRepository;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class CampusGuidebookApp extends Application {
 
-    // Cascadia College local time zone
-    public static final ZoneId TIMEZONE = TimeZone.getTimeZone("America/Los_Angeles").toZoneId();
-
     private AppExecutors mAppExecutors;
 
     @Override
@@ -30,12 +27,12 @@ public class CampusGuidebookApp extends Application {
 
     // return an instance of the database
     public AppDatabase getAppDatabase() {
-        return AppDatabase.getInstance(this, mAppExecutors);
+        return AppDatabase.getInstance(this, getAppExecutors());
     }
 
     // return an instance of the repository
     public AppRepository getAppRepository() {
-        return AppRepository.getInstance(getAppDatabase(), mAppExecutors);
+        return AppRepository.getInstance(getAppDatabase(), getAppExecutors());
     }
 
     public ImageRepository getImageRepository() {
