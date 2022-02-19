@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.collection.LruCache;
@@ -12,12 +11,10 @@ import androidx.collection.LruCache;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
@@ -34,7 +31,7 @@ import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 public class ImageRepository {
 
     // This image that will be used when a uri is loading or not found
-    public static final int DEFAULT_IMAGE = R.drawable.cascadia_banner;
+    public static final int DEFAULT_IMAGE = R.drawable.default_image;
 
     // number of images to maintain in memory once loaded from disk/web
     public static final int LRU_CACHE_ENTRIES = 32;
@@ -164,7 +161,6 @@ public class ImageRepository {
         // TODO: Implement file cache
         return fileCache;
     }
-
 }
 
 

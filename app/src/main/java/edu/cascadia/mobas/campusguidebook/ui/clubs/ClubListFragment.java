@@ -1,9 +1,8 @@
 package edu.cascadia.mobas.campusguidebook.ui.clubs;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Build;
@@ -15,18 +14,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.data.model.Club;
 import edu.cascadia.mobas.campusguidebook.viewmodel.ClubListViewModel;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
-
 
 // ClubsListFragment
 // Displays the list of all clubs
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class ClubListFragment extends Fragment {
 
     private static final String TAG = "ClubListFragment";
@@ -34,7 +31,7 @@ public class ClubListFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ClubListAdapter mClubListAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private LiveData<List<Club>> mClubList = null;
+    private LiveData<List<ClubUIItem>> mClubList = null;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -52,23 +49,22 @@ public class ClubListFragment extends Fragment {
         viewRoot.setTag(TAG);
 
         // RecyclerView setup
-        mRecyclerView = (RecyclerView) viewRoot.findViewById(R.id.club_list_recycler);
+        mRecyclerView = viewRoot.findViewById(R.id.club_list_recycler);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity(), LinearLayoutManager.VERTICAL, false));
         mClubList = mViewModel.getAllClubs();
-        mClubListAdapter = new ClubListAdapter(mClubList.getValue());
+        mClubListAdapter = new ClubListAdapter(mClubList.getValue(), mViewModel);
         mRecyclerView.setAdapter(mClubListAdapter);
 
         // Respond to changes in LiveData
-        mClubList.observe(this, (mClubList) -> {
-            List<Club> data = mClubList;
-            mClubListAdapter.setData(data);
-        });
+        mClubList.observe(this.getViewLifecycleOwner(), (mClubList) -> mClubListAdapter.setList(mClubList));
+
+        // return the inflated root view
         return viewRoot;
     }
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
     }
 }
