@@ -18,7 +18,7 @@ public class AppConfig {
     public static final String DATABASE_FILENAME = "CampusGuidebook.sqlite";
 
     // Image repository
-    public static final int DEFAULT_IMAGE = R.drawable.cascadia_banner;
+    public static final int DEFAULT_IMAGE = R.drawable.default_image;
     public static final int IMAGE_FILE_CACHE_ENTRIES = 32;
     public static final int IMAGE_MEMORY_CACHE_ENTRIES = 32;
 

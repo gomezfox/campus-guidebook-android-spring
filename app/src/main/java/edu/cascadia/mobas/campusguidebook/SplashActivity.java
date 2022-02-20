@@ -38,6 +38,6 @@ public class SplashActivity extends AppCompatActivity {
                 }, AppConfig.SPLASH_DISPLAY_TIME, TimeUnit.MILLISECONDS);
 
         // Run all app initialization tasks
-        (new AppInit((CampusGuidebookApp)this.getApplication()).initialize();
+        (new AppInit((CampusGuidebookApp)this.getApplication())).initialize();
     }
 }
