@@ -40,5 +40,9 @@ public class SustListViewModel extends AndroidViewModel {
         });
     }
 
+    public LiveData<List<SustUIItem>> getAllSustainability() {
+        return mLiveSustainabilityList;
+    }
+
 }
 
