@@ -22,7 +22,7 @@ import edu.cascadia.mobas.campusguidebook.viewmodel.ClubListViewModel;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class SustListAdapter extends RecyclerView.Adapter<SustListAdapter.ViewHolder> {
 
-    private List<ClubUIItem> mClubList;
+    private List<SustUIItem> mSustList;
     private final ClubListViewModel mViewModel;
     private LifecycleOwner mLifecycleOwner;
 
