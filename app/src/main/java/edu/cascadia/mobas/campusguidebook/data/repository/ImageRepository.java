@@ -22,28 +22,19 @@ import java.net.URL;
 import java.util.Map;
 import java.util.TreeMap;
 
+import edu.cascadia.mobas.campusguidebook.AppConfig;
 import edu.cascadia.mobas.campusguidebook.AppExecutors;
 import edu.cascadia.mobas.campusguidebook.CampusGuidebookApp;
-import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 
 @RequiresApi(android.os.Build.VERSION_CODES.O)
 public class ImageRepository {
 
-    // This image that will be used when a uri is loading or not found
-    public static final int DEFAULT_IMAGE = R.drawable.default_image;
-
-    // number of images to maintain in memory once loaded from disk/web
-    public static final int LRU_CACHE_ENTRIES = 32;
-
-    // number of images to cache as files after loading from web
-    public static final int FILE_CACHE_ENTRIES = 32;
-
     // singleton static class storage
     private static ImageRepository sImageRepository = null;
 
     // in memory cache for loaded images not in res/drawables
-    private LruCache<String, Drawable> mMemCache = new LruCache<String, Drawable>(LRU_CACHE_ENTRIES);
+    private LruCache<String, Drawable> mMemCache = new LruCache<String, Drawable>(AppConfig.IMAGE_MEMORY_CACHE_ENTRIES);
 
     // for maintaining the LRU behavior of cached files
     private LruCache<String, String> fileCache;
@@ -68,7 +59,7 @@ public class ImageRepository {
         if (sImageRepository != null) { return; }
         mAppExecutors = ((CampusGuidebookApp)context.getApplicationContext()).getAppExecutors();
         mContext = context.getApplicationContext();
-        defaultImage = AppCompatResources.getDrawable(context, DEFAULT_IMAGE);
+        defaultImage = AppCompatResources.getDrawable(context, AppConfig.DEFAULT_IMAGE);
         mMemCache = new LruCache<String, Drawable>(32);
     }
 
@@ -157,7 +148,7 @@ public class ImageRepository {
 
     // Adds local files to LRU File Cache
     private LruCache<String, String> buildFileCache() {
-        LruCache<String, String> fileCache = new LruCache<String, String>(FILE_CACHE_ENTRIES);
+        LruCache<String, String> fileCache = new LruCache<String, String>(AppConfig.IMAGE_FILE_CACHE_ENTRIES);
         // TODO: Implement file cache
         return fileCache;
     }
