@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 
 import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.data.model.Event;
+import edu.cascadia.mobas.campusguidebook.databinding.FragmentEventListBinding;
 import edu.cascadia.mobas.campusguidebook.ui.events.EventListAdapter;
 import edu.cascadia.mobas.campusguidebook.viewmodel.EventListViewModel;
 
@@ -36,6 +37,7 @@ public class EventListFragment extends Fragment {
     private EventListAdapter mEventListAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private LiveData<List<Event>> mEventList = null;
+    private FragmentEventListBinding mBinding;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -49,23 +51,22 @@ public class EventListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View viewRoot = inflater.inflate(R.layout.fragment_event_list, container, false);
-        viewRoot.setTag(TAG);
+
+        mBinding = FragmentEventListBinding.inflate(inflater, container,false);
 
         // RecyclerView setup
-        mRecyclerView = (RecyclerView) viewRoot.findViewById(R.id.fragment_event_list_item);
+        mRecyclerView = mBinding.recyclerView;
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity(), LinearLayoutManager.VERTICAL, false));
-        mEventList = mViewModel.getAllEvents();
         mEventListAdapter = new EventListAdapter(mEventList.getValue());
         mRecyclerView.setAdapter(mEventListAdapter);
 
         // Respond to changes in LiveData
-        mEventList.observe(this, (mEventList) -> {
-            List<Event> data = mEventList;
-            mEventListAdapter.setData(data);
+        mEventList.observe(getViewLifecycleOwner(), (mEventList) -> {
+            mEventListAdapter.setData(mEventList);
         });
-        return viewRoot;
+        return mBinding.getRoot();
     }
 
     @Override
