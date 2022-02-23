@@ -5,7 +5,6 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.room.TypeConverter;
-import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -15,10 +14,10 @@ public class ZonedDateTimeConverter {
     @TypeConverter
     public static ZonedDateTime toZonedDateTime(@Nullable String dateTimeString) {
 
-        // null input provides null output
+        // null input returns null output
         if (dateTimeString == null) return null;
 
-        // Convert a valid ISO8601 String to an OffsetDateTime
+        // Convert a valid ISO8601 String to an ZonedDateTime
         try {
             return ZonedDateTime.parse(dateTimeString, DateTimeFormatter.ISO_ZONED_DATE_TIME);
         } catch (Exception e){

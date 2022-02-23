@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.cascadia.mobas.campusguidebook">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".CampusGuidebookApp"
         android:allowBackup="false"
@@ -23,7 +23,7 @@
 
         </activity>
         <activity
-            android:name=".Splash"
+            android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <intent-filter>
@@ -33,5 +33,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

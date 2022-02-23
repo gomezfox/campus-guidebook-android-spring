@@ -8,6 +8,7 @@ import java.util.TimeZone;
 
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
+import edu.cascadia.mobas.campusguidebook.data.repository.ImageRepository;
 
 // Top level class to implement inject dependencies
 // and make database access through viewmodels/repositories
@@ -15,9 +16,6 @@ import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class CampusGuidebookApp extends Application {
-
-    // Cascadia College local time zone
-    public static final ZoneId TIMEZONE = TimeZone.getTimeZone("America/Los_Angeles").toZoneId();
 
     private AppExecutors mAppExecutors;
 
@@ -29,12 +27,16 @@ public class CampusGuidebookApp extends Application {
 
     // return an instance of the database
     public AppDatabase getAppDatabase() {
-        return AppDatabase.getInstance(this, mAppExecutors);
+        return AppDatabase.getInstance(this, getAppExecutors());
     }
 
     // return an instance of the repository
     public AppRepository getAppRepository() {
-        return AppRepository.getInstance(getAppDatabase(), mAppExecutors);
+        return AppRepository.getInstance(getAppDatabase(), getAppExecutors());
+    }
+
+    public ImageRepository getImageRepository() {
+        return ImageRepository.getInstance(this, getAppDatabase(), getAppExecutors() );
     }
 
     // make this executor pool available
@@ -42,4 +44,3 @@ public class CampusGuidebookApp extends Application {
         return mAppExecutors;
     }
 }
-

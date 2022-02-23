@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Splash">
+    tools:context=".SplashActivity">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/cascadia_banner" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageview_splash_mascot"
         android:layout_width="216dp"
         android:layout_height="242dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,8 +40,8 @@
         android:indeterminateTint="@color/blue_1"
         android:max="100"
         android:progress="0"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageview_splash_mascot"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintStart_toStartOf="@+id/imageview_splash_mascot"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_splash_mascot" />
 </androidx.constraintlayout.widget.ConstraintLayout>

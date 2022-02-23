@@ -16,6 +16,11 @@
         <action
             android:id="@+id/action_nav_home_to_nav_info"
             app:destination="@id/nav_info" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_clubs"
+            app:destination="@id/nav_clubs"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
 
     <fragment
@@ -24,17 +29,21 @@
         android:label="@string/menu_info"
         tools:layout="@layout/fragment_info" >
         <action
-            android:id="@+id/action_nav_info_to_fragment_wetlands2"
+            android:id="@+id/action_nav_info_to_fragment_wetlands"
             app:destination="@id/fragment_wetlands" />
+        <action
+            android:id="@+id/action_nav_info_to_nav_home"
+            app:destination="@id/nav_home" />
     </fragment>
-    <action
-        android:id="@+id/action_nav_info_to_fragment_wetlands"
-        app:destination="@id/fragment_wetlands" />
     <fragment
         android:id="@+id/fragment_wetlands"
         android:name="edu.cascadia.mobas.campusguidebook.Fragment_Wetlands"
         android:label="Info Details"
-        tools:layout="@layout/fragment_wetlands" />
+        tools:layout="@layout/fragment_wetlands" >
+        <action
+            android:id="@+id/action_fragment_wetlands_to_nav_info"
+            app:destination="@id/nav_info" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_events"
@@ -44,11 +53,37 @@
         <action
             android:id="@+id/action_nav_events_to_fragment_Event_Info"
             app:destination="@id/fragment_Event_Info" />
+        <action
+            android:id="@+id/action_nav_events_to_nav_home"
+            app:destination="@id/nav_home" />
     </fragment>
     <fragment
         android:id="@+id/fragment_Event_Info"
         android:name="edu.cascadia.mobas.campusguidebook.Fragment_Event_Info"
         android:label="Event Info"
-        tools:layout="@layout/fragment__event__info" />
-
+        tools:layout="@layout/fragment__event__info" >
+        <action
+            android:id="@+id/action_fragment_Event_Info_to_nav_events"
+            app:destination="@id/nav_events" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_clubs"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ClubListFragment"
+        android:label="fragment_club_list"
+        tools:layout="@layout/fragment_club_list" >
+        <action
+            android:id="@+id/action_nav_clubs_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_clubs_to_nav_club_details"
+            app:destination = "@+id/nav_club_details" />
+    </fragment>
+    <fragment android:id="@+id/nav_club_details"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ClubDetailsFragment"
+        android:label="fragment_club_details"
+        tools:layout="@layout/fragment_club_details" >
+        <action
+            android:id="@+id/action_nav_club_details_to_nav_clubs"
+            app:destination="@id/nav_clubs" />
+    </fragment>
 </navigation>

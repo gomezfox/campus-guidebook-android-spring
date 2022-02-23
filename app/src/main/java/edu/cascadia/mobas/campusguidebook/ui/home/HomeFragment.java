@@ -4,13 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
@@ -22,26 +20,39 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
 
+
+    // All UI behavior has moved from MainActivity to fragments
+    // View initialization logic goes in onCreateView
+    @Override
+    @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        return binding.getRoot();
+    }
 
-        CardView cardViewEventList = root.findViewById(R.id.cardView_event_list);
+    // Initialization logic beyond view initialization goes on onViewCreated
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        // Connect adapters
+            // no adapters present on home fragment
 
-        cardViewEventList.setOnClickListener(CardView -> {
-            Navigation.findNavController(cardViewEventList).navigate(R.id.nav_events);
+        //Initialize ViewModel (and any other dependencies)
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+
+        // Initialize properties of individual views, such as onClickListeners
+        binding.cardViewHomeEvents.setOnClickListener(CardView -> {
+            Navigation.findNavController(binding.cardViewHomeEvents)
+                    .navigate(R.id.action_nav_home_to_nav_events);
         });
-
-        CardView card2 = root.findViewById(R.id.cardView2);
-
-        card2.setOnClickListener(CardView -> {
-            Navigation.findNavController(card2).navigate(R.id.nav_info);
+        binding.cardViewHomeInfo.setOnClickListener(CardView -> {
+            Navigation.findNavController(binding.cardViewHomeClubs)
+                    .navigate(R.id.action_nav_home_to_nav_info);
         });
-        return root;
+        binding.cardViewHomeClubs.setOnClickListener(CardView -> {
+                Navigation.findNavController(binding.cardViewHomeClubs)
+                        .navigate(R.id.action_nav_home_to_nav_clubs);
+        });
     }
 
     @Override
