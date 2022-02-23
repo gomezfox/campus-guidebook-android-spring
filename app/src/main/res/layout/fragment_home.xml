@@ -18,7 +18,7 @@
             android:clickable="true"
             android:focusable="true"
 
-            android:id="@+id/cardView_event_list"
+            android:id="@+id/cardView_home_events"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
@@ -73,13 +73,13 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:background="#B3002F6C"
                 android:padding="10dp"
-                android:text="Sustainability Info"
+                android:text="@string/sustainability"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardView3"
+            android:id="@+id/cardView_home_clubs"
             android:layout_width="160dp"
             android:layout_height="180dp"
             android:layout_rowWeight="1"
@@ -103,7 +103,7 @@
                 android:layout_gravity="bottom|center_horizontal"
                 android:background="#B3002F6C"
                 android:padding="10dp"
-                android:text="Events"
+                android:text="@string/menu_clubs"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
