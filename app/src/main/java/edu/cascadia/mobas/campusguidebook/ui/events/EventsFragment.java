@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,9 +35,15 @@ public class EventsFragment extends Fragment {
         View root = binding.getRoot();
 
         CardView card1 = root.findViewById(R.id.card);
+        Button addEventBtn = root.findViewById(R.id.addEventBtn);
+
 
         card1.setOnClickListener(CardView -> {
             Navigation.findNavController(card1).navigate(R.id.fragment_Event_Info);
+        });
+
+        addEventBtn.setOnClickListener(view -> {
+            Navigation.findNavController(addEventBtn).navigate(R.id.addEventFragment);
         });
 
         //final TextView textView = binding.spinner;

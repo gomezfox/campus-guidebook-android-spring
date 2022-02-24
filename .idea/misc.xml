@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment__event__info.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_add_event.xml" value="0.22" />
         <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_events.xml" value="0.25" />
         <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_info.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Haytham/StudioProjects/campus-guidebook-android/app/src/main/res/layout/fragment_wetlands.xml" value="0.36666666666666664" />
