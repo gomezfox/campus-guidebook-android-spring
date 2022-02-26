@@ -21,9 +21,7 @@ public class SustUIItem {
         this.mSustainability = pSustainability;
     }
 
-    public LiveData<Drawable> getImage() {
-        return mImage;
-    }
+    public LiveData<Drawable> getImage() { return mImage; }
     public void setImage(LiveData<Drawable> image) {
         this.mImage = image;
     }
