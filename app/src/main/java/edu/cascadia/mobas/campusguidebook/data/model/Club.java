@@ -1,5 +1,6 @@
 package edu.cascadia.mobas.campusguidebook.data.model;
 
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,9 @@ public class Club {
 
     @ColumnInfo(name = "last_updated")
     private ZonedDateTime lastUpdated;
+
+    @Ignore
+    private Drawable imageDrawable;
 
     // Constructor
     public Club(String clubName, String clubDescription, String clubAdvisor,
@@ -124,5 +128,10 @@ public class Club {
         this.lastUpdated = updatedOn;
     }
 
+    public Drawable getImageDrawable() { return this.imageDrawable; }
+
+    public void setImageDrawable(Drawable drawable) { this.imageDrawable = drawable; }
+
+    public void clearImageDrawable() { this.imageDrawable = null; }
 }
 
