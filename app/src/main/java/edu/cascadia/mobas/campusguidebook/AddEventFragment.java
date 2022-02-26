@@ -2,11 +2,12 @@ package edu.cascadia.mobas.campusguidebook;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.text.format.DateFormat;
 import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,37 +17,37 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
-import java.util.Calendar;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
-import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
-//import java.text.DateFormat;
+import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
+import edu.cascadia.mobas.campusguidebook.viewmodel.MainActivityViewModel;
 
 
 public class AddEventFragment extends Fragment implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, View.OnClickListener {
 
-    private AppDatabase mAppDatabase;
-    private AppExecutors mAppExecutors;
+    private MainActivityViewModel mViewModel;
     private EditText mEditTextEventName;
     private EditText mEditTextEventDescription;
     private EditText mEditTextEventLocation;
-    private Button mBtnPickDate;
-    private Button mBtnPickTime;
+    private Button mBtnPickDateTime;
     private Button mAddNewEventBtn;
     private TextView mTextViewDateTime;
-    int hour, minute;
-    int myday, myMonth, myYear, myHour, myMinute;
+    private ZonedDateTime mZonedDateTime;
 
     public AddEventFragment() {
         // Required empty public constructor
     }
 
 
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        mZonedDateTime = ZonedDateTime.now(AppConfig.TIMEZONE);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,13 +57,11 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
         mEditTextEventName = root.findViewById(R.id.editTextEventName);
         mEditTextEventDescription = root.findViewById(R.id.editTextEventDescription);
         mEditTextEventLocation = root.findViewById(R.id.editTextEventLocation);
-        mBtnPickDate = root.findViewById(R.id.btnPickDate);
-        mBtnPickTime = root.findViewById(R.id.btnPickTime);
+        mBtnPickDateTime = root.findViewById(R.id.btnPickDateTime);
         mAddNewEventBtn = root.findViewById(R.id.addNewEventBtn);
         mTextViewDateTime = root.findViewById(R.id.textViewDateTime);
 
-        mBtnPickDate.setOnClickListener(this);
-        mBtnPickTime.setOnClickListener(this);
+        mBtnPickDateTime.setOnClickListener(this);
         mAddNewEventBtn.setOnClickListener(this);
 
 
@@ -72,56 +71,55 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
     @Override
     public void onClick (View v) {
         switch (v.getId()){
-            case R.id.btnPickDate: {
-                DialogFragment dialogFragment = new DatePickerFragment();
+            case R.id.btnPickDateTime: {
+                Bundle bundle = new Bundle();
+                bundle.putString("datetime", ZonedDateTimeConverter.fromZonedDateTime(mZonedDateTime));
+
+                DialogFragment dialogFragment = new DatePickerFragment(bundle);
                 dialogFragment.setTargetFragment(AddEventFragment.this, 0);
                 dialogFragment.show(getFragmentManager(), "date picker");
                 break;
             }
-            case R.id.btnPickTime: {
-                Calendar c = Calendar.getInstance();
-                hour = c.get(Calendar.HOUR);
-                minute = c.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(), (TimePickerDialog.OnTimeSetListener) getActivity(), hour, minute, DateFormat.is24HourFormat(getActivity()));
-                timePickerDialog.show();
-                break;
-            }
             case R.id.addNewEventBtn: {
-//                mAppDatabase = AppDatabase.getInstance(getActivity().getApplication(), mAppExecutors.diskIO().execute( () -> mAppDatabase.runInTransaction( () -> {
-//
-//                })));
+                if (AddEvent()){
+                    Toast.makeText(this.getContext(), R.string.successfully_added_event, Toast.LENGTH_LONG).show();
+                    Navigation.findNavController(this.getView()).navigate(R.id.action_addEventFragment_to_nav_events);
+                }
+                else
+                    Toast.makeText(this.getContext(), R.string.error_adding_event, Toast.LENGTH_LONG).show();
                 break;
             }
         }
 
     }
 
+    public boolean AddEvent() {
+        return mViewModel.addNewEvent(mEditTextEventName.getText().toString(),
+                mEditTextEventDescription.getText().toString(),
+                mEditTextEventLocation.getText().toString(), mZonedDateTime);
+    }
+
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        myYear = year;
-        myday = dayOfMonth;
-        myMonth = month;
-        Calendar c = Calendar.getInstance();
-        hour = c.get(Calendar.HOUR);
-        minute = c.get(Calendar.MINUTE);
-        c.set(Calendar.YEAR, year);
-        c.set(Calendar.MONTH, month);
-        c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-        DialogFragment dialogTimeFragment = new TimePickerFragment();
+        mZonedDateTime = ZonedDateTime.of(year, month, dayOfMonth, mZonedDateTime.getHour(), mZonedDateTime.getMinute(), 0, 0, AppConfig.TIMEZONE);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("datetime", ZonedDateTimeConverter.fromZonedDateTime(mZonedDateTime));
+
+        DialogFragment dialogTimeFragment = new TimePickerFragment(bundle);
         dialogTimeFragment.setTargetFragment(AddEventFragment.this, 0);
         dialogTimeFragment.show(getFragmentManager(), "time picker");
     }
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        myHour = hourOfDay;
-        myMinute = minute;
-        mTextViewDateTime.setText("Year: " + myYear + "\n" +
-                "Month: " + myMonth + "\n" +
-                "Day: " + myday + "\n" +
-                "Hour: " + myHour + "\n" +
-                "Minute: " + myMinute);
+        mZonedDateTime = ZonedDateTime.of(mZonedDateTime.getYear(), mZonedDateTime.getMonthValue(), mZonedDateTime.getDayOfMonth(), hourOfDay, minute, 0, 0, AppConfig.TIMEZONE);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, MM/dd/yyyy h:mm a");
+        String dateTime = mZonedDateTime.format(formatter);
+
+
+        mTextViewDateTime.setText(dateTime);
     }
 
 

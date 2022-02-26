@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Event Name"
+        android:hint="Event Name"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -43,9 +43,14 @@
         android:id="@+id/editTextEventDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:lines="4"
+        android:minLines="6"
+        android:gravity="top|start"
+        android:maxLines="6"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Event Description"
+        android:scrollbars="vertical"
+        android:hint="Event Description"
+        android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -64,7 +69,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Location"
+        android:hint="Location"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -86,25 +91,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8"/>
 
     <Button
-        android:id="@+id/btnPickDate"
+        android:id="@+id/btnPickDateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:text="Pick Date"
+        android:text="Pick Date and Time"
         app:layout_constraintStart_toStartOf="@+id/textViewDateTime"
         app:layout_constraintTop_toBottomOf="@+id/textViewDateTime" />
-
-    <Button
-        android:id="@+id/btnPickTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:text="Pick TIme"
-        app:layout_constraintStart_toStartOf="@+id/btnPickDate"
-        app:layout_constraintTop_toBottomOf="@+id/btnPickDate" />
-
 
 
     <Button
@@ -114,7 +108,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="48dp"
         android:text="Add Event"
-        app:layout_constraintStart_toStartOf="@+id/btnPickTime"
-        app:layout_constraintTop_toBottomOf="@+id/btnPickTime" />
+        app:layout_constraintStart_toStartOf="@+id/btnPickDateTime"
+        app:layout_constraintTop_toBottomOf="@+id/btnPickDateTime" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

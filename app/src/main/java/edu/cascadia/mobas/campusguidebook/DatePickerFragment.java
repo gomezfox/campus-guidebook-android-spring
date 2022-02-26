@@ -8,17 +8,26 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import java.time.ZonedDateTime;
 import java.util.Calendar;
 
+import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
+
 public class DatePickerFragment  extends DialogFragment {
+
+    private Bundle mBundle;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        ZonedDateTime zonedDateTime = ZonedDateTimeConverter.toZonedDateTime(mBundle.getString("datetime"));
 
-        return new DatePickerDialog(getActivity(), (DatePickerDialog.OnDateSetListener) getTargetFragment(), year, month, day);
+        return new DatePickerDialog(getActivity(), (DatePickerDialog.OnDateSetListener) getTargetFragment(),
+                zonedDateTime.getYear(), zonedDateTime.getMonthValue(), zonedDateTime.getDayOfMonth());
+    }
+
+    public DatePickerFragment(Bundle savedInstanceState) {
+        super();
+        mBundle = savedInstanceState;
     }
 }

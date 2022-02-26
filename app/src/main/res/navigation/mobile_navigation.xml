@@ -93,5 +93,9 @@
         android:id="@+id/addEventFragment"
         android:name="edu.cascadia.mobas.campusguidebook.AddEventFragment"
         android:label="fragment_add_event"
-        tools:layout="@layout/fragment_add_event" />
+        tools:layout="@layout/fragment_add_event" >
+        <action
+            android:id="@+id/action_addEventFragment_to_nav_events"
+            app:destination="@id/nav_events" />
+    </fragment>
 </navigation>

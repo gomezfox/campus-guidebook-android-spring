@@ -10,15 +10,26 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import java.time.ZonedDateTime;
 import java.util.Calendar;
 
+import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
+
 public class TimePickerFragment extends DialogFragment {
+
+    private Bundle mBundle;
+
+    public TimePickerFragment(Bundle savedInstanceState) {
+        super();
+        mBundle = savedInstanceState;
+    }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        Calendar c = Calendar.getInstance();
-        int hour = c.get(Calendar.HOUR_OF_DAY);
-        int minute = c.get(Calendar.MINUTE);
-        return new TimePickerDialog(getActivity(), (TimePickerDialog.OnTimeSetListener) getTargetFragment(), hour, minute, DateFormat.is24HourFormat(getActivity()));
+        ZonedDateTime zonedDateTime = ZonedDateTimeConverter.toZonedDateTime(mBundle.getString("datetime"));
+
+        return new TimePickerDialog(getActivity(), (TimePickerDialog.OnTimeSetListener) getTargetFragment(),
+                zonedDateTime.getHour(), zonedDateTime.getMinute(), false);
     }
 }

@@ -3,8 +3,12 @@ package edu.cascadia.mobas.campusguidebook.data.repository;
 import android.app.Application;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.util.Log;
+
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
+
+import java.time.ZonedDateTime;
 import java.util.List;
 import edu.cascadia.mobas.campusguidebook.AppExecutors;
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
@@ -57,6 +61,17 @@ public class AppRepository {
     // returns a list of all sustainability
     public LiveData<List<Sustainability>> getAllSustainability() {
         return mAppDatabase.SustainabilityDao().getAllSustainability();
+    }
+
+    public boolean addNewEvent(String eventName, String eventDescription, String eventLocation, ZonedDateTime eventDateTime) {
+        Event event = new Event(eventName, eventDescription, eventLocation, eventDateTime);
+        try {
+            this.insert(event);
+            return true;
+        } catch (Exception e) {
+            Log.e("Error adding new event: ", e.getMessage() );
+            return false;
+        }
     }
 
     // Additional Event CRUD operations

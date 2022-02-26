@@ -21,6 +21,8 @@
     <string name="login_failed">"Login failed"</string>
     <string name="prompt_username">"username"</string>
     <string name="action_register">"Create an Account"</string>
+    <string name="successfully_added_event">"Succesfuly added event!"</string>
+    <string name="error_adding_event">"Error adding event!"</string>
 
     <!-- Strings for accessibility -->
     <string name="image_club_banner">Student club banner</string>
