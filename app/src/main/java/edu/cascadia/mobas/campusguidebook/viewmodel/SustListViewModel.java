@@ -34,7 +34,7 @@ public class SustListViewModel extends AndroidViewModel {
         mLiveSustainabilityList.addSource(mAppRepository.getAllSustainability(), items -> {
             List<SustUIItem> list = new ArrayList<SustUIItem>();
             for (Sustainability sustainability : items) {
-                list.add(new SustUIItem(sustainability, mImageRepository.getImage(Sustainability.getImageUri())));
+                list.add(new SustUIItem(sustainability, mImageRepository.getImage(sustainability.getImageUri())));
             }
             mLiveSustainabilityList.setValue(list);
         });

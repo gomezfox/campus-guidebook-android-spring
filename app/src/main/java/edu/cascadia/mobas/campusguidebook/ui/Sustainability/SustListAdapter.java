@@ -92,12 +92,12 @@ public class SustListAdapter extends RecyclerView.Adapter<SustListAdapter.ViewHo
 
         // otherwise, fill in the ui with the SustItem data, using null checks for safety
         if (viewHolder.SustNameTextView != null) {
-            viewHolder.SustNameTextView.setText(SustUIItem.getSustainability().getSustainabilityName());
+            viewHolder.SustNameTextView.setText(sustUIItem.getSustainability().getSustainabilityName());
         }
 
         // the image is livedata so it needs an observer
         if (viewHolder.SustImageView != null) {
-            SustUIItem.getImage().observe(mLifecycleOwner, viewHolder.SustImageView::setImageDrawable);
+            sustUIItem.getImage().observe(mLifecycleOwner, viewHolder.SustImageView::setImageDrawable);
         }
     }
 

@@ -18,8 +18,8 @@ public class SustUIItem {
     public Sustainability getSustainability() {
         return this.mSustainability;
     }
-    public void setSustainability(Sustainability pSustainability) {
-        this.mSustainability = pSustainability;
+    public void setSustainability(Sustainability sustainability) {
+        this.mSustainability = sustainability;
     }
 
     public LiveData<Drawable> getImage() { return this.mImage; }
