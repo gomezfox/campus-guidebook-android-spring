@@ -47,7 +47,7 @@
 
     <fragment
         android:id="@+id/nav_events"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.events.EventsFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.events.EventListFragment"
         android:label="@string/menu_events"
         tools:layout="@layout/fragment_events" >
         <action
