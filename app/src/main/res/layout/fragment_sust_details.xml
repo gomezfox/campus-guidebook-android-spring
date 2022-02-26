@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_clubs_details"
+    android:id="@+id/fragment_sust_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top"
-    tools:context=".ui.clubs.ClubDetailsFragment">
+    tools:context=".ui.Sustainability.SustListFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
@@ -19,14 +19,14 @@
     <!-- content -->
 
     <TextView
-        android:name="@+id/club_details_name"
+        android:name="@+id/sust_details_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="6dp"
         android:textSize="36dp"
         android:text="" />
     <TextView
-        android:name="@+id/club_details_description"
+        android:name="@+id/sust_details_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="6dp"
@@ -42,7 +42,7 @@
             android:textStyle="bold"
             android:text="Meetings: " />
         <TextView
-            android:id="@+id/club_details_meetings"
+            android:id="@+id/sust_details_meetings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Wednesdays at 1:30 PM in CC2-310" />
@@ -59,7 +59,7 @@
             android:textStyle="bold"
             android:text="Contact: " />
         <TextView
-            android:id="@+id/club_details_contact"
+            android:id="@+id/sust_details_contact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jane Doe &lt;janedoe@student.cascadia.edu&gt;>" />
@@ -87,6 +87,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Regular Club Meeting   "/>
+            android:text="Regular Sustainability Meeting   "/>
     </LinearLayout>
 </LinearLayout>

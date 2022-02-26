@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.data.model.Sustainability;
 import edu.cascadia.mobas.campusguidebook.viewmodel.SustListViewModel;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
@@ -40,9 +39,9 @@ public class SustListAdapter extends RecyclerView.Adapter<SustListAdapter.ViewHo
         public ViewHolder(View parentView) {
             super(parentView);
             // look up and assign the views in the Sustainability list item fragment to our variables
-            SustCardView = parentView.findViewById(R.id.cardView_Sust_list);
-            SustImageView = parentView.findViewById(R.id.imageView_Sust_banner);
-            SustNameTextView = parentView.findViewById(R.id.textView_Sust_title);
+            SustCardView = parentView.findViewById(R.id.cardView_sust_list);
+            SustImageView = parentView.findViewById(R.id.imageView_sust_banner);
+            SustNameTextView = parentView.findViewById(R.id.textView_sust_title);
             // TODO: Define click listener(s) for the ViewHolder's CardView
         }
     }  // End of static ViewHolder class
@@ -74,7 +73,7 @@ public class SustListAdapter extends RecyclerView.Adapter<SustListAdapter.ViewHo
 
         // Create a new view containing all the views for the UI of the list item
         View view = LayoutInflater.from(parentViewGroup.getContext())
-                .inflate(R.layout.fragment_Sust_list_item, parentViewGroup, false);
+                .inflate(R.layout.fragment_sust_list_item, parentViewGroup, false);
 
         return new ViewHolder(view);
     }

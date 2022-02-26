@@ -17,47 +17,46 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.ui.clubs.ClubListAdapter;
-import edu.cascadia.mobas.campusguidebook.ui.clubs.ClubUIItem;
-import edu.cascadia.mobas.campusguidebook.viewmodel.ClubListViewModel;
 
-// ClubsListFragment
-// Displays the list of all clubs
+import edu.cascadia.mobas.campusguidebook.viewmodel.SustListViewModel;
+
+// SustsListFragment
+// Displays the list of all Susts
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class SustListFragment extends Fragment {
 
-    private static final String TAG = "ClubListFragment";
-    private ClubListViewModel mViewModel;
+    private static final String TAG = "SustListFragment";
+    private SustListViewModel mViewModel;
     private RecyclerView mRecyclerView;
-    private ClubListAdapter mClubListAdapter;
+    private SustListAdapter mSustListAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private LiveData<List<ClubUIItem>> mClubList = null;
+    private LiveData<List<SustUIItem>> mSustList = null;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(ClubListViewModel.class);
-        mClubList = mViewModel.getAllClubs();
+        mViewModel = new ViewModelProvider(this).get(SustListViewModel.class);
+        mSustList = mViewModel.getAllSustainability();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View viewRoot = inflater.inflate(R.layout.fragment_club_list, container, false);
+        View viewRoot = inflater.inflate(R.layout.fragment_sust_list, container, false);
         viewRoot.setTag(TAG);
 
         // RecyclerView setup
-        mRecyclerView = viewRoot.findViewById(R.id.club_list_recycler);
+        mRecyclerView = viewRoot.findViewById(R.id.sust_list_recycler);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity(), LinearLayoutManager.VERTICAL, false));
-        mClubList = mViewModel.getAllClubs();
-        mClubListAdapter = new ClubListAdapter(mClubList.getValue(), mViewModel);
-        mRecyclerView.setAdapter(mClubListAdapter);
+        mSustList = mViewModel.getAllSustainability();
+        mSustListAdapter = new SustListAdapter(mSustList.getValue(), mViewModel);
+        mRecyclerView.setAdapter(mSustListAdapter);
 
         // Respond to changes in LiveData
-        mClubList.observe(this.getViewLifecycleOwner(), (mClubList) -> mClubListAdapter.setList(mClubList));
+        mSustList.observe(this.getViewLifecycleOwner(), (mSustList) -> mSustListAdapter.setList(mSustList));
 
         // return the inflated root view
         return viewRoot;

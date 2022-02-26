@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.clubs.ClubListFragment" >
+    tools:context=".ui.Sustainability.SustListFragment" >
 
 <com.google.android.material.card.MaterialCardView
-    android:id="@+id/cardView_club_list"
+    android:id="@+id/cardView_sust_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
@@ -26,10 +26,10 @@
         <!-- Media -->
 
         <ImageView
-            android:id="@+id/imageView_club_banner"
+            android:id="@+id/imageView_sust_banner"
             android:layout_width="match_parent"
             android:layout_height="194dp"
-            android:contentDescription="@string/image_club_banner"
+            android:contentDescription="@string/image_sust_banner"
             android:scaleType="fitCenter"
             android:src="@drawable/default_image" />
 
@@ -41,10 +41,10 @@
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/textView_club_title"
+                android:id="@+id/textView_sust_title"
                 android:layout_width="350dp"
                 android:layout_height="26dp"
-                android:text="CLUB FOR STUDENTS OF CASCADIA"
+                android:text="SUSTAINABILITY FOR STUDENTS OF CASCADIA"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 android:textStyle="bold"

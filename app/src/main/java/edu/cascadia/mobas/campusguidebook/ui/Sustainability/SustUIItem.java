@@ -6,8 +6,9 @@ import edu.cascadia.mobas.campusguidebook.data.model.Sustainability;
 
 public class SustUIItem {
 
+    private static LiveData<Drawable> mImage;
     private Sustainability mSustainability;
-    private LiveData<Drawable> mImage;
+
 
     public SustUIItem(Sustainability sustainability, LiveData<Drawable> image) {
         mSustainability = sustainability;
@@ -15,13 +16,13 @@ public class SustUIItem {
     }
 
     public Sustainability getSustainability() {
-        return mSustainability;
+        return this.mSustainability;
     }
     public void setSustainability(Sustainability pSustainability) {
         this.mSustainability = pSustainability;
     }
 
-    public LiveData<Drawable> getImage() { return mImage; }
+    public LiveData<Drawable> getImage() { return this.mImage; }
     public void setImage(LiveData<Drawable> image) {
         this.mImage = image;
     }

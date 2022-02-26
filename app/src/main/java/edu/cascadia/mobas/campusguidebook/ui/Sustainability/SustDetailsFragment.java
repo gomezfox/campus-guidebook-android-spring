@@ -35,7 +35,7 @@ public class SustDetailsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ClubDetailsFragment.
+     * @return A new instance of fragment SustDetailsFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static SustDetailsFragment newInstance(String param1, String param2) {
