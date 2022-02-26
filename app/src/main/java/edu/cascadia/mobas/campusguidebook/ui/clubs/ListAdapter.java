@@ -15,13 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.viewmodel.ClubListViewModel;
+import edu.cascadia.mobas.campusguidebook.data.model.Club;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHolder> {
+public class ListAdapter<T> extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
-    private List<ClubUIItem> mClubList;
-    private final ClubListViewModel mViewModel;
+    private List<T> mList;
     private LifecycleOwner mLifecycleOwner;
 
     // ViewHolder provides access to the individual views in a row of the RecyclerView's row
@@ -29,32 +28,31 @@ public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         // Provide variables to hold references to each View in the club list item fragment
-        public final CardView clubCardView;
-        public final ImageView clubImageView;
-        public final TextView clubNameTextView;
+        public final CardView cardView;
+        public final ImageView imageView;
+        public final TextView textView;
 
         // The constructor takes a parent view (LinearLayout) on the club list item fragment
         // and allows us to get references to the views it contains
         public ViewHolder(View parentView) {
             super(parentView);
             // look up and assign the views in the club list item fragment to our variables
-            clubCardView = parentView.findViewById(R.id.cardView_club_list);
-            clubImageView = parentView.findViewById(R.id.imageView_club_banner);
-            clubNameTextView = parentView.findViewById(R.id.textView_club_title);
+            cardView = parentView.findViewById(R.id.cardview_list_item);
+            imageView = parentView.findViewById(R.id.imageview_list_item_image);
+            textView = parentView.findViewById(R.id.textView_list_item_text);
             // TODO: Define click listener(s) for the ViewHolder's CardView
         }
     }  // End of static ViewHolder class
 
     // ClubListAdapter constructor and methods
     // Initialize this adapter with a reference to the datasource to be used.
-    public ClubListAdapter(List<ClubUIItem> clubList, ClubListViewModel viewModel) {
+    public ListAdapter(List<Club> clubList) {
         mClubList = clubList;
-        mViewModel = viewModel;
     }
 
     // TODO: Investigate using SwitchMap to modify instead of completely replacing the list
     // Updates the list of clubs used by the RecyclerView
-    public void setList(List<ClubUIItem> newClubList) {
+    public void setList(List<Club> newClubList) {
         this.mClubList = newClubList;
         notifyDataSetChanged();
     }
@@ -81,21 +79,21 @@ public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
 
         // Get the data for a particular row within the list; return if null
-        ClubUIItem clubUIItem = mClubList.get(position);
+        Club club = mClubList.get(position);
 
         // return if no data
-        if (clubUIItem == null || clubUIItem.getClub() == null) {
+        if (club == null) {
             return;
         }
 
         // otherwise, fill in the ui with the clubItem data, using null checks for safety
-        if (viewHolder.clubNameTextView != null) {
-            viewHolder.clubNameTextView.setText(clubUIItem.getClub().getClubName());
+        if (viewHolder.textView != null) {
+            viewHolder.textView.setText(club.getName());
         }
 
         // the image is livedata so it needs an observer
-        if (viewHolder.clubImageView != null) {
-            clubUIItem.getImage().observe(mLifecycleOwner, viewHolder.clubImageView::setImageDrawable);
+        if (viewHolder.imageView != null) {
+            club.getImageDrawable().observe((LifecycleOwner)viewHolder.imageView.getContext(), viewHolder.imageView::setImageDrawable);
         }
     }
 

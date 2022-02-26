@@ -2,73 +2,69 @@ package edu.cascadia.mobas.campusguidebook.data.model;
 
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.lifecycle.LiveData;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.time.ZonedDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 import edu.cascadia.mobas.campusguidebook.AppConfig;
-import edu.cascadia.mobas.campusguidebook.CampusGuidebookApp;
-import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
+
 @RequiresApi(api = Build.VERSION_CODES.O)
 @Entity(tableName = "Club_Table")
-public class Club {
-    // below line is to auto increment
-    // id for each club.
-    @PrimaryKey(autoGenerate = true)
-
-    // field for the club id.
-    private int id;
+public class Club implements IEntity{
 
     @NonNull
-    @ColumnInfo(name = "club_name")
-    private String clubName;
+    @PrimaryKey(autoGenerate = false)
+    private long id = -1;
 
-    @ColumnInfo(name = "club_description")
-    private String clubDescription;
+    @NonNull
+    @ColumnInfo(name = "name")
+    private String name = "";
 
-    @ColumnInfo(name = "club_advisor")
-    private String clubAdvisor;
-
-    @ColumnInfo(name = "club_contact")
-    private String clubContact;
+    @ColumnInfo(name = "details")
+    private String details;
 
     @ColumnInfo(name = "image_uri")
     private String imageUri;
 
+    @ColumnInfo(name = "properties")
+    private Map<String, String> properties;
+
     @ColumnInfo(name = "last_updated")
     private ZonedDateTime lastUpdated;
 
-    @Ignore
-    private Drawable imageDrawable;
-
     // Constructor
-    public Club(String clubName, String clubDescription, String clubAdvisor,
-                String clubContact, String imageUri, ZonedDateTime lastUpdated) {
-        this.clubName = clubName;
-        this.clubDescription = clubDescription;
-        this.clubAdvisor = clubAdvisor;
-        this.clubContact = clubContact;
+    public Club(long id, @NonNull String name, String details, String imageUri,
+                ZonedDateTime lastUpdated, Map<String, String> properties) {
+        this.name = name;
+        this.details = details;
         this.imageUri = imageUri;
-        this.lastUpdated = (lastUpdated == null ?
-                ZonedDateTime.of(2022, 3, 1, 15, 30, 0, 0, AppConfig.TIMEZONE)
-                : lastUpdated);
+        this.lastUpdated = (lastUpdated == null ? ZonedDateTime.now(AppConfig.TIMEZONE) : lastUpdated);
+        this.properties = (properties == null ? new HashMap<String, String>() : properties);
     }
 
     // Convenience constructors for backwards compatibility
     @Ignore
-    public Club(String clubName, String clubDescription, String clubAdvisor, String clubContact) {
-        this(clubName, clubDescription, clubAdvisor, clubContact, null,null);
+    public Club(long id, String name, String details, String imageUri, String json, ZonedDateTime lastUpdated) {
+        this.id = id;
+        this.name = name;
+        this.details = details;
+        this.properties =
+
     }
 
     @Ignore
-    public Club(String clubName, String clubDescription, String clubAdvisor, String clubContact, String imageUri) {
-        this(clubName, clubDescription, clubAdvisor, clubContact, imageUri,null);
+    public Club(String name, String details, String clubAdvisor, String clubContact, String imageUri) {
+        this(name, details, clubAdvisor, clubContact, imageUri,null);
     }
 
     // getter and setter methods.
@@ -80,20 +76,20 @@ public class Club {
         this.id = ID;
     }
 
-    public String getClubName() {
-        return clubName;
+    public String getName() {
+        return name;
     }
 
-    public void setClubName(String clubName) {
-        this.clubName = clubName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getClubDescription() {
-        return this.clubDescription;
+    public String getDetails() {
+        return this.details;
     }
 
-    public void setClubDescription(String description) {
-        this.clubDescription = description;
+    public void setDetails(String description) {
+        this.details = description;
     }
 
     public String getClubAdvisor() {
@@ -128,9 +124,9 @@ public class Club {
         this.lastUpdated = updatedOn;
     }
 
-    public Drawable getImageDrawable() { return this.imageDrawable; }
+    public LiveData<Drawable> getImageDrawable() { return this.imageDrawable; }
 
-    public void setImageDrawable(Drawable drawable) { this.imageDrawable = drawable; }
+    public void setImageDrawable(LiveData<Drawable> drawable) { this.imageDrawable = drawable; }
 
     public void clearImageDrawable() { this.imageDrawable = null; }
 }
