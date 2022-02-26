@@ -22,12 +22,14 @@ public class DatePickerFragment  extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         ZonedDateTime zonedDateTime = ZonedDateTimeConverter.toZonedDateTime(mBundle.getString("datetime"));
 
+        //gets the date from bundle
         return new DatePickerDialog(getActivity(), (DatePickerDialog.OnDateSetListener) getTargetFragment(),
                 zonedDateTime.getYear(), zonedDateTime.getMonthValue(), zonedDateTime.getDayOfMonth());
     }
 
     public DatePickerFragment(Bundle savedInstanceState) {
         super();
+        //gets bundle from savedinstance
         mBundle = savedInstanceState;
     }
 }

@@ -21,12 +21,14 @@ public class TimePickerFragment extends DialogFragment {
 
     public TimePickerFragment(Bundle savedInstanceState) {
         super();
+        //gets bundle from savedinstance
         mBundle = savedInstanceState;
     }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        //gets the time from bundle
         ZonedDateTime zonedDateTime = ZonedDateTimeConverter.toZonedDateTime(mBundle.getString("datetime"));
 
         return new TimePickerDialog(getActivity(), (TimePickerDialog.OnTimeSetListener) getTargetFragment(),
