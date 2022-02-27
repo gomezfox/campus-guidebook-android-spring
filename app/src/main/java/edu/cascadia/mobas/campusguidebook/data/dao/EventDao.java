@@ -32,7 +32,7 @@ public interface EventDao {
     LiveData<List<Event>> getAllEvents();
 
     @Query("SELECT * FROM Event_Table WHERE id=:eventID")
-    LiveData<List<Event>> getEventByID(int eventID);
+    LiveData<Event> getEventByID(int eventID);
 
     @Query("SELECT COUNT(*) FROM Event_Table")
     int getEventCount();

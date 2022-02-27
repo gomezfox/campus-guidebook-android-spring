@@ -48,6 +48,9 @@ public class AppRepository {
         return mAppDatabase.EventDao().getAllEvents();
     }
 
+    // returns a single event by ID
+    public LiveData<Event> getEvent(int eventId) { return mAppDatabase.EventDao().getEventByID(eventId); }
+
     // returns a list of all users
     public LiveData<List<User>> getAllUsers() {
         return mAppDatabase.UserDao().getAllUsers();

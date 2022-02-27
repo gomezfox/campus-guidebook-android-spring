@@ -38,7 +38,7 @@ public abstract class AppDatabase extends RoomDatabase {
     // below line is to save the executor pool
     // to create database and supply repositories
 
-    // below line is to create
+    // below line is to create`
     // abstract variable for dao.
     public abstract EventDao EventDao();
     public abstract ClubDao ClubDao();
