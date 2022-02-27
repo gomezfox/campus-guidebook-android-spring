@@ -43,6 +43,7 @@ public class SustListAdapter extends RecyclerView.Adapter<SustListAdapter.ViewHo
             SustImageView = parentView.findViewById(R.id.imageView_sust_banner);
             SustNameTextView = parentView.findViewById(R.id.textView_sust_title);
             // TODO: Define click listener(s) for the ViewHolder's CardView
+
         }
     }  // End of static ViewHolder class
 
