@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/nav_sust_list"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.events.EventListFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.Sustainability.SustListFragment"
         android:label="@string/menu_sust_list"
         tools:layout="@layout/fragment_sust_list" >
         <action
