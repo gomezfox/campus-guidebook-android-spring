@@ -14,8 +14,8 @@
             android:id="@+id/action_nav_home_to_nav_events"
             app:destination="@id/nav_events" />
         <action
-            android:id="@+id/action_nav_home_to_nav_info"
-            app:destination="@id/nav_info" />
+            android:id="@+id/action_nav_home_to_nav_sust_list"
+            app:destination="@id/nav_sust_list" />
         <action
             android:id="@+id/action_nav_home_to_nav_clubs"
             app:destination="@id/nav_clubs"
@@ -24,26 +24,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_info"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.info.InfoFragment"
-        android:label="@string/menu_info"
-        tools:layout="@layout/fragment_info" >
-        <action
-            android:id="@+id/action_nav_info_to_fragment_wetlands"
-            app:destination="@id/fragment_wetlands" />
-        <action
-            android:id="@+id/action_nav_info_to_nav_home"
-            app:destination="@id/nav_home" />
-    </fragment>
-    <fragment
         android:id="@+id/fragment_wetlands"
         android:name="edu.cascadia.mobas.campusguidebook.Fragment_Wetlands"
         android:label="Info Details"
-        tools:layout="@layout/fragment_wetlands" >
-        <action
-            android:id="@+id/action_fragment_wetlands_to_nav_info"
-            app:destination="@id/nav_info" />
-    </fragment>
+        tools:layout="@layout/fragment_wetlands" />
 
     <fragment
         android:id="@+id/nav_events"
@@ -59,6 +43,16 @@
         <action
             android:id="@+id/action_nav_events_to_addEventFragment"
             app:destination="@id/addEventFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_sust_list"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.Sustainability.SustListFragment"
+        android:label="@string/menu_sust_list"
+        tools:layout="@layout/fragment_sust_list" >
+        <action
+            android:id="@+id/action_nav_sustainability_list_to_nav_home"
+            app:destination="@id/nav_home" />
     </fragment>
     <fragment
         android:id="@+id/fragment_Event_Info"
