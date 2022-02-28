@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.viewmodel.ClubListViewModel;
+import edu.cascadia.mobas.campusguidebook.viewmodel.ActivityViewModel;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,9 +27,9 @@ import java.util.List;
 public class ClubListFragment extends Fragment {
 
     private static final String TAG = "ClubListFragment";
-    private ClubListViewModel mViewModel;
+    private ActivityViewModel mViewModel;
     private RecyclerView mRecyclerView;
-    private ClubListAdapter mClubListAdapter;
+    private ListAdapter mListAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private LiveData<List<ClubUIItem>> mClubList = null;
 
@@ -37,7 +37,7 @@ public class ClubListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(ClubListViewModel.class);
+        mViewModel = new ViewModelProvider(this.getActivity()).get(ActivityViewModel.class);
         mClubList = mViewModel.getAllClubs();
     }
 
@@ -53,11 +53,11 @@ public class ClubListFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity(), LinearLayoutManager.VERTICAL, false));
         mClubList = mViewModel.getAllClubs();
-        mClubListAdapter = new ClubListAdapter(mClubList.getValue(), mViewModel);
-        mRecyclerView.setAdapter(mClubListAdapter);
+        mListAdapter = new ListAdapter(mClubUiList.getValue(), mViewModel);
+        mRecyclerView.setAdapter(mListAdapter);
 
         // Respond to changes in LiveData
-        mClubList.observe(this.getViewLifecycleOwner(), (mClubList) -> mClubListAdapter.setList(mClubList));
+        mClubList.observe(this.getViewLifecycleOwner(), (mClubList) -> mListAdapter.setList(mClubList));
 
         // return the inflated root view
         return viewRoot;
