@@ -21,6 +21,9 @@ public class Sustainability {
     @ColumnInfo(name = "sustainability_description")
     private String sustainabilityDescription;
 
+    @ColumnInfo(name = "image_uri")
+    private String imageUri;
+
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
@@ -36,10 +39,16 @@ public class Sustainability {
     }
     public void setSustainabilityName(String name) { this.sustainabilityName = name; }
 
+    public String getImageUri() {
+        return this.imageUri;
+    }
+    public void setImageUri(String uri) {
+        this.imageUri = uri;
+    }
+
     public String getSustainabilityDescription() {
         return sustainabilityDescription;
     }
-
     public void setSustainabilityDescription(String sustainabilityDescription) {
         this.sustainabilityDescription = sustainabilityDescription;
     }

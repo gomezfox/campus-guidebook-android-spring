@@ -1,21 +1,20 @@
-package edu.cascadia.mobas.campusguidebook.ui.events;
+package edu.cascadia.mobas.campusguidebook.ui.Sustainability;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import edu.cascadia.mobas.campusguidebook.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link EventsFrag#newInstance} factory method to
+ * Use the {@link SustDetailsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EventsFrag extends Fragment {
+public class SustDetailsFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +25,7 @@ public class EventsFrag extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public EventsFrag() {
+    public SustDetailsFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +35,11 @@ public class EventsFrag extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BlankFragmentEvents.
+     * @return A new instance of fragment SustDetailsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static EventsFrag newInstance(String param1, String param2) {
-        EventsFrag fragment = new EventsFrag();
+    public static SustDetailsFragment newInstance(String param1, String param2) {
+        SustDetailsFragment fragment = new SustDetailsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +60,6 @@ public class EventsFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_events, container, false);
+        return inflater.inflate(R.layout.fragment_sust_details, container, false);
     }
 }

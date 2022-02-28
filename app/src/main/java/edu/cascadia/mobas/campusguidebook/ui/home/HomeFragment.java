@@ -46,8 +46,8 @@ public class HomeFragment extends Fragment {
                     .navigate(R.id.action_nav_home_to_nav_events);
         });
         binding.cardViewHomeInfo.setOnClickListener(CardView -> {
-            Navigation.findNavController(binding.cardViewHomeClubs)
-                    .navigate(R.id.action_nav_home_to_nav_info);
+            Navigation.findNavController(binding.cardViewHomeInfo)
+                    .navigate(R.id.action_nav_home_to_nav_sust_list);
         });
         binding.cardViewHomeClubs.setOnClickListener(CardView -> {
                 Navigation.findNavController(binding.cardViewHomeClubs)
