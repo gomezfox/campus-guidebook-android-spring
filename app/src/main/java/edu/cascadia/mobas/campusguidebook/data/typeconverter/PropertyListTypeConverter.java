@@ -23,7 +23,6 @@ public class PropertyListTypeConverter {
         return jsonStrToMap(json);
     }
 
-    @TypeConverter
     public static <T> Map<String, T> jsonStrToMap(String jsonStr) {
         Type type = new TypeToken<Map<String, T>>() {}.getType();
         return sGson.fromJson(jsonStr, type);
