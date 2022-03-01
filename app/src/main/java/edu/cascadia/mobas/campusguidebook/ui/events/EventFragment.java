@@ -35,7 +35,7 @@ public class EventFragment extends Fragment {
 
 
         card1.setOnClickListener(CardView -> {
-            Navigation.findNavController(card1).navigate(R.id.fragment_Event_Info);
+            Navigation.findNavController(card1).navigate(R.id.fragment_event_info);
         });
 
         addEventBtn.setOnClickListener(view -> {

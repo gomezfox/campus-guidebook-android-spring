@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_nav_home_to_nav_events"
-            app:destination="@id/nav_events" />
+            app:destination="@id/nav_event_list" />
         <action
             android:id="@+id/action_nav_home_to_nav_sust_list"
             app:destination="@id/nav_sust_list" />
@@ -30,15 +30,15 @@
         tools:layout="@layout/fragment_wetlands" />
 
     <fragment
-        android:id="@+id/nav_events"
+        android:id="@+id/nav_event_list"
         android:name="edu.cascadia.mobas.campusguidebook.ui.events.EventListFragment"
         android:label="@string/menu_events"
-        tools:layout="@layout/fragment_events" >
+        tools:layout="@layout/fragment_event_list" >
         <action
-            android:id="@+id/action_nav_events_to_fragment_Event_Info"
-            app:destination="@id/fragment_Event_Info" />
+            android:id="@+id/action_nav_event_list_to_fragment_event_info"
+            app:destination="@id/fragment_event_info" />
         <action
-            android:id="@+id/action_nav_events_to_nav_home"
+            android:id="@+id/action_nav_event_list_to_nav_home"
             app:destination="@id/nav_home" />
         <action
             android:id="@+id/action_nav_events_to_addEventFragment"
@@ -55,7 +55,7 @@
             app:destination="@id/nav_home" />
     </fragment>
     <fragment
-        android:id="@+id/fragment_Event_Info"
+        android:id="@+id/fragment_event_info"
         android:name="edu.cascadia.mobas.campusguidebook.Fragment_Event_Info"
         android:label="Event Info"
         tools:layout="@layout/fragment__event__info" >
@@ -67,13 +67,13 @@
         android:id="@+id/nav_clubs"
         android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ClubListFragment"
         android:label="fragment_club_list"
-        tools:layout="@layout/fragment_club_list" >
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_nav_clubs_to_nav_home"
             app:destination="@id/nav_home" />
         <action
             android:id="@+id/action_nav_clubs_to_nav_club_details"
-            app:destination = "@+id/nav_club_details" />
+            app:destination="@+id/nav_club_details" />
     </fragment>
     <fragment android:id="@+id/nav_club_details"
         android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ClubDetailsFragment"
