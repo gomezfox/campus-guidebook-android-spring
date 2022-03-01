@@ -1,6 +1,8 @@
 package edu.cascadia.mobas.campusguidebook.data.model;
 
 
+import androidx.room.Ignore;
+
 import java.time.ZonedDateTime;
 import java.util.Map;
 
@@ -11,4 +13,5 @@ public interface IEntity {
     public String getImageUri();
     public Map<String, String> getProperties();
     public ZonedDateTime getLastUpdated();
+    @Ignore public abstract String getEntityName();
 }

@@ -11,6 +11,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
 
 import java.time.ZonedDateTime;
 import java.util.HashMap;
@@ -23,9 +24,15 @@ import edu.cascadia.mobas.campusguidebook.data.typeconverter.PropertyListTypeCon
 @Entity(tableName = "Club_Table")
 public class Club implements IEntity{
 
-    @NonNull
-    @PrimaryKey(autoGenerate = false)
-    private long id = -1;
+    // returns the name of the class to allow generic fragments to utilize navigation
+    @Override @Ignore
+    public final String getEntityName() {
+        return this.getClass().getSimpleName();
+    }
+
+    @PrimaryKey
+    @ColumnInfo(name = "id")
+    private long id = 0;
 
     @NonNull
     @ColumnInfo(name = "name")
@@ -46,6 +53,7 @@ public class Club implements IEntity{
     // Constructor
     public Club(long id, @NonNull String name, String details, String imageUri,
                 ZonedDateTime lastUpdated, Map<String, String> properties) {
+        this.id = id;
         this.name = name;
         this.details = details;
         this.imageUri = imageUri;
@@ -53,15 +61,13 @@ public class Club implements IEntity{
         this.properties = (properties == null ? new HashMap<String, String>() : properties);
     }
 
-    // Convenience constructors for backwards compatibility
+    // Convenience constructor which takes a JSON string for properties
     @Ignore
-    public Club(long id, String name, String details, String imageUri, String properties, ZonedDateTime lastUpdated) {
-        this.id = id;
-        this.name = name;
-        this.details = details;
-        this.properties = PropertyListTypeConverter.toMap(properties);
-        this.lastUpdated = lastUpdated;
+    public Club(long id, @NonNull String name, String details, String imageUri,
+                ZonedDateTime lastUpdated, String jsonProperties) {
+        this(id, name, details, imageUri, lastUpdated, PropertyListTypeConverter.toMap(jsonProperties));
     }
+
 
     // getter and setter methods.
 
@@ -69,8 +75,8 @@ public class Club implements IEntity{
         return id;
     }
 
-    public void setId(int ID) {
-        this.id = ID;
+    public void setId(long id) {
+        this.id = id;
     }
 
     @NonNull
