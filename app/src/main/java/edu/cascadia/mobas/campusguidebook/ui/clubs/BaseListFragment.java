@@ -9,12 +9,9 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.data.model.IEntity;
@@ -27,12 +24,11 @@ import java.util.List;
 
 // ListFragment
 // Base class for displaying a recyclerview for the provided type
-public abstract class ListFragment <T extends IEntity> extends Fragment {
+public abstract class BaseListFragment<T extends IEntity> extends Fragment {
 
     private String TAG = "ListFragment";
     private MainActivityViewModel mViewModel;
-    private RecyclerView mRecyclerView;
-    private RecyclerViewAdapter<T> mRecyclerViewAdapter;
+    private BaseListAdapter<T> mBaseListAdapter;
     private LiveData<List<T>> mList = new MutableLiveData<>();
 
     protected abstract LiveData<List<T>> getList();
@@ -59,14 +55,19 @@ public abstract class ListFragment <T extends IEntity> extends Fragment {
         viewRoot.setTag(TAG);
 
         // RecyclerView setup
-        mRecyclerView = viewRoot.findViewById(R.id.list_recycler);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(
+        RecyclerView recyclerView = viewRoot.findViewById(R.id.list_recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity(), LinearLayoutManager.VERTICAL, false));
-        RecyclerViewAdapter<T> adapter = new RecyclerViewAdapter<T>(mList.getValue(), mViewModel);
-        mRecyclerView.setAdapter(adapter);
-        RecyclerView.OnItemTouchListener listener =
+        /*
+         RecyclerView.OnItemTouchListener listener =
                 new SimpleListener<T>(mList);
-        mRecyclerView.addOnItemTouchListener(listener);
+        recyclerView.addOnItemTouchListener(listener);
+        */
+        BaseListAdapter<T> adapter = new BaseListAdapter<T>(mList.getValue(), mViewModel);
+        recyclerView.setAdapter(adapter);
+
+        // respond to changes in livedata
+        mList.observe(this.getViewLifecycleOwner(), adapter::setList);
         return viewRoot;
     }
 
@@ -74,7 +75,7 @@ public abstract class ListFragment <T extends IEntity> extends Fragment {
     public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
     }
-
+/*
     // This provides an accessible event listener for people with movement disorders
     // It records when a touch down occurs and afterwards responds to touch up when it occurs
     private  class SimpleListener<U> extends RecyclerView.SimpleOnItemTouchListener {
@@ -116,6 +117,7 @@ public abstract class ListFragment <T extends IEntity> extends Fragment {
             return false;
         }
     }
+    */
 }
 
 

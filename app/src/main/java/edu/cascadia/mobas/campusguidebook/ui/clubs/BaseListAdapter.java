@@ -1,43 +1,48 @@
 package edu.cascadia.mobas.campusguidebook.ui.clubs;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.data.model.IEntity;
-import edu.cascadia.mobas.campusguidebook.data.repository.ImageRepository;
 import edu.cascadia.mobas.campusguidebook.viewmodel.MainActivityViewModel;
 
-public class RecyclerViewAdapter<T extends IEntity> extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class BaseListAdapter<T extends IEntity> extends RecyclerView.Adapter<BaseListAdapter.ViewHolder> {
 
     private List<T> mList;
     private LifecycleOwner mLifecycleOwner;
     private final MainActivityViewModel mViewModel;
-    private final ImageRepository mImageRepository = ImageRepository.getInstance();
-    //private final View.OnClickListener mOnClickListener;
+
 
     // ClubListAdapter constructor and methods
     // Initialize this adapter with a reference to the datasource to be used.
-    public RecyclerViewAdapter(List<T> list, MainActivityViewModel viewModel) {
+    public BaseListAdapter(List<T> list, MainActivityViewModel viewModel) {
         mList = list;
         this.mViewModel = viewModel;
-        //mOnClickListener = onClickListener;
     }
 
     // TODO: Investigate using SwitchMap to modify instead of completely replacing the list
     // Updates the list used by the RecyclerView
     public void setList(List<T> newList) {
-        this.mList = newList;
+        if (newList == null) {
+            this.mList = new ArrayList<>();
+        } else {
+            this.mList = newList;
+        }
         notifyDataSetChanged();
     }
 
@@ -54,8 +59,18 @@ public class RecyclerViewAdapter<T extends IEntity> extends RecyclerView.Adapter
         // Create a new view containing all the views for the UI of the list item
         View view = LayoutInflater.from(parentViewGroup.getContext())
                 .inflate(R.layout.fragment_list_item, parentViewGroup, false);
-
-        return new ViewHolder(view);
+        ViewHolder holder = new ViewHolder(view);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IEntity item = mList.get(holder.getAdapterPosition());
+                Toast.makeText(parentViewGroup.getContext(),
+                        "Clicked on " + item.getEntityName()
+                                + ": id=" + item.getId(), Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+        return holder;
     }
 
     // Used by the layout manager to change the displayed values in a bound ViewHolder
@@ -67,12 +82,11 @@ public class RecyclerViewAdapter<T extends IEntity> extends RecyclerView.Adapter
         viewHolder.textView.setText(item.getName());
 
         // get the drawable image as livedata and add an observer
-        mViewModel.getImageFromUri(item.getImageUri()).observe(
-                (LifecycleOwner)viewHolder.imageView.getContext(),
-                viewHolder.imageView::setImageDrawable
-        );
-    }
+        String imageUri = item.getImageUri();
+        LiveData<Drawable> drawableLiveData = mViewModel.getImageFromUri(imageUri);
+        drawableLiveData.observe(mLifecycleOwner, viewHolder.imageView::setImageDrawable);
 
+    }
 
     // Used by the layout manager to determine the number of clubs in the list
     @Override
