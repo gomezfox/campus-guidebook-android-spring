@@ -58,7 +58,7 @@ public class AppRepository {
 
     // returns a list of all clubs
     public LiveData<List<Club>> getAllClubs() {
-        return mAppDatabase.ClubDao().getAll();
+7        return mAppDatabase.ClubDao().getAll();
     }
 
     // returns a list of all sustainability
