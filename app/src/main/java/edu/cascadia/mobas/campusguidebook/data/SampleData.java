@@ -31,7 +31,7 @@ public class SampleData {
                     "The purpose of this club is to provide a comfortable place for the students at Cascadia college to learn and experience Japanese culture together. In our club, we will share traditional Japanese culture such as Japanese calligraphy, origami, karate, etc. together.",
                     "https://www.cascadia.edu/images_calendar/collegerelations/JapaneseCultureClub.png",
                     ZonedDateTime.now(zoneId),
-                    "{\"contact\":\"jcc.cascadia@gmail.com\",\"advisor\":\"Jane Doe\"}"
+                    "{\"contact\":\"jcc.cascadia@gmail.com\",\"advisor\":\"Jane Doe\", \"meetings\":\"Wednesdays 1:00 pm\",\"location\":\"CC1-201\"}"
             ),
             new Club(
                     456,
@@ -39,7 +39,7 @@ public class SampleData {
                     "The engineering club is open to any student who is interested in science, technology, engineering, and math (STEM). Through hands on activities, members of all skill levels will have the opportunity to design, build, and share engineered projects with other creative problem solvers. Get ready to strengthen your skills, create a collection of projects related to your career, and connect with your peers! Some of the club projects we've undertaken include designing 3d printing models, making a video game with python, and electronic prototyping with Arduino.",
                     "https://www.cascadia.edu/images_calendar/collegerelations/CCEngineersClub.png",
                     ZonedDateTime.now(zoneId),
-                    "{\"contact\":\"ccengineers@gmail.com\"}"
+                    "{\"contact\":\"ccengineers@gmail.com\", \"meetings\":\"Mondays 5:00 pm\",\"location\":\"CC2-261\"}"
             ),
             new Club(
                     789,
@@ -47,8 +47,7 @@ public class SampleData {
                     "A group for students who love math or who would like to learn more",
                     "engineer_s_mindset__1",
                     ZonedDateTime.now(zoneId),
-                    "{\"contact\":\"Mathy McMathface <mathy@mathface.com>\"}"
-
+                    "{\"contact\":\"Mathy McMathface <mathy@mathface.com>\",\"meetings\":\"Tuesdays 11:00 am\",\"location\":\"CC2-301\"}"
             ),
     };
 
