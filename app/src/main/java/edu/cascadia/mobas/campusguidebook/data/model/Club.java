@@ -17,8 +17,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edu.cascadia.mobas.campusguidebook.AppConfig;
+import edu.cascadia.mobas.campusguidebook.data.typeconverter.PropertyListTypeConverter;
 
-@RequiresApi(api = Build.VERSION_CODES.O)
+
 @Entity(tableName = "Club_Table")
 public class Club implements IEntity{
 
@@ -54,21 +55,17 @@ public class Club implements IEntity{
 
     // Convenience constructors for backwards compatibility
     @Ignore
-    public Club(long id, String name, String details, String imageUri, String json, ZonedDateTime lastUpdated) {
+    public Club(long id, String name, String details, String imageUri, String properties, ZonedDateTime lastUpdated) {
         this.id = id;
         this.name = name;
         this.details = details;
-        this.properties =
-
-    }
-
-    @Ignore
-    public Club(String name, String details, String clubAdvisor, String clubContact, String imageUri) {
-        this(name, details, clubAdvisor, clubContact, imageUri,null);
+        this.properties = PropertyListTypeConverter.toMap(properties);
+        this.lastUpdated = lastUpdated;
     }
 
     // getter and setter methods.
-    public int getId() {
+
+    public long getId() {
         return id;
     }
 
@@ -76,6 +73,7 @@ public class Club implements IEntity{
         this.id = ID;
     }
 
+    @NonNull
     public String getName() {
         return name;
     }
@@ -92,25 +90,14 @@ public class Club implements IEntity{
         this.details = description;
     }
 
-    public String getClubAdvisor() {
-        return this.clubAdvisor;
-    }
-
-    public void setClubAdvisor(String advisor) {
-        this.clubAdvisor = advisor;
-    }
-
-    public String getClubContact() {
-        return this.clubContact;
-    }
-
-    public void setClubContact(String contact) {
-        this.clubContact = contact;
-    }
-
     public String getImageUri() {
         return this.imageUri;
     }
+
+    @Override
+    public Map<String, String> getProperties() { return this.properties; }
+
+    public void setProperties(Map<String, String> properties) { this.properties = properties; }
 
     public void setImageUri(String uri) {
         this.imageUri = uri;
@@ -123,11 +110,5 @@ public class Club implements IEntity{
     public void setLastUpdated(ZonedDateTime updatedOn) {
         this.lastUpdated = updatedOn;
     }
-
-    public LiveData<Drawable> getImageDrawable() { return this.imageDrawable; }
-
-    public void setImageDrawable(LiveData<Drawable> drawable) { this.imageDrawable = drawable; }
-
-    public void clearImageDrawable() { this.imageDrawable = null; }
 }
 
