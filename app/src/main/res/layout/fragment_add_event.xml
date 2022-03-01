@@ -10,14 +10,24 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Add New Event"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
         android:text="Event Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -36,6 +46,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Event Description"
+        android:textSize="20sp"
+
         app:layout_constraintStart_toStartOf="@+id/editTextEventName"
         app:layout_constraintTop_toBottomOf="@+id/editTextEventName" />
 
@@ -60,6 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="Event Location"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/editTextEventDescription"
         app:layout_constraintTop_toBottomOf="@+id/editTextEventDescription" />
 
@@ -79,6 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Event Date and Time"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/editTextEventLocation"
         app:layout_constraintTop_toBottomOf="@+id/editTextEventLocation" />
 
@@ -86,9 +100,8 @@
         android:id="@+id/textViewDateTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DateTime: "
         app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
         android:id="@+id/btnPickDateTime"
@@ -107,6 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="48dp"
+        android:backgroundTint="#8BC34A"
         android:text="Add Event"
         app:layout_constraintStart_toStartOf="@+id/btnPickDateTime"
         app:layout_constraintTop_toBottomOf="@+id/btnPickDateTime" />

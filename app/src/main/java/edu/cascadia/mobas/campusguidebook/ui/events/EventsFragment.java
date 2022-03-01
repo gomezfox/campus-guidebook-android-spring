@@ -19,17 +19,17 @@ import androidx.navigation.Navigation;
 import edu.cascadia.mobas.campusguidebook.Fragment_Event_Info;
 import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.databinding.FragmentEventsBinding;
-import edu.cascadia.mobas.campusguidebook.viewmodel.EventsViewModel;
+//import edu.cascadia.mobas.campusguidebook.viewmodel.EventsViewModel;
 
 public class EventsFragment extends Fragment {
 
-    private EventsViewModel slideshowViewModel;
+//    private EventsViewModel slideshowViewModel;
     private FragmentEventsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(EventsViewModel.class);
+//        slideshowViewModel =
+//                new ViewModelProvider(this).get(EventsViewModel.class);
 
         binding = FragmentEventsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
