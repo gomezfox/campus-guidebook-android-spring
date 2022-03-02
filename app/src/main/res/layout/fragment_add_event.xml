@@ -32,7 +32,7 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="84dp"
+                android:layout_marginTop="24dp"
                 android:text="Event Name"
                 android:textSize="20sp" />
 
