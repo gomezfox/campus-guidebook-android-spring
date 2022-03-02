@@ -30,11 +30,6 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
-        Button addEventBtn = binding.getRoot().findViewById(R.id.addEventBtn);
-        addEventBtn.setOnClickListener(view -> {
-            Navigation.findNavController(addEventBtn).navigate(R.id.addEventFragment);
-        });
-
         return binding.getRoot();
     }
 

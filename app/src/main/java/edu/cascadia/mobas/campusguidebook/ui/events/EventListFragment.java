@@ -25,6 +25,8 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,7 +70,8 @@ public class EventListFragment extends Fragment {
         mEventList.observe(getViewLifecycleOwner(), (mEventList) -> {
             mEventListAdapter.setData(mEventList);
         });
-        Button addEventBtn = mBinding.getRoot().findViewById(R.id.addEventBtn);
+
+        FloatingActionButton addEventBtn = mBinding.getRoot().findViewById(R.id.floatingActionButton);
         addEventBtn.setOnClickListener(view -> {
             Navigation.findNavController(addEventBtn).navigate(R.id.addEventFragment);
         });
