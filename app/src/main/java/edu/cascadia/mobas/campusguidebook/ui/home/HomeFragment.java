@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +29,12 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+
+        Button addEventBtn = binding.getRoot().findViewById(R.id.addEventBtn);
+        addEventBtn.setOnClickListener(view -> {
+            Navigation.findNavController(addEventBtn).navigate(R.id.addEventFragment);
+        });
+
         return binding.getRoot();
     }
 
@@ -53,6 +60,7 @@ public class HomeFragment extends Fragment {
                 Navigation.findNavController(binding.cardViewHomeClubs)
                         .navigate(R.id.action_nav_home_to_nav_clubs);
         });
+
     }
 
     @Override
