@@ -323,5 +323,6 @@
                 android:textColor="@color/white"
                 android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
+
     </GridLayout>
 </ScrollView>
