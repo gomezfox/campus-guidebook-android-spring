@@ -13,5 +13,6 @@ public interface IEntity {
     public String getImageUri();
     public Map<String, String> getProperties();
     public ZonedDateTime getLastUpdated();
+    public int getUploadStatus();
     @Ignore public abstract String getEntityName();
 }

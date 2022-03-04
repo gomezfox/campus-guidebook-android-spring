@@ -1,17 +1,10 @@
 package edu.cascadia.mobas.campusguidebook.data.model;
 
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.lifecycle.LiveData;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import androidx.room.TypeConverter;
 
 import java.time.ZonedDateTime;
 import java.util.HashMap;
@@ -50,6 +43,9 @@ public class Club implements IEntity{
     @ColumnInfo(name = "last_updated")
     private ZonedDateTime lastUpdated;
 
+    @ColumnInfo(name = "upload_status")
+    private int uploadStatus; // TODO: change to enum using TypeConverter
+
     // Constructor
     public Club(long id, @NonNull String name, String details, String imageUri,
                 ZonedDateTime lastUpdated, Map<String, String> properties) {
@@ -59,6 +55,7 @@ public class Club implements IEntity{
         this.imageUri = imageUri;
         this.lastUpdated = (lastUpdated == null ? ZonedDateTime.now(AppConfig.TIMEZONE) : lastUpdated);
         this.properties = (properties == null ? new HashMap<String, String>() : properties);
+        this.uploadStatus = 0;
     }
 
     // Convenience constructor which takes a JSON string for properties
@@ -84,7 +81,7 @@ public class Club implements IEntity{
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(@NonNull String name) {
         this.name = name;
     }
 
@@ -113,8 +110,16 @@ public class Club implements IEntity{
         return this.lastUpdated;
     }
 
+    @Override
+    public int getUploadStatus() {
+        return 0;
+    }
+
     public void setLastUpdated(ZonedDateTime updatedOn) {
         this.lastUpdated = updatedOn;
     }
-}
 
+    public void setUploadStatus(int uploadStatus) {
+        this.uploadStatus = uploadStatus;
+    }
+}

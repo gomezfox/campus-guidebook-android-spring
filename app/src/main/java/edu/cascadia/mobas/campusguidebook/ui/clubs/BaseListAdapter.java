@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -64,10 +66,14 @@ public class BaseListAdapter<T extends IEntity> extends RecyclerView.Adapter<Bas
             @Override
             public void onClick(View v) {
                 IEntity item = mList.get(holder.getAdapterPosition());
+                mViewModel.setDetailsItem(item);
                 Toast.makeText(parentViewGroup.getContext(),
                         "Clicked on " + item.getEntityName()
                                 + ": id=" + item.getId(), Toast.LENGTH_SHORT)
                         .show();
+                //View navView = v.getRootView().getRootView().getRootView();
+                //NavController nav = Navigation.findNavController(navView);
+                //nav.navigate(R.id.nav_details);
             }
         });
         return holder;
@@ -85,7 +91,6 @@ public class BaseListAdapter<T extends IEntity> extends RecyclerView.Adapter<Bas
         String imageUri = item.getImageUri();
         LiveData<Drawable> drawableLiveData = mViewModel.getImageFromUri(imageUri);
         drawableLiveData.observe(mLifecycleOwner, viewHolder.imageView::setImageDrawable);
-
     }
 
     // Used by the layout manager to determine the number of clubs in the list

@@ -45,10 +45,19 @@ public class SampleData {
                     789,
                     "Math Club",
                     "A group for students who love math or who would like to learn more",
-                    "engineer_s_mindset__1",
+                    "engineer_s_mindset__1_",
                     ZonedDateTime.now(zoneId),
                     "{\"contact\":\"Mathy McMathface <mathy@mathface.com>\",\"meetings\":\"Tuesdays 11:00 am\",\"location\":\"CC2-301\"}"
             ),
+            new Club(
+                    414,
+                    "D&D Club",
+                    "Roll20 until you reach the lands of 5e",
+                    "dd_club_logo",
+                    ZonedDateTime.now(zoneId),
+                    "{\"contact\":\"Jasper of Cascadia <jasper@dnd.net>\",\"meetings\":\"Mondays 7:00\",\"location\":\"CC2-202\"}"
+
+            )
     };
 
     public static final Sustainability[] sustainabilities = {

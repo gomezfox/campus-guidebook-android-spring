@@ -73,12 +73,12 @@
             app:destination="@id/nav_home" />
         <action
             android:id="@+id/action_nav_clubs_to_nav_club_details"
-            app:destination="@+id/nav_club_details" />
+            app:destination="@+id/nav_details" />
     </fragment>
-    <fragment android:id="@+id/nav_club_details"
+    <fragment android:id="@+id/nav_details"
         android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ClubDetailsFragment"
         android:label="fragment_club_details"
-        tools:layout="@layout/fragment_club_details" >
+        tools:layout="@layout/fragment_details" >
         <action
             android:id="@+id/action_nav_club_details_to_nav_clubs"
             app:destination="@id/nav_clubs" />
