@@ -24,14 +24,14 @@ import java.util.List;
 // ClubsListFragment
 // Displays the list of all clubs
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class ClubListFragment extends Fragment {
+public class ListFragment extends Fragment {
 
     private static final String TAG = "ClubListFragment";
     private ClubListViewModel mViewModel;
     private RecyclerView mRecyclerView;
-    private ClubListAdapter mClubListAdapter;
+    private ListAdapter mClubListAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private LiveData<List<ClubUIItem>> mClubList = null;
+    private LiveData<List<UIItem>> mClubList = null;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -53,7 +53,7 @@ public class ClubListFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity(), LinearLayoutManager.VERTICAL, false));
         mClubList = mViewModel.getAllClubs();
-        mClubListAdapter = new ClubListAdapter(mClubList.getValue(), mViewModel);
+        mClubListAdapter = new ListAdapter(mClubList.getValue(), mViewModel);
         mRecyclerView.setAdapter(mClubListAdapter);
 
         // Respond to changes in LiveData

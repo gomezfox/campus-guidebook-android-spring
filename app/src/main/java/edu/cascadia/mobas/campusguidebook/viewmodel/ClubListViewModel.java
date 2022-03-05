@@ -1,7 +1,6 @@
 package edu.cascadia.mobas.campusguidebook.viewmodel;
 
 import android.app.Application;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
@@ -16,14 +15,14 @@ import edu.cascadia.mobas.campusguidebook.CampusGuidebookApp;
 import edu.cascadia.mobas.campusguidebook.data.model.Club;
 import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
 import edu.cascadia.mobas.campusguidebook.data.repository.ImageRepository;
-import edu.cascadia.mobas.campusguidebook.ui.clubs.ClubUIItem;
+import edu.cascadia.mobas.campusguidebook.ui.clubs.UIItem;
 
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class ClubListViewModel extends AndroidViewModel {
 
     private AppRepository mAppRepository = null;
-    private final MediatorLiveData<List<ClubUIItem>> mLiveClubList = new MediatorLiveData<List<ClubUIItem>>();
+    private final MediatorLiveData<List<UIItem>> mLiveClubList = new MediatorLiveData<List<UIItem>>();
     private ImageRepository mImageRepository = null;
     public ClubListViewModel(@NonNull Application application) {
         super(application);
@@ -33,16 +32,16 @@ public class ClubListViewModel extends AndroidViewModel {
 
         // Observes the club list from the repository and emits a new one that also contains images
         mLiveClubList.addSource(mAppRepository.getAllClubs(), clubs -> {
-            List<ClubUIItem> list = new ArrayList<ClubUIItem>();
+            List<UIItem> list = new ArrayList<UIItem>();
             for (Club club : clubs) {
-                list.add(new ClubUIItem(club, mImageRepository.getImage(club.getImageUri())));
+                list.add(new UIItem(club, mImageRepository.getImage(club.getImageUri())));
             }
             mLiveClubList.setValue(list);
         });
     }
 
     // return a reference to the livedata containing all clubs and their images
-    public LiveData<List<ClubUIItem>> getAllClubs() {
+    public LiveData<List<UIItem>> getAllClubs() {
         return mLiveClubList;
     }
 }

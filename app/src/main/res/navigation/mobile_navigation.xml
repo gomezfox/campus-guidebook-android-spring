@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/nav_events"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.events.EventListFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.events.ListFragment"
         android:label="@string/menu_events"
         tools:layout="@layout/fragment_events" >
         <action
@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_clubs"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ClubListFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ListFragment"
         android:label="fragment_club_list"
         tools:layout="@layout/fragment_club_list" >
         <action
@@ -76,7 +76,7 @@
             app:destination = "@+id/nav_club_details" />
     </fragment>
     <fragment android:id="@+id/nav_club_details"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ClubDetailsFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.DetailsFragment"
         android:label="fragment_club_details"
         tools:layout="@layout/fragment_club_details" >
         <action

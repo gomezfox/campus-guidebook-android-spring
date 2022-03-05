@@ -18,9 +18,9 @@ import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.viewmodel.ClubListViewModel;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHolder> {
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
-    private List<ClubUIItem> mClubList;
+    private List<UIItem> mClubList;
     private final ClubListViewModel mViewModel;
     private LifecycleOwner mLifecycleOwner;
 
@@ -47,14 +47,14 @@ public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHo
 
     // ClubListAdapter constructor and methods
     // Initialize this adapter with a reference to the datasource to be used.
-    public ClubListAdapter(List<ClubUIItem> clubList, ClubListViewModel viewModel) {
+    public ListAdapter(List<UIItem> clubList, ClubListViewModel viewModel) {
         mClubList = clubList;
         mViewModel = viewModel;
     }
 
     // TODO: Investigate using SwitchMap to modify instead of completely replacing the list
     // Updates the list of clubs used by the RecyclerView
-    public void setList(List<ClubUIItem> newClubList) {
+    public void setList(List<UIItem> newClubList) {
         this.mClubList = newClubList;
         notifyDataSetChanged();
     }
@@ -81,21 +81,21 @@ public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
 
         // Get the data for a particular row within the list; return if null
-        ClubUIItem clubUIItem = mClubList.get(position);
+        UIItem UIItem = mClubList.get(position);
 
         // return if no data
-        if (clubUIItem == null || clubUIItem.getClub() == null) {
+        if (UIItem == null || UIItem.getClub() == null) {
             return;
         }
 
         // otherwise, fill in the ui with the clubItem data, using null checks for safety
         if (viewHolder.clubNameTextView != null) {
-            viewHolder.clubNameTextView.setText(clubUIItem.getClub().getClubName());
+            viewHolder.clubNameTextView.setText(UIItem.getClub().getClubName());
         }
 
         // the image is livedata so it needs an observer
         if (viewHolder.clubImageView != null) {
-            clubUIItem.getImage().observe(mLifecycleOwner, viewHolder.clubImageView::setImageDrawable);
+            UIItem.getImage().observe(mLifecycleOwner, viewHolder.clubImageView::setImageDrawable);
         }
     }
 
