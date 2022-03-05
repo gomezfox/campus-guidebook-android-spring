@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.Application;
 
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -7,6 +7,8 @@ import androidx.annotation.RequiresApi;
 
 import java.time.ZoneId;
 import java.util.TimeZone;
+
+import edu.cascadia.mobas.campusguidebook.R;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 

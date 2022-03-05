@@ -85,7 +85,7 @@
     </fragment>
     <fragment
         android:id="@+id/addEventFragment"
-        android:name="edu.cascadia.mobas.campusguidebook.AddEventFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.Application.AddEventFragment"
         android:label="fragment_add_event"
         tools:layout="@layout/fragment_add_event" >
         <action

@@ -11,9 +11,8 @@ import androidx.room.PrimaryKey;
 
 import java.time.ZonedDateTime;
 
-import edu.cascadia.mobas.campusguidebook.AppConfig;
-import edu.cascadia.mobas.campusguidebook.CampusGuidebookApp;
-import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
+import edu.cascadia.mobas.campusguidebook.Application.AppConfig;
+
 @RequiresApi(api = Build.VERSION_CODES.O)
 @Entity(tableName = "Club_Table")
 public class Club {

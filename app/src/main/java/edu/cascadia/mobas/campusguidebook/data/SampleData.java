@@ -9,7 +9,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 
-import edu.cascadia.mobas.campusguidebook.AppExecutors;
+import edu.cascadia.mobas.campusguidebook.Application.AppExecutors;
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 import edu.cascadia.mobas.campusguidebook.data.model.Club;
 import edu.cascadia.mobas.campusguidebook.data.model.Event;

@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.Application;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -24,6 +24,9 @@ import android.widget.Toast;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
+import edu.cascadia.mobas.campusguidebook.DatePickerFragment;
+import edu.cascadia.mobas.campusguidebook.R;
+import edu.cascadia.mobas.campusguidebook.TimePickerFragment;
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
 import edu.cascadia.mobas.campusguidebook.viewmodel.MainActivityViewModel;
 
