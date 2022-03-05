@@ -28,7 +28,7 @@ public class SustListFragment extends Fragment {
     private static final String TAG = "SustListFragment";
     private SustListViewModel mViewModel;
     private RecyclerView mRecyclerView;
-    private SustListAdapter mSustListAdapter;
+    private ListAdapter mListAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private LiveData<List<SustUIItem>> mSustList = null;
 
@@ -52,11 +52,11 @@ public class SustListFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity(), LinearLayoutManager.VERTICAL, false));
         mSustList = mViewModel.getAllSustainability();
-        mSustListAdapter = new SustListAdapter(mSustList.getValue(), mViewModel);
-        mRecyclerView.setAdapter(mSustListAdapter);
+        mListAdapter = new ListAdapter(mSustList.getValue(), mViewModel);
+        mRecyclerView.setAdapter(mListAdapter);
 
         // Respond to changes in LiveData
-        mSustList.observe(this.getViewLifecycleOwner(), (mSustList) -> mSustListAdapter.setList(mSustList));
+        mSustList.observe(this.getViewLifecycleOwner(), (mSustList) -> mListAdapter.setList(mSustList));
 
         // return the inflated root view
         return viewRoot;

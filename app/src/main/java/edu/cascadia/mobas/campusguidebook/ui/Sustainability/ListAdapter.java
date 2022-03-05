@@ -19,7 +19,7 @@ import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.viewmodel.SustListViewModel;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class SustListAdapter extends RecyclerView.Adapter<SustListAdapter.ViewHolder> {
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     private List<SustUIItem> mSustList;
     private final SustListViewModel mViewModel;
@@ -49,7 +49,7 @@ public class SustListAdapter extends RecyclerView.Adapter<SustListAdapter.ViewHo
 
     // SustListAdapter constructor and methods
     // Initialize this adapter with a reference to the datasource to be used.
-    public SustListAdapter(List<SustUIItem> SustList, SustListViewModel viewModel) {
+    public ListAdapter(List<SustUIItem> SustList, SustListViewModel viewModel) {
         mSustList = SustList;
         mViewModel = viewModel;
     }
