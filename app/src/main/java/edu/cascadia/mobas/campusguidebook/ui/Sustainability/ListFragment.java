@@ -30,7 +30,7 @@ public class ListFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ListAdapter mListAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private LiveData<List<SustUIItem>> mSustList = null;
+    private LiveData<List<UIItem>> mSustList = null;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
