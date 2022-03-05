@@ -2,8 +2,10 @@ package edu.cascadia.mobas.campusguidebook;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -43,6 +45,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +77,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
         return root;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onClick (View v) {
         switch (v.getId()){
@@ -93,7 +97,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
                 if (AddEvent()){
                     //show a succesful message to the user when adding an event and navigate to event page
                     Toast.makeText(this.getContext(), R.string.successfully_added_event, Toast.LENGTH_LONG).show();
-                    Navigation.findNavController(this.getView()).navigate(R.id.action_addEventFragment_to_nav_events);
+                    Navigation.findNavController(this.getView()).navigate(R.id.nav_events);
                 }
                 else
                     //show error message to an event not being able to be added
@@ -112,6 +116,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
                 mEditTextEventLocation.getText().toString(), mZonedDateTime);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
@@ -128,6 +133,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
         dialogTimeFragment.show(getFragmentManager(), "time picker");
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         //gets date that was chosen and sets the time

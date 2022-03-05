@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.data.model.Event;
@@ -20,8 +21,11 @@ import edu.cascadia.mobas.campusguidebook.databinding.FragmentEventListBinding;
 import edu.cascadia.mobas.campusguidebook.ui.events.EventListAdapter;
 import edu.cascadia.mobas.campusguidebook.viewmodel.EventListViewModel;
 
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +70,12 @@ public class EventListFragment extends Fragment {
         mEventList.observe(getViewLifecycleOwner(), (mEventList) -> {
             mEventListAdapter.setData(mEventList);
         });
+
+        FloatingActionButton addEventBtn = mBinding.getRoot().findViewById(R.id.floatingActionButton);
+        addEventBtn.setOnClickListener(view -> {
+            Navigation.findNavController(addEventBtn).navigate(R.id.addEventFragment);
+        });
+
         return mBinding.getRoot();
     }
 

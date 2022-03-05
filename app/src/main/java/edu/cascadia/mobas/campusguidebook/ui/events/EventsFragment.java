@@ -1,6 +1,7 @@
 package edu.cascadia.mobas.campusguidebook.ui.events;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -26,6 +28,7 @@ public class EventsFragment extends Fragment {
     private EventListViewModel slideshowViewModel;
     private FragmentEventsBinding binding;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         slideshowViewModel =
@@ -35,16 +38,13 @@ public class EventsFragment extends Fragment {
         View root = binding.getRoot();
 
         CardView card1 = root.findViewById(R.id.card);
-        Button addEventBtn = root.findViewById(R.id.addEventBtn);
 
 
         card1.setOnClickListener(CardView -> {
             Navigation.findNavController(card1).navigate(R.id.fragment_Event_Info);
         });
 
-        addEventBtn.setOnClickListener(view -> {
-            Navigation.findNavController(addEventBtn).navigate(R.id.addEventFragment);
-        });
+
 
         //final TextView textView = binding.spinner;
         //slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
