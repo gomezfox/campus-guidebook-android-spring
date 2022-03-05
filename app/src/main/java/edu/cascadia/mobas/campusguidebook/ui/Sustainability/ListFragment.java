@@ -23,7 +23,7 @@ import edu.cascadia.mobas.campusguidebook.viewmodel.SustListViewModel;
 // SustsListFragment
 // Displays the list of all Susts
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class SustListFragment extends Fragment {
+public class ListFragment extends Fragment {
 
     private static final String TAG = "SustListFragment";
     private SustListViewModel mViewModel;
