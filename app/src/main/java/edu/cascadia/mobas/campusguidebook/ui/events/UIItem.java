@@ -23,7 +23,7 @@ import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.databinding.FragmentEventsBinding;
 import edu.cascadia.mobas.campusguidebook.viewmodel.EventListViewModel;
 
-public class EventsFragment extends Fragment {
+public class UIItem extends androidx.fragment.app.Fragment {
 
     private EventListViewModel slideshowViewModel;
     private FragmentEventsBinding binding;
