@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.data.model.Event;
-import edu.cascadia.mobas.campusguidebook.databinding.FragmentEventListBinding;
+import edu.cascadia.mobas.campusguidebook.databinding.EventListBinding;
 import edu.cascadia.mobas.campusguidebook.viewmodel.EventListViewModel;
 
 import androidx.navigation.Navigation;
@@ -36,7 +36,7 @@ public class ListFragment extends Fragment {
     private ListAdapter mListAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private LiveData<List<Event>> mEventList = null;
-    private FragmentEventListBinding mBinding;
+    private EventListBinding mBinding;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -51,7 +51,7 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        mBinding = FragmentEventListBinding.inflate(inflater, container,false);
+        mBinding = EventListBinding.inflate(inflater, container,false);
 
         // RecyclerView setup
         mRecyclerView = mBinding.recyclerView;
