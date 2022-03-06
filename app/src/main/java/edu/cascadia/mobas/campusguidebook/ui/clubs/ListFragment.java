@@ -45,7 +45,7 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View viewRoot = inflater.inflate(R.layout.fragment_club_list, container, false);
+        View viewRoot = inflater.inflate(R.layout.club_list, container, false);
         viewRoot.setTag(TAG);
 
         // RecyclerView setup

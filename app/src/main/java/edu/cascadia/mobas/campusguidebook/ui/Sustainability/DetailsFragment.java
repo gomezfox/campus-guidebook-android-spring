@@ -60,6 +60,6 @@ public class DetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sust_details, container, false);
+        return inflater.inflate(R.layout.sust_details, container, false);
     }
 }

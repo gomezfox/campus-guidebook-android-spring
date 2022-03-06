@@ -62,7 +62,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_add_event, container, false);
+        View root = inflater.inflate(R.layout.add_event, container, false);
 
         //initialize textviews and buttons
         mEditTextEventName = root.findViewById(R.id.editTextEventName);

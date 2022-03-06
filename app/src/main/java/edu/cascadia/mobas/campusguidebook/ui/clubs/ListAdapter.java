@@ -71,7 +71,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         // Create a new view containing all the views for the UI of the list item
         View view = LayoutInflater.from(parentViewGroup.getContext())
-                .inflate(R.layout.fragment_club_list_item, parentViewGroup, false);
+                .inflate(R.layout.club_list_item, parentViewGroup, false);
 
         return new ViewHolder(view);
     }
