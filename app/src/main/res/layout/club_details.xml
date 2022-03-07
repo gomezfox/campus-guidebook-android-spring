@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top"
-    tools:context=".ui.clubs.ClubDetailsFragment">
+    tools:context=".ui.clubs.DetailsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView

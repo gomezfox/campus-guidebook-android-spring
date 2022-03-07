@@ -23,14 +23,14 @@ import edu.cascadia.mobas.campusguidebook.viewmodel.SustListViewModel;
 // SustsListFragment
 // Displays the list of all Susts
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class SustListFragment extends Fragment {
+public class ListFragment extends Fragment {
 
     private static final String TAG = "SustListFragment";
     private SustListViewModel mViewModel;
     private RecyclerView mRecyclerView;
-    private SustListAdapter mSustListAdapter;
+    private ListAdapter mListAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private LiveData<List<SustUIItem>> mSustList = null;
+    private LiveData<List<UIItem>> mSustList = null;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -44,7 +44,7 @@ public class SustListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View viewRoot = inflater.inflate(R.layout.fragment_sust_list, container, false);
+        View viewRoot = inflater.inflate(R.layout.sust_list, container, false);
         viewRoot.setTag(TAG);
 
         // RecyclerView setup
@@ -52,11 +52,11 @@ public class SustListFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity(), LinearLayoutManager.VERTICAL, false));
         mSustList = mViewModel.getAllSustainability();
-        mSustListAdapter = new SustListAdapter(mSustList.getValue(), mViewModel);
-        mRecyclerView.setAdapter(mSustListAdapter);
+        mListAdapter = new ListAdapter(mSustList.getValue(), mViewModel);
+        mRecyclerView.setAdapter(mListAdapter);
 
         // Respond to changes in LiveData
-        mSustList.observe(this.getViewLifecycleOwner(), (mSustList) -> mSustListAdapter.setList(mSustList));
+        mSustList.observe(this.getViewLifecycleOwner(), (mSustList) -> mListAdapter.setList(mSustList));
 
         // return the inflated root view
         return viewRoot;

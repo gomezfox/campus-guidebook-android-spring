@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.Application;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -24,6 +24,9 @@ import android.widget.Toast;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
+import edu.cascadia.mobas.campusguidebook.DatePickerFragment;
+import edu.cascadia.mobas.campusguidebook.R;
+import edu.cascadia.mobas.campusguidebook.TimePickerFragment;
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
 import edu.cascadia.mobas.campusguidebook.viewmodel.MainActivityViewModel;
 
@@ -59,7 +62,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_add_event, container, false);
+        View root = inflater.inflate(R.layout.add_event, container, false);
 
         //initialize textviews and buttons
         mEditTextEventName = root.findViewById(R.id.editTextEventName);

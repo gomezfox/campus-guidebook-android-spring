@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top"
-    tools:context=".ui.Sustainability.SustListFragment">
+    tools:context=".ui.Sustainability.ListFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView

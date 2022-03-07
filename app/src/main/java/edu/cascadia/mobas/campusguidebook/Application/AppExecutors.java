@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.Application;
 
 import android.os.Handler;
 import android.os.Looper;

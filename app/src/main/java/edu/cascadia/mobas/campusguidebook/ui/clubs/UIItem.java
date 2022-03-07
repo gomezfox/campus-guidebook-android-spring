@@ -6,12 +6,12 @@ import edu.cascadia.mobas.campusguidebook.data.model.Club;
 
 // This POJO class combines a club entity with a livedata of its associated image
 // TODO: this chooses composition. Should inheritance be considered?
-public class ClubUIItem {
+public class UIItem {
 
     private Club mClub;
     private LiveData<Drawable> mImage;
 
-    public ClubUIItem(Club club, LiveData<Drawable> image) {
+    public UIItem(Club club, LiveData<Drawable> image) {
         mClub = club;
         mImage = image;
     }

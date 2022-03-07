@@ -1,9 +1,10 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.Application;
 
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import edu.cascadia.mobas.campusguidebook.CampusGuidebookApp;
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
 import edu.cascadia.mobas.campusguidebook.data.repository.ImageRepository;
