@@ -1,10 +1,11 @@
-package edu.cascadia.mobas.campusguidebook.ui.clubs;
+package edu.cascadia.mobas.campusguidebook.ui;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -33,8 +34,14 @@ public abstract class BaseListFragment<T extends IEntity> extends Fragment {
 
     protected abstract LiveData<List<T>> getList();
 
+    protected abstract void itemClicked(T item);
+
     protected MainActivityViewModel getViewModel() {
         return mViewModel;
+    }
+
+    public LiveData<Drawable> getImage(String uri) {
+        return getViewModel().getImageFromUri(uri);
     }
 
     @Override
@@ -47,14 +54,14 @@ public abstract class BaseListFragment<T extends IEntity> extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View viewRoot = inflater.inflate(R.layout.fragment_list, container, false);
+        View viewRoot = inflater.inflate(R.layout.list_view, container, false);
         viewRoot.setTag(TAG);
 
         // RecyclerView setup
         RecyclerView recyclerView = viewRoot.findViewById(R.id.list_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity(), LinearLayoutManager.VERTICAL, false));
-        BaseListAdapter<T> adapter = new BaseListAdapter<T>(mList.getValue(), mViewModel);
+        BaseListAdapter<T> adapter = new BaseListAdapter<T>(mList.getValue(), this);
         recyclerView.setAdapter(adapter);
 
         // respond to changes in livedata

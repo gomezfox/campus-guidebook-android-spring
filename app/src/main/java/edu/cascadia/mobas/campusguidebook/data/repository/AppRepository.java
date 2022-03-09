@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import java.time.ZonedDateTime;
 import java.util.List;
-import edu.cascadia.mobas.campusguidebook.Application.AppExecutors;
+import edu.cascadia.mobas.campusguidebook.application.AppExecutors;
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 import edu.cascadia.mobas.campusguidebook.data.model.*;
 
