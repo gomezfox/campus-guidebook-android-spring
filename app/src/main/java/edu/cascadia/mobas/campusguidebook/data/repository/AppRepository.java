@@ -63,8 +63,8 @@ public class AppRepository {
         return mAppDatabase.SustainabilityDao().getAllSustainability();
     }
 
-    public boolean addNewEvent(String eventName, String eventDescription, String eventLocation, ZonedDateTime eventDateTime) {
-        Event event = new Event(eventName, eventDescription, eventLocation, eventDateTime);
+    public boolean addNewEvent(String eventName, String eventDescription, String eventLocation, ZonedDateTime eventDateTime, String imageUri) {
+        Event event = new Event(eventName, eventDescription, eventLocation, eventDateTime, imageUri);
         try {
             this.insert(event);
             return true;

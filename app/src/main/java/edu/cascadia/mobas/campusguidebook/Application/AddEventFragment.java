@@ -38,6 +38,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
     private EditText mEditTextEventName;
     private EditText mEditTextEventDescription;
     private EditText mEditTextEventLocation;
+    private EditText mEditTextImageLink;
     private Button mBtnPickDateTime;
     private Button mAddNewEventBtn;
     private TextView mTextViewDateTime;
@@ -71,6 +72,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
         mBtnPickDateTime = root.findViewById(R.id.btnPickDateTime);
         mAddNewEventBtn = root.findViewById(R.id.addNewEventBtn);
         mTextViewDateTime = root.findViewById(R.id.textViewDateTime);
+        mEditTextImageLink = root.findViewById(R.id.editTextImageLink);
 
         // call listener on buttons
         mBtnPickDateTime.setOnClickListener(this);
@@ -116,7 +118,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
         //passes the information
         return mViewModel.addNewEvent(mEditTextEventName.getText().toString(),
                 mEditTextEventDescription.getText().toString(),
-                mEditTextEventLocation.getText().toString(), mZonedDateTime);
+                mEditTextEventLocation.getText().toString(), mZonedDateTime, mEditTextImageLink.getText().toString());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

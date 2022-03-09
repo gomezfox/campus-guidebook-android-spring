@@ -21,7 +21,7 @@ public class MainActivityViewModel extends AndroidViewModel {
         mAppRepository = ((CampusGuidebookApp) application).getAppRepository();
     }
 
-    public boolean addNewEvent(String eventName, String eventDescription, String eventLocation, ZonedDateTime eventDateTime) {
-        return mAppRepository.addNewEvent(eventName, eventDescription, eventLocation, eventDateTime);
+    public boolean addNewEvent(String eventName, String eventDescription, String eventLocation, ZonedDateTime eventDateTime, String imageUri) {
+        return mAppRepository.addNewEvent(eventName, eventDescription, eventLocation, eventDateTime, imageUri);
     }
 }
