@@ -1,4 +1,4 @@
-package edu.cascadia.mobas.campusguidebook.ui.clubs;
+package edu.cascadia.mobas.campusguidebook.ui;
 
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -6,14 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -21,20 +18,19 @@ import java.util.List;
 
 import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.data.model.IEntity;
-import edu.cascadia.mobas.campusguidebook.viewmodel.MainActivityViewModel;
 
 public class BaseListAdapter<T extends IEntity> extends RecyclerView.Adapter<BaseListAdapter.ViewHolder> {
 
     private List<T> mList;
     private LifecycleOwner mLifecycleOwner;
-    private final MainActivityViewModel mViewModel;
+    private final BaseListFragment<T> mBaseListFragment;
 
 
     // ClubListAdapter constructor and methods
     // Initialize this adapter with a reference to the datasource to be used.
-    public BaseListAdapter(List<T> list, MainActivityViewModel viewModel) {
+    public BaseListAdapter(List<T> list, BaseListFragment<T> fragment) {
         mList = list;
-        this.mViewModel = viewModel;
+        this.mBaseListFragment = fragment;
     }
 
     // TODO: Investigate using SwitchMap to modify instead of completely replacing the list
@@ -60,21 +56,11 @@ public class BaseListAdapter<T extends IEntity> extends RecyclerView.Adapter<Bas
 
         // Create a new view containing all the views for the UI of the list item
         View view = LayoutInflater.from(parentViewGroup.getContext())
-                .inflate(R.layout.fragment_list_item, parentViewGroup, false);
+                .inflate(R.layout.list_view_item, parentViewGroup, false);
         ViewHolder holder = new ViewHolder(view);
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                IEntity item = mList.get(holder.getAdapterPosition());
-                mViewModel.setDetailsItem(item);
-                Toast.makeText(parentViewGroup.getContext(),
-                        "Clicked on " + item.getEntityName()
-                                + ": id=" + item.getId(), Toast.LENGTH_SHORT)
-                        .show();
-                //View navView = v.getRootView().getRootView().getRootView();
-                //NavController nav = Navigation.findNavController(navView);
-                //nav.navigate(R.id.nav_details);
-            }
+        holder.cardView.setOnClickListener(v -> {
+            T item = mList.get(holder.getAdapterPosition());
+            mBaseListFragment.itemClicked(item);
         });
         return holder;
     }
@@ -89,7 +75,7 @@ public class BaseListAdapter<T extends IEntity> extends RecyclerView.Adapter<Bas
 
         // get the drawable image as livedata and add an observer
         String imageUri = item.getImageUri();
-        LiveData<Drawable> drawableLiveData = mViewModel.getImageFromUri(imageUri);
+        LiveData<Drawable> drawableLiveData = mBaseListFragment.getImage(imageUri);
         drawableLiveData.observe(mLifecycleOwner, viewHolder.imageView::setImageDrawable);
     }
 

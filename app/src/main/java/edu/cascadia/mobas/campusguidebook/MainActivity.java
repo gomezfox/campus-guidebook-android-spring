@@ -7,19 +7,14 @@ import android.view.Menu;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.navigation.NavController;
-import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
-
-import edu.cascadia.mobas.campusguidebook.databinding.ActivityMainBinding;
-import edu.cascadia.mobas.campusguidebook.ui.clubs.ClubUIItem;
 
 public class MainActivity extends FragmentActivity {
     // Get the NavController
     private NavController navController;
-    private final MediatorLiveData<List<ClubUIItem>> mLiveClubList = new MediatorLiveData<List<ClubUIItem>>();
+//    private final MediatorLiveData<List<UIItem>> mLiveClubList = new MediatorLiveData<List<ClubUIItem>>();
 
     // No need to load the start destination, handled automatically by the Navigation component
     @Override

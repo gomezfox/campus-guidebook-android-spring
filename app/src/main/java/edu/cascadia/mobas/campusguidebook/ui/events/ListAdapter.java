@@ -78,24 +78,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         // Get the data for a particular row within the list; return if null
         Event EventItem = mEventList.get(position);
         if (EventItem == null) {
-            Log.d("EventListAdapter", "Event item is null");
             return;
         }
 
         String EventName = EventItem.getEventName();
-        Log.d("EventListAdapter", "Event name is " + EventName);
-
 
         // display the data from EventItem in the Views provided by the ViewHolder
         TextView tv = viewHolder.getTextView();
-        Log.d("EventListAdapter", "getTextView returns " + (tv == null ? "null" : "view"));
         if (tv == null) {
             return;
         }
-        Log.d("EventListAdapter", "Setting textview to " + EventName);
         tv.setText(EventName);
-        // TODO: replace static image below with one based on uri in Event.getUri
-        // viewHolder.getImageView().setImageResource(R.drawable.engineer_s_mindset__1_);
     }
 
     // Used by the layout manager to determine the number of Events in the list

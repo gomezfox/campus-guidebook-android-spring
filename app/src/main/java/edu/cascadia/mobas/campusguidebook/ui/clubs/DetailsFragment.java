@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
@@ -16,18 +15,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.data.model.Club;
 import edu.cascadia.mobas.campusguidebook.viewmodel.MainActivityViewModel;
 
-public class ClubDetailsFragment extends Fragment {
+public class DetailsFragment extends Fragment {
 
     private Club club;
     private MainActivityViewModel viewModel;
@@ -47,7 +42,7 @@ public class ClubDetailsFragment extends Fragment {
     TextView propertyValue2;
     TextView propertyValue3;
 
-    public ClubDetailsFragment() {
+    public DetailsFragment() {
         viewModel = new ViewModelProvider(this.getActivity()).get(MainActivityViewModel.class);
         club = (Club) viewModel.getDetailsItem();
     }
@@ -62,7 +57,7 @@ public class ClubDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_details, container, false);
+        View view = inflater.inflate(R.layout.list_view_details, container, false);
 
         image = view.findViewById(R.id.imageview_details);
         viewDateTime = view.findViewById(R.id.button_datetime);
