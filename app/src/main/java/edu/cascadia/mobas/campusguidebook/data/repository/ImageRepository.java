@@ -74,6 +74,12 @@ public class ImageRepository {
         return sImageRepository;
     }
 
+    // returns the singleton instance only if it already exists
+    @Nullable
+    public static ImageRepository getInstance() {
+        return sImageRepository;
+    }
+
     // returns an Drawable image wrapped in LiveData
     @NonNull
     public LiveData<Drawable> getImage(@Nullable final String uri) {

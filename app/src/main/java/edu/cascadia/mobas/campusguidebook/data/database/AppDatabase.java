@@ -27,7 +27,7 @@ import edu.cascadia.mobas.campusguidebook.Application.AppExecutors;
         Club.class,
         Sustainability.class,
         User.class}, version = 1)
-@TypeConverters(ZonedDateTimeConverter.class)
+@TypeConverters({ZonedDateTimeConverter.class, PropertyListTypeConverter.class})
 @RequiresApi(api = Build.VERSION_CODES.O)
 public abstract class AppDatabase extends RoomDatabase {
 
