@@ -22,8 +22,8 @@ import java.net.URL;
 import java.util.Map;
 import java.util.TreeMap;
 
-import edu.cascadia.mobas.campusguidebook.AppConfig;
-import edu.cascadia.mobas.campusguidebook.AppExecutors;
+import edu.cascadia.mobas.campusguidebook.Application.AppConfig;
+import edu.cascadia.mobas.campusguidebook.Application.AppExecutors;
 import edu.cascadia.mobas.campusguidebook.CampusGuidebookApp;
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 

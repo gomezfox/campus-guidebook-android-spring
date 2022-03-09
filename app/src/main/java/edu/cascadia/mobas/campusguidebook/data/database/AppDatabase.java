@@ -12,12 +12,12 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import edu.cascadia.mobas.campusguidebook.AppConfig;
+import edu.cascadia.mobas.campusguidebook.Application.AppConfig;
 import edu.cascadia.mobas.campusguidebook.data.SampleData;
 import edu.cascadia.mobas.campusguidebook.data.dao.*;
 import edu.cascadia.mobas.campusguidebook.data.model.*;
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.*;
-import edu.cascadia.mobas.campusguidebook.AppExecutors;
+import edu.cascadia.mobas.campusguidebook.Application.AppExecutors;
 
 
 

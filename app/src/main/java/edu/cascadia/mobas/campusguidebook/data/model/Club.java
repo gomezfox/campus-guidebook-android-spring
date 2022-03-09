@@ -10,6 +10,9 @@ import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
+import edu.cascadia.mobas.campusguidebook.Application.AppConfig;
+
+@RequiresApi(api = Build.VERSION_CODES.O)
 import edu.cascadia.mobas.campusguidebook.AppConfig;
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.PropertyListTypeConverter;
 

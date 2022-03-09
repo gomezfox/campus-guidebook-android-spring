@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,12 +14,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.databinding.FragmentHomeBinding;
+import edu.cascadia.mobas.campusguidebook.databinding.HomeBinding;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private FragmentHomeBinding binding;
+    private HomeBinding binding;
 
 
     // All UI behavior has moved from MainActivity to fragments
@@ -27,7 +28,8 @@ public class HomeFragment extends Fragment {
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = HomeBinding.inflate(inflater, container, false);
+
         return binding.getRoot();
     }
 
@@ -53,6 +55,7 @@ public class HomeFragment extends Fragment {
                 Navigation.findNavController(binding.cardViewHomeClubs)
                         .navigate(R.id.action_nav_home_to_nav_clubs);
         });
+
     }
 
     @Override

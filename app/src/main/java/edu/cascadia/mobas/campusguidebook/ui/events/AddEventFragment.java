@@ -1,7 +1,8 @@
-package edu.cascadia.mobas.campusguidebook;
+package edu.cascadia.mobas.campusguidebook.application;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
@@ -22,6 +23,9 @@ import android.widget.Toast;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
+import edu.cascadia.mobas.campusguidebook.DatePickerFragment;
+import edu.cascadia.mobas.campusguidebook.R;
+import edu.cascadia.mobas.campusguidebook.TimePickerFragment;
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
 import edu.cascadia.mobas.campusguidebook.viewmodel.MainActivityViewModel;
 
@@ -56,7 +60,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_add_event, container, false);
+        View root = inflater.inflate(R.layout.add_event, container, false);
 
         //initialize textviews and buttons
         mEditTextEventName = root.findViewById(R.id.editTextEventName);
@@ -93,7 +97,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
                 if (AddEvent()){
                     //show a succesful message to the user when adding an event and navigate to event page
                     Toast.makeText(this.getContext(), R.string.successfully_added_event, Toast.LENGTH_LONG).show();
-                    Navigation.findNavController(this.getView()).navigate(R.id.action_addEventFragment_to_nav_events);
+                    Navigation.findNavController(this.getView()).navigate(R.id.nav_events);
                 }
                 else
                     //show error message to an event not being able to be added

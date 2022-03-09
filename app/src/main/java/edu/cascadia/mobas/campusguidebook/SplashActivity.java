@@ -1,22 +1,16 @@
 package edu.cascadia.mobas.campusguidebook;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.collection.LruCache;
-import androidx.lifecycle.LiveData;
 
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.content.Intent;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import edu.cascadia.mobas.campusguidebook.data.model.Club;
-import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
-import edu.cascadia.mobas.campusguidebook.data.repository.ImageRepository;
+import edu.cascadia.mobas.campusguidebook.Application.AppConfig;
+import edu.cascadia.mobas.campusguidebook.Application.AppInit;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class SplashActivity extends AppCompatActivity {

@@ -9,10 +9,10 @@
         android:id="@+id/nav_home"
         android:name="edu.cascadia.mobas.campusguidebook.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/home" >
         <action
             android:id="@+id/action_nav_home_to_nav_events"
-            app:destination="@id/nav_event_list" />
+            app:destination="@id/nav_events" />
         <action
             android:id="@+id/action_nav_home_to_nav_sust_list"
             app:destination="@id/nav_sust_list" />
@@ -30,15 +30,15 @@
         tools:layout="@layout/fragment_wetlands" />
 
     <fragment
-        android:id="@+id/nav_event_list"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.events.EventListFragment"
+        android:id="@+id/nav_events"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.events.ListFragment"
         android:label="@string/menu_events"
-        tools:layout="@layout/fragment_event_list" >
+        tools:layout="@layout/events" >
         <action
-            android:id="@+id/action_nav_event_list_to_fragment_event_info"
-            app:destination="@id/fragment_event_info" />
+            android:id="@+id/action_nav_events_to_fragment_Event_Info"
+            app:destination="@id/fragment_Event_Info" />
         <action
-            android:id="@+id/action_nav_event_list_to_nav_home"
+            android:id="@+id/action_nav_events_to_nav_home"
             app:destination="@id/nav_home" />
         <action
             android:id="@+id/action_nav_events_to_addEventFragment"
@@ -47,15 +47,15 @@
 
     <fragment
         android:id="@+id/nav_sust_list"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.Sustainability.SustListFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.Sustainability.ListFragment"
         android:label="@string/menu_sust_list"
-        tools:layout="@layout/fragment_sust_list" >
+        tools:layout="@layout/sust_list" >
         <action
             android:id="@+id/action_nav_sustainability_list_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
     <fragment
-        android:id="@+id/fragment_event_info"
+        android:id="@+id/fragment_Event_Info"
         android:name="edu.cascadia.mobas.campusguidebook.Fragment_Event_Info"
         android:label="Event Info"
         tools:layout="@layout/fragment__event__info" >
@@ -65,29 +65,29 @@
     </fragment>
     <fragment
         android:id="@+id/nav_clubs"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ClubListFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ListFragment"
         android:label="fragment_club_list"
-        tools:layout="@layout/fragment_list">
+        tools:layout="@layout/club_list" >
         <action
             android:id="@+id/action_nav_clubs_to_nav_home"
             app:destination="@id/nav_home" />
         <action
             android:id="@+id/action_nav_clubs_to_nav_club_details"
-            app:destination="@+id/nav_details" />
+            app:destination = "@+id/nav_club_details" />
     </fragment>
-    <fragment android:id="@+id/nav_details"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ClubDetailsFragment"
+    <fragment android:id="@+id/nav_club_details"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.DetailsFragment"
         android:label="fragment_club_details"
-        tools:layout="@layout/fragment_details" >
+        tools:layout="@layout/club_details" >
         <action
             android:id="@+id/action_nav_club_details_to_nav_clubs"
             app:destination="@id/nav_clubs" />
     </fragment>
     <fragment
         android:id="@+id/addEventFragment"
-        android:name="edu.cascadia.mobas.campusguidebook.AddEventFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.Application.AddEventFragment"
         android:label="fragment_add_event"
-        tools:layout="@layout/fragment_add_event" >
+        tools:layout="@layout/add_event" >
         <action
             android:id="@+id/action_addEventFragment_to_nav_events"
             app:destination="@id/nav_events" />

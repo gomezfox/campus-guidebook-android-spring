@@ -1,7 +1,5 @@
 package edu.cascadia.mobas.campusguidebook.data.repository;
 
-import android.app.Application;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Log;
 
@@ -10,9 +8,8 @@ import androidx.lifecycle.LiveData;
 
 import java.time.ZonedDateTime;
 import java.util.List;
-import edu.cascadia.mobas.campusguidebook.AppExecutors;
+import edu.cascadia.mobas.campusguidebook.Application.AppExecutors;
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
-import edu.cascadia.mobas.campusguidebook.data.dao.*;
 import edu.cascadia.mobas.campusguidebook.data.model.*;
 
 @RequiresApi(api = Build.VERSION_CODES.O)

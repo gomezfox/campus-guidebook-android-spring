@@ -19,9 +19,9 @@ import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.viewmodel.SustListViewModel;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class SustListAdapter extends RecyclerView.Adapter<SustListAdapter.ViewHolder> {
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
-    private List<SustUIItem> mSustList;
+    private List<UIItem> mSustList;
     private final SustListViewModel mViewModel;
     private LifecycleOwner mLifecycleOwner;
 
@@ -49,14 +49,14 @@ public class SustListAdapter extends RecyclerView.Adapter<SustListAdapter.ViewHo
 
     // SustListAdapter constructor and methods
     // Initialize this adapter with a reference to the datasource to be used.
-    public SustListAdapter(List<SustUIItem> SustList, SustListViewModel viewModel) {
+    public ListAdapter(List<UIItem> SustList, SustListViewModel viewModel) {
         mSustList = SustList;
         mViewModel = viewModel;
     }
 
     // TODO: Investigate using SwitchMap to modify instead of completely replacing the list
     // Updates the list of Sustainability  used by the RecyclerView
-    public void setList(List<SustUIItem> newSustList) {
+    public void setList(List<UIItem> newSustList) {
         this.mSustList = newSustList;
         notifyDataSetChanged();
     }
@@ -74,7 +74,7 @@ public class SustListAdapter extends RecyclerView.Adapter<SustListAdapter.ViewHo
 
         // Create a new view containing all the views for the UI of the list item
         View view = LayoutInflater.from(parentViewGroup.getContext())
-                .inflate(R.layout.fragment_sust_list_item, parentViewGroup, false);
+                .inflate(R.layout.sust_list_item, parentViewGroup, false);
 
         return new ViewHolder(view);
     }
@@ -84,21 +84,21 @@ public class SustListAdapter extends RecyclerView.Adapter<SustListAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
 
         // Get the data for a particular row within the list; return if null
-        SustUIItem sustUIItem = mSustList.get(position);
+        UIItem UIItem = mSustList.get(position);
 
         // return if no data
-        if (sustUIItem == null || sustUIItem.getSustainability() == null) {
+        if (UIItem == null || UIItem.getSustainability() == null) {
             return;
         }
 
         // otherwise, fill in the ui with the SustItem data, using null checks for safety
         if (viewHolder.SustNameTextView != null) {
-            viewHolder.SustNameTextView.setText(sustUIItem.getSustainability().getSustainabilityName());
+            viewHolder.SustNameTextView.setText(UIItem.getSustainability().getSustainabilityName());
         }
 
         // the image is livedata so it needs an observer
         if (viewHolder.SustImageView != null) {
-            sustUIItem.getImage().observe(mLifecycleOwner, viewHolder.SustImageView::setImageDrawable);
+            UIItem.getImage().observe(mLifecycleOwner, viewHolder.SustImageView::setImageDrawable);
         }
     }
 

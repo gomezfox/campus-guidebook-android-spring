@@ -4,13 +4,13 @@ import android.graphics.drawable.Drawable;
 import androidx.lifecycle.LiveData;
 import edu.cascadia.mobas.campusguidebook.data.model.Sustainability;
 
-public class SustUIItem {
+public class UIItem {
 
     private static LiveData<Drawable> mImage;
     private Sustainability mSustainability;
 
 
-    public SustUIItem(Sustainability sustainability, LiveData<Drawable> image) {
+    public UIItem(Sustainability sustainability, LiveData<Drawable> image) {
         mSustainability = sustainability;
         mImage = image;
     }
