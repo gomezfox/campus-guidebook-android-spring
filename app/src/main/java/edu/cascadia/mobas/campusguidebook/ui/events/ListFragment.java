@@ -35,7 +35,7 @@ public class ListFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ListAdapter mListAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private LiveData<List<Event>> mEventList = null;
+    private LiveData<List<UIItem>> mEventList = null;
     private EventListBinding mBinding;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -58,13 +58,11 @@ public class ListFragment extends Fragment {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity(), LinearLayoutManager.VERTICAL, false));
-        mListAdapter = new ListAdapter(mEventList.getValue());
+        mListAdapter = new ListAdapter(mEventList.getValue(), mViewModel);
         mRecyclerView.setAdapter(mListAdapter);
 
         // Respond to changes in LiveData
-        mEventList.observe(getViewLifecycleOwner(), (mEventList) -> {
-            mListAdapter.setData(mEventList);
-        });
+        mEventList.observe(this.getViewLifecycleOwner(), (mEventList) -> mListAdapter.setList(mEventList));
 
         FloatingActionButton addEventBtn = mBinding.getRoot().findViewById(R.id.floatingActionButton);
         addEventBtn.setOnClickListener(view -> {

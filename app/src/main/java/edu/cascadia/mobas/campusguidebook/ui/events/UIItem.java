@@ -1,57 +1,32 @@
 package edu.cascadia.mobas.campusguidebook.ui.events;
 
-import android.os.Build;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.graphics.drawable.Drawable;
+import androidx.lifecycle.LiveData;
+import edu.cascadia.mobas.campusguidebook.data.model.Event;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.cardview.widget.CardView;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
+public class UIItem {
 
-import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.databinding.EventsBinding;
-import edu.cascadia.mobas.campusguidebook.viewmodel.EventListViewModel;
+    private Event mEvent;
+    private LiveData<Drawable> mImage;
 
-public class UIItem extends androidx.fragment.app.Fragment {
-
-    private EventListViewModel slideshowViewModel;
-    private EventsBinding binding;
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(EventListViewModel.class);
-//TODO: this may be needed. if not, clean this code
-        binding = EventsBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        /*CardView card1 = root.findViewById(R.id.card);
-
-
-        card1.setOnClickListener(CardView -> {
-            Navigation.findNavController(card1).navigate(R.id.fragment_Event_Info);
-        });*/
-
-
-
-        //final TextView textView = binding.spinner;
-        //slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-        //    @Override
-        //    public void onChanged(@Nullable String s) {
-        //        textView.setText(s);
-        //    }
-        //});
-        return root;
+    public UIItem(Event event, LiveData<Drawable> image) {
+        mEvent = event;
+        mImage = image;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public Event getEvent() {
+        return this.mEvent;
+    }
+
+    public void setEvent(Event mEvent) {
+        this.mEvent = mEvent;
+    }
+
+    public LiveData<Drawable> getImage() {
+        return this.mImage;
+    }
+
+    public void setImage(LiveData<Drawable> image) {
+        this.mImage = image;
     }
 }
