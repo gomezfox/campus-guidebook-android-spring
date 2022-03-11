@@ -1,5 +1,6 @@
 package edu.cascadia.mobas.campusguidebook.ui.Sustainability;
 
+import android.content.Intent;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,6 +44,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             SustImageView = parentView.findViewById(R.id.imageView_sust_banner);
             SustNameTextView = parentView.findViewById(R.id.textView_sust_title);
             // TODO: Define click listener(s) for the ViewHolder's CardView
+
 
         }
     }  // End of static ViewHolder class
