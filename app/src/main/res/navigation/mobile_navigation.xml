@@ -85,6 +85,7 @@
         tools:layout="@layout/add_event" >
         <action
             android:id="@+id/action_addEventFragment_to_nav_events"
-            app:destination="@id/nav_events" />
+            app:destination="@id/nav_events"
+            app:popUpTo="@id/nav_events" />
     </fragment>
 </navigation>

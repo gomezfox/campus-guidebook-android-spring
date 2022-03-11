@@ -1,11 +1,10 @@
-package edu.cascadia.mobas.campusguidebook.Application;
+package edu.cascadia.mobas.campusguidebook.ui.events;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -26,11 +25,12 @@ import android.widget.Toast;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-import edu.cascadia.mobas.campusguidebook.DatePickerFragment;
+import edu.cascadia.mobas.campusguidebook.ui.events.DatePickerFragment;
 import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.TimePickerFragment;
+import edu.cascadia.mobas.campusguidebook.ui.events.TimePickerFragment;
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
 import edu.cascadia.mobas.campusguidebook.viewmodel.MainActivityViewModel;
+import edu.cascadia.mobas.campusguidebook.application.AppConfig;
 
 
 public class AddEventFragment extends Fragment implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, View.OnClickListener {
@@ -51,7 +51,6 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +84,6 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onClick (View v) {
         switch (v.getId()){
@@ -105,7 +103,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
                 if (AddEvent()){
                     //show a succesful message to the user when adding an event and navigate to event page
                     Toast.makeText(this.getContext(), R.string.successfully_added_event, Toast.LENGTH_LONG).show();
-                    Navigation.findNavController(this.getView()).navigate(R.id.nav_events);
+                    Navigation.findNavController(this.getView()).popBackStack();
                 }
                 else
                     //show error message to an event not being able to be added
@@ -124,7 +122,6 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
                 mEditTextEventLocation.getText().toString(), mZonedDateTime, mEditTextImageLink.getText().toString());
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
@@ -141,7 +138,6 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
         dialogTimeFragment.show(getFragmentManager(), "time picker");
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         //gets date that was chosen and sets the time
