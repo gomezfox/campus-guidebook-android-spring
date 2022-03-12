@@ -17,8 +17,9 @@ public class SampleData {
 
     private static final ZoneId zoneId = TimeZone.getTimeZone("America/Los_Angeles").toZoneId();
     public static final Event[] events = {
+            new Event("Events and Advocacy Board", "Roll the dice at EAB and CEB's annual Casino Night!", "ARC Overlook", ZonedDateTime.of(2022,2,22,17,0,0,0, zoneId),"https://padlet-uploads.storage.googleapis.com/621406566/f8a534f5b3cd80d89c87fcf7b2bc9392/Casino_Night_Final__11x17in_.png"),
+            new Event("Engineering Club - Symposium", "The biggest Engineering event of the year", "CC2-120", ZonedDateTime.of(2022, 10, 7, 11, 0, 0, 0, zoneId), "https://www.cascadia.edu/images_calendar/collegerelations/CCEngineersClub.png"),
             new Event("Math Club - Weekly Meeting", "Meets every other Tuesday at 3:30", "CC1-210", ZonedDateTime.of(2022,3,1,15,30,0,0, zoneId)),
-            new Event("Engineering Club - Symposium", "The biggest Engineering event of the year", "CC2-120", ZonedDateTime.of(2022, 10, 7, 11, 0, 0, 0, zoneId)),
             new Event("Science Club - Weekly Meeting", "Meets every other Tuesday at 3:30", "CC1-210", ZonedDateTime.of(2022,3,1,15,30,0,0, zoneId)),
             new Event("Art Club - Symposium", "The biggest Art event of the year", "CC2-120", ZonedDateTime.of(2022, 10, 7, 11, 0, 0, 0, zoneId)),
             new Event("Programming Club - Weekly Meeting", "Meets every other Tuesday at 3:30", "CC1-210", ZonedDateTime.of(2022,3,1,15,30,0,0, zoneId)),
