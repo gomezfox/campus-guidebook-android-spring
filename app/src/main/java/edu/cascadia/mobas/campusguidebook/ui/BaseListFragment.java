@@ -33,6 +33,7 @@ public abstract class BaseListFragment<T extends IEntity> extends Fragment {
     private MainActivityViewModel mViewModel;
     private LiveData<List<T>> mList = new MutableLiveData<>();
     private FloatingActionButton mFloatingActionButton;
+    private View mRoot;
 
     protected abstract LiveData<List<T>> getList();
 
@@ -44,6 +45,10 @@ public abstract class BaseListFragment<T extends IEntity> extends Fragment {
 
     public LiveData<Drawable> getImage(String uri) {
         return getViewModel().getImageFromUri(uri);
+    }
+
+    protected View getRootView() {
+        return mRoot;
     }
 
     @Override
@@ -69,15 +74,31 @@ public abstract class BaseListFragment<T extends IEntity> extends Fragment {
         // get floatingActionButton
         mFloatingActionButton = viewRoot.findViewById(R.id.floatingActionButton);
 
-
         // respond to changes in livedata
         mList.observe(this.getViewLifecycleOwner(), adapter::setList);
+
+        //exposing the root view for the fragment
+        mRoot = viewRoot;
         return viewRoot;
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mRoot = null;
+        mFloatingActionButton = null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mList = null;
+        mViewModel = null;
     }
 
     protected FloatingActionButton getFloatingActionButton() {
