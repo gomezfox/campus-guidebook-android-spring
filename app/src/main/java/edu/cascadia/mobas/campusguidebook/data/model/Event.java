@@ -1,6 +1,7 @@
 package edu.cascadia.mobas.campusguidebook.data.model;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.time.ZonedDateTime;
@@ -34,9 +35,21 @@ public class Event {
     @ColumnInfo(name = "date_time")
     private ZonedDateTime dateTime;
 
+    @ColumnInfo(name = "image_uri")
+    private String imageUri;
+
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
+    public Event(String eventName, String description, String location, ZonedDateTime dateTime, String imageUri) {
+        this.eventName = eventName;
+        this.description = description;
+        this.location = location;
+        this.dateTime = dateTime;
+        this.imageUri = imageUri;
+    }
+
+    @Ignore
     public Event(String eventName, String description, String location, ZonedDateTime dateTime) {
         this.eventName = eventName;
         this.description = description;
@@ -73,5 +86,12 @@ public class Event {
     public ZonedDateTime getDateTime(){ return this.dateTime; }
     public void setDateTime(ZonedDateTime dateTime){
         this.dateTime = dateTime;
+    }
+
+    public String getImageUri() {
+        return this.imageUri;
+    }
+    public void setImageUri(String uri) {
+        this.imageUri = uri;
     }
 }

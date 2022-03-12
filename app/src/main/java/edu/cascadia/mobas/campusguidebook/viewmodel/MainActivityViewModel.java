@@ -68,7 +68,7 @@ public class MainActivityViewModel extends AndroidViewModel {
         return mImageRepository.getImage(uri);
     }
 
-    public boolean addNewEvent(String eventName, String eventDescription, String eventLocation, ZonedDateTime eventDateTime) {
-        return mAppRepository.addNewEvent(eventName, eventDescription, eventLocation, eventDateTime);
+    public boolean addNewEvent(String eventName, String eventDescription, String eventLocation, ZonedDateTime eventDateTime, String imageUri) {
+        return mAppRepository.addNewEvent(eventName, eventDescription, eventLocation, eventDateTime, imageUri);
     }
 }

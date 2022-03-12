@@ -16,7 +16,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left"
             android:orientation="vertical">
 
             <TextView
@@ -102,7 +104,24 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
                 android:text="Pick Date and Time" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Image Link"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextImageLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter link of image"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/addNewEventBtn"
@@ -112,6 +131,7 @@
                 android:layout_marginTop="48dp"
                 android:backgroundTint="#8BC34A"
                 android:text="Add Event" />
+
         </LinearLayout>
     </ScrollView>
 
