@@ -21,6 +21,8 @@ import edu.cascadia.mobas.campusguidebook.viewmodel.MainActivityViewModel;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.List;
 
 // ListFragment
@@ -29,8 +31,8 @@ public abstract class BaseListFragment<T extends IEntity> extends Fragment {
 
     private String TAG = "ListFragment";
     private MainActivityViewModel mViewModel;
-    private BaseListAdapter<T> mBaseListAdapter;
     private LiveData<List<T>> mList = new MutableLiveData<>();
+    private FloatingActionButton mFloatingActionButton;
 
     protected abstract LiveData<List<T>> getList();
 
@@ -64,6 +66,10 @@ public abstract class BaseListFragment<T extends IEntity> extends Fragment {
         BaseListAdapter<T> adapter = new BaseListAdapter<T>(mList.getValue(), this);
         recyclerView.setAdapter(adapter);
 
+        // get floatingActionButton
+        mFloatingActionButton = viewRoot.findViewById(R.id.floatingActionButton);
+
+
         // respond to changes in livedata
         mList.observe(this.getViewLifecycleOwner(), adapter::setList);
         return viewRoot;
@@ -72,6 +78,10 @@ public abstract class BaseListFragment<T extends IEntity> extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
+    }
+
+    protected FloatingActionButton getFloatingActionButton() {
+        return mFloatingActionButton;
     }
 
     protected void setTag(String tag) {
