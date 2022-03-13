@@ -3,23 +3,26 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Sustainability_Table")
-public class Sustainability {
+import java.time.ZonedDateTime;
+import java.util.Map;
+
+@Entity(tableName = "Sustainability")
+public class Sustainability implements IEntity {
 
     // below line is to auto increment
     // id for each Sustainability.
     @PrimaryKey(autoGenerate = true)
 
     // entity field for our id.
-    private int id;
+    private Long id;
 
     // entity field for sustainability name
-    @ColumnInfo(name = "sustainability_name")
-    private String sustainabilityName;
+    @ColumnInfo(name = "name")
+    private String name;
 
-    // entity field for sustainability description
-    @ColumnInfo(name = "sustainability_description")
-    private String sustainabilityDescription;
+    // entity field for sustainability details
+    @ColumnInfo(name = "details")
+    private String details;
 
     @ColumnInfo(name = "image_uri")
     private String imageUri;
@@ -27,38 +30,66 @@ public class Sustainability {
     // below line we are creating constructor class.
     // inside constructor class we are not passing
     // our id because it is incrementing automatically
-    public Sustainability(String sustainabilityName, String sustainabilityDescription) {
-        this.sustainabilityName = sustainabilityName;
-        this.sustainabilityDescription = sustainabilityDescription;
+    public Sustainability(Long id, String name, String details, String imageUri) {
+        this.id = id;
+        this.name = name;
+        this.details = details;
+        this.imageUri = imageUri;
     }
 
     // on below lines we are creating
     // getter and setter methods.
-    public String getSustainabilityName() {
-        return sustainabilityName;
-    }
-    public void setSustainabilityName(String name) { this.sustainabilityName = name; }
 
+    public void setName(String name) { this.name = name; }
+    @Override
     public String getImageUri() {
         return this.imageUri;
     }
+
+    @Override
+    public Map<String, String> getProperties() {
+        return null;
+    }
+
+    @Override
+    public ZonedDateTime getLastUpdated() {
+        return null;
+    }
+
+    @Override
+    public int getUploadStatus() {
+        return 0;
+    }
+
+    @Override
+    public String getEntityName() {
+        return this.getClass().getSimpleName();
+    }
+
     public void setImageUri(String uri) {
         this.imageUri = uri;
     }
 
-    public String getSustainabilityDescription() {
-        return sustainabilityDescription;
+    public void setdetails(String details) {
+        this.details = details;
     }
-    public void setSustainabilityDescription(String sustainabilityDescription) {
-        this.sustainabilityDescription = sustainabilityDescription;
-    }
-
-    public int getId() {
+    @Override
+    public long getId() {
         return id;
     }
 
-    public void setId(int ID) {
-        this.id = ID;
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public String getDetails() {
+        return this.details;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }
