@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="194dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/cascadia_college_logo"
+        android:src="@drawable/cascadia_logo_blue"
         android:contentDescription=""/>
 
     <!-- content -->

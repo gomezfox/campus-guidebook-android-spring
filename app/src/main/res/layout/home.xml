@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img" />
+                android:src="@drawable/sand_dunes" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -157,7 +157,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="centerInside"
-                android:src="@drawable/engineer_s_mindset__1_" />
+                android:src="@drawable/engineers_mindset" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -279,7 +279,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img" />
+                android:src="@drawable/sand_dunes" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -310,7 +310,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img" />
+                android:src="@drawable/sand_dunes" />
 
             <TextView
                 android:layout_width="match_parent"

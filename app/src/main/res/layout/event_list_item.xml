@@ -31,7 +31,7 @@
                 android:layout_height="194dp"
                 android:scaleType="centerCrop"
                 android:contentDescription="List of events "
-                android:src="@drawable/cascadia_banner" />
+                android:src="@drawable/cascadia_logo_grey" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

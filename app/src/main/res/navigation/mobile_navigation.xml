@@ -50,13 +50,22 @@
             android:id="@+id/action_nav_sust_list_to_nav_sust_details"
             app:destination="@id/nav_sust_details" />
     </fragment>
+
     <fragment
         android:id="@+id/nav_sust_details"
         android:name="edu.cascadia.mobas.campusguidebook.ui.Sustainability.DetailsFragment"
         android:label="@string/sustainability_Details"
         tools:layout="@layout/sust_view_details" >
+    </fragment>
 
-
+    <fragment
+        android:id="@+id/nav_club_details"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.DetailsFragment"
+        android:label="Club Details"
+        tools:layout="@layout/details_view" >
+        <action
+            android:id="@+id/action_nav_club_list_to_nav_club_details"
+            app:destination="@id/nav_club_details" />
     </fragment>
 
     <fragment
