@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/nav_sust_list"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.Sustainability.ListFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.Sustainability.SustListFragment"
         android:label="@string/menu_sust_list"
         tools:layout="@layout/sust_list" >
         <action
@@ -53,14 +53,14 @@
 
     <fragment
         android:id="@+id/nav_sust_details"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.Sustainability.DetailsFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.Sustainability.SustDetailsFragment"
         android:label="@string/sustainability_Details"
         tools:layout="@layout/sust_view_details" >
     </fragment>
 
     <fragment
         android:id="@+id/nav_club_details"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.DetailsFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ClubDetailsFragment"
         android:label="Club Details"
         tools:layout="@layout/details_view" >
         <action
@@ -70,7 +70,7 @@
 
     <fragment
         android:id="@+id/nav_clubs"
-        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ListFragment"
+        android:name="edu.cascadia.mobas.campusguidebook.ui.clubs.ClubListFragment"
         android:label="fragment_club_list"
         tools:layout="@layout/list_view" >
         <action
