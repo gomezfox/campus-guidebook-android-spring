@@ -9,9 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import java.time.ZonedDateTime;
-import java.util.Calendar;
 
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
+
 
 public class DatePickerFragment  extends DialogFragment {
 
@@ -29,6 +29,7 @@ public class DatePickerFragment  extends DialogFragment {
 
     public DatePickerFragment(Bundle savedInstanceState) {
         super();
+
         //gets bundle from savedinstance
         mBundle = savedInstanceState;
     }

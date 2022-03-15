@@ -21,6 +21,7 @@ import edu.cascadia.mobas.campusguidebook.data.model.Sustainability;
 import edu.cascadia.mobas.campusguidebook.data.repository.AppRepository;
 import edu.cascadia.mobas.campusguidebook.data.repository.ImageRepository;
 
+
 public class MainActivityViewModel extends AndroidViewModel {
 
     // provide a place to "remember" the last item clicked for each entity
@@ -41,7 +42,6 @@ public class MainActivityViewModel extends AndroidViewModel {
         mAppExecutors = app.getAppExecutors();
     }
 
-
     public IEntity getDetailsItem() {
         return detailsItem;
     }
@@ -49,8 +49,6 @@ public class MainActivityViewModel extends AndroidViewModel {
     public <T extends IEntity> void setDetailsItem(T item) {
         detailsItem = item;
     }
-
-    public void navigateToDetails() {}
 
     public LiveData<List<Event>> getAllEvents() {
         return mAppRepository.getAllEvents();
@@ -71,4 +69,8 @@ public class MainActivityViewModel extends AndroidViewModel {
     public boolean addNewEvent(String eventName, String eventDescription, String eventLocation, ZonedDateTime eventDateTime, String imageUri) {
         return mAppRepository.addNewEvent(eventName, eventDescription, eventLocation, eventDateTime, imageUri);
     }
+
+    public boolean isAdmin() { return true; }
+
+    public boolean isLoggedIn() { return true; };
 }

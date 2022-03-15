@@ -29,7 +29,7 @@ import java.util.List;
 // Base class for displaying a recyclerview for the provided type
 public abstract class BaseListFragment<T extends IEntity> extends Fragment {
 
-    private String TAG = "ListFragment";
+    protected String TAG = "ListFragment";
     private MainActivityViewModel mViewModel;
     private LiveData<List<T>> mList = new MutableLiveData<>();
     private FloatingActionButton mFloatingActionButton;
@@ -38,6 +38,10 @@ public abstract class BaseListFragment<T extends IEntity> extends Fragment {
     protected abstract LiveData<List<T>> getList();
 
     protected abstract void itemClicked(T item);
+
+    protected void onClickFloatingActionButton() {
+
+    }
 
     protected MainActivityViewModel getViewModel() {
         return mViewModel;
@@ -73,6 +77,13 @@ public abstract class BaseListFragment<T extends IEntity> extends Fragment {
 
         // get floatingActionButton
         mFloatingActionButton = viewRoot.findViewById(R.id.floatingActionButton);
+        //mFloatingActionButton.setOnClickListener(v -> this.onClickFloatingActionButton());
+        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickFloatingActionButton();
+            }
+        });
 
         // respond to changes in livedata
         mList.observe(this.getViewLifecycleOwner(), adapter::setList);
@@ -108,18 +119,5 @@ public abstract class BaseListFragment<T extends IEntity> extends Fragment {
     protected void setTag(String tag) {
         this.TAG = tag;
     }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

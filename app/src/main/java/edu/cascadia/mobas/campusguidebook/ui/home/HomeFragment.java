@@ -4,17 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
+
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import edu.cascadia.mobas.campusguidebook.R;
 import edu.cascadia.mobas.campusguidebook.databinding.HomeBinding;
+
 
 public class HomeFragment extends Fragment {
 
@@ -48,7 +47,6 @@ public class HomeFragment extends Fragment {
                 Navigation.findNavController(binding.cardViewHomeClubs)
                         .navigate(R.id.action_nav_home_to_nav_clubs);
         });
-
     }
 
     @Override

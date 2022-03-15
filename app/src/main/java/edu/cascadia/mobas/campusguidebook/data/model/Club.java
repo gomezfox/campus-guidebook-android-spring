@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edu.cascadia.mobas.campusguidebook.application.AppConfig;
-
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.PropertyListTypeConverter;
 
 
@@ -32,8 +31,8 @@ public class Club implements IEntity{
     @ColumnInfo(name = "name")
     private String name = "";
 
-    @ColumnInfo(name = "details")
-    private String details;
+    @ColumnInfo(name = "description")
+    private String description;
 
     @ColumnInfo(name = "image_uri")
     private String imageUri;
@@ -48,11 +47,11 @@ public class Club implements IEntity{
     private int uploadStatus; // TODO: change to enum using TypeConverter
 
     // Constructor
-    public Club(long id, @NonNull String name, String details, String imageUri,
+    public Club(long id, @NonNull String name, String description, String imageUri,
                 ZonedDateTime lastUpdated, Map<String, String> properties) {
         this.id = id;
         this.name = name;
-        this.details = details;
+        this.description = description;
         this.imageUri = imageUri;
         this.lastUpdated = (lastUpdated == null ? ZonedDateTime.now(AppConfig.TIMEZONE) : lastUpdated);
         this.properties = (properties == null ? new HashMap<String, String>() : properties);
@@ -61,65 +60,48 @@ public class Club implements IEntity{
 
     // Convenience constructor which takes a JSON string for properties
     @Ignore
-    public Club(long id, @NonNull String name, String details, String imageUri,
+    public Club(long id, @NonNull String name, String description, String imageUri,
                 ZonedDateTime lastUpdated, String jsonProperties) {
-        this(id, name, details, imageUri, lastUpdated, PropertyListTypeConverter.toMap(jsonProperties));
+        this(id, name, description, imageUri, lastUpdated, PropertyListTypeConverter.toMap(jsonProperties));
     }
 
-
     // getter and setter methods.
-
-    public long getId() {
+    @Override public long getId() {
         return id;
+    }
+    @Override @NonNull public String getName() {
+        return name;
+    }
+    @Override public String getDescription() {
+        return this.description;
+    }
+    @Override public String getImageUri() {
+        return this.imageUri;
+    }
+    @Override public Map<String, String> getProperties() { return this.properties; }
+    @Override public ZonedDateTime getLastUpdated() {
+        return this.lastUpdated;
+    }
+    @Override public int getUploadStatus() {
+        return 0;
     }
 
     public void setId(long id) {
         this.id = id;
     }
-
-    @NonNull
-    public String getName() {
-        return name;
-    }
-
     public void setName(@NonNull String name) {
         this.name = name;
     }
-
-    public String getDetails() {
-        return this.details;
+    public void setDescription(String description) {
+        this.description = description;
     }
-
-    public void setDetails(String description) {
-        this.details = description;
-    }
-
-    public String getImageUri() {
-        return this.imageUri;
-    }
-
-    @Override
-    public Map<String, String> getProperties() { return this.properties; }
-
-    public void setProperties(Map<String, String> properties) { this.properties = properties; }
-
     public void setImageUri(String uri) {
         this.imageUri = uri;
     }
-
-    public ZonedDateTime getLastUpdated() {
-        return this.lastUpdated;
-    }
-
-    @Override
-    public int getUploadStatus() {
-        return 0;
-    }
-
+    public void setProperties(Map<String, String> properties) { this.properties = properties; }
     public void setLastUpdated(ZonedDateTime updatedOn) {
         this.lastUpdated = updatedOn;
     }
-
     public void setUploadStatus(int uploadStatus) {
         this.uploadStatus = uploadStatus;
     }

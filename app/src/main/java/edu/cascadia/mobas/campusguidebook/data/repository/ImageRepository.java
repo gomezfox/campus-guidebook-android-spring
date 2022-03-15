@@ -109,7 +109,7 @@ public class ImageRepository {
         if (new File(mContext.getFilesDir(),uri).exists()) {
             liveImage.postValue(defaultImage);
             mAppExecutors.diskIO().execute( () -> {
-
+                // TODO: implement file based image loading
             });
         }
 
@@ -159,5 +159,3 @@ public class ImageRepository {
         return fileCache;
     }
 }
-
-

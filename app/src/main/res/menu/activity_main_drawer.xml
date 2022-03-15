@@ -13,7 +13,7 @@
             android:icon="@drawable/ic_menu_sustainability"
             android:title="@string/menu_info" />
         <item
-            android:id="@+id/nav_events"
+            android:id="@+id/nav_event_list"
             android:icon="@drawable/ic_menu_events"
             android:title="@string/menu_events" />
         <item

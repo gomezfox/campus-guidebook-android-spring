@@ -1,9 +1,7 @@
 package edu.cascadia.mobas.campusguidebook;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.content.Intent;
 
@@ -12,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import edu.cascadia.mobas.campusguidebook.application.AppConfig;
 import edu.cascadia.mobas.campusguidebook.application.AppInit;
 
-@RequiresApi(api = Build.VERSION_CODES.O)
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
