@@ -5,23 +5,20 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "User_Table")
 public class User {
-    // below line is to auto increment
+
     // id for each User.
     @PrimaryKey(autoGenerate = true)
 
     // variable for our id.
     private int id;
 
-    // below line is a variable
     // for User name.
     @ColumnInfo(name = "user_name")
     private String userName;
 
-    // below line is a variable
     // for User password.
-    private String password;  //TODO: add some security like an encryption or something
+    private String password;
 
-    // below line is use for
     // User Subscriptions.
     private String subscriptions;
 
@@ -30,11 +27,10 @@ public class User {
     // our id because it is incrementing automatically
     public User(String userName, String subscriptions, String password) {
         this.userName = userName;
-        this.password = password;
+        this.password = password; //TODO: Salt and Hash
         this.subscriptions = subscriptions;
     }
 
-    // on below line we are creating
     // getter and setter methods.
     public String getUserName() {
         return userName;
@@ -63,5 +59,4 @@ public class User {
     public void setId(int ID) {
         this.id = ID;
     }
-
 }

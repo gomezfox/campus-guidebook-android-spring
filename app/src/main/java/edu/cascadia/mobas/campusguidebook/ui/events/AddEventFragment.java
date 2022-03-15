@@ -2,13 +2,11 @@ package edu.cascadia.mobas.campusguidebook.ui.events;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.os.Build;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
@@ -25,9 +23,7 @@ import android.widget.Toast;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-import edu.cascadia.mobas.campusguidebook.ui.events.DatePickerFragment;
 import edu.cascadia.mobas.campusguidebook.R;
-import edu.cascadia.mobas.campusguidebook.ui.events.TimePickerFragment;
 import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
 import edu.cascadia.mobas.campusguidebook.viewmodel.MainActivityViewModel;
 import edu.cascadia.mobas.campusguidebook.application.AppConfig;
@@ -49,7 +45,6 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
     public AddEventFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,7 +77,6 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
 
         return root;
     }
-
 
     @Override
     public void onClick (View v) {
@@ -135,7 +129,7 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
         //create the dialog for the time and shows the time dialog
         DialogFragment dialogTimeFragment = new TimePickerFragment(bundle);
         dialogTimeFragment.setTargetFragment(AddEventFragment.this, 0);
-        dialogTimeFragment.show(getFragmentManager(), "time picker");
+        dialogTimeFragment.show(getParentFragmentManager(), "time picker");
     }
 
     @Override
@@ -150,7 +144,4 @@ public class AddEventFragment extends Fragment implements DatePickerDialog.OnDat
         //sets the text of date and time in the view
         mTextViewDateTime.setText(dateTime);
     }
-
-
-
 }

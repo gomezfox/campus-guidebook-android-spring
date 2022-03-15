@@ -3,18 +3,11 @@ package edu.cascadia.mobas.campusguidebook;
 import android.os.Bundle;
 import android.view.Menu;
 
-
-
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.MutableLiveData;
-import androidx.navigation.NavController;
+import androidx.appcompat.app.AppCompatActivity;
 
 
-public class MainActivity extends FragmentActivity {
-    // Get the NavController
-    private NavController navController;
-//    private final MediatorLiveData<List<UIItem>> mLiveClubList = new MediatorLiveData<List<ClubUIItem>>();
+public class MainActivity extends AppCompatActivity {
 
     // No need to load the start destination, handled automatically by the Navigation component
     @Override
@@ -25,8 +18,9 @@ public class MainActivity extends FragmentActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        boolean result =super.onCreateOptionsMenu(menu);
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        if (result) { getMenuInflater().inflate(R.menu.main, menu); }
         return true;
     }
 }

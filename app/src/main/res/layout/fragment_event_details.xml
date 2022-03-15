@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top"
-    tools:context=".ui.clubs.DetailsFragment">
+    tools:context=".ui.clubs.ClubDetailsFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="194dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/cascadia_college_logo"
+        android:src="@drawable/cascadia_logo_blue"
         android:contentDescription=""/>
 
     <!-- content -->

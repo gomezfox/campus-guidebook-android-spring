@@ -25,7 +25,6 @@ public class BaseListAdapter<T extends IEntity> extends RecyclerView.Adapter<Bas
     private LifecycleOwner mLifecycleOwner;
     private final BaseListFragment<T> mBaseListFragment;
 
-
     // ClubListAdapter constructor and methods
     // Initialize this adapter with a reference to the datasource to be used.
     public BaseListAdapter(List<T> list, BaseListFragment<T> fragment) {

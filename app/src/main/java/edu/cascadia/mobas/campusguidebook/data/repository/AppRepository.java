@@ -1,18 +1,23 @@
 package edu.cascadia.mobas.campusguidebook.data.repository;
 
-import android.os.Build;
 import android.util.Log;
 
-import androidx.annotation.RequiresApi;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Random;
+
 import androidx.lifecycle.LiveData;
 
 import java.time.ZonedDateTime;
 import java.util.List;
+
+import edu.cascadia.mobas.campusguidebook.application.AppConfig;
 import edu.cascadia.mobas.campusguidebook.application.AppExecutors;
 import edu.cascadia.mobas.campusguidebook.data.database.AppDatabase;
 import edu.cascadia.mobas.campusguidebook.data.model.*;
+import edu.cascadia.mobas.campusguidebook.data.typeconverter.ZonedDateTimeConverter;
 
-@RequiresApi(api = Build.VERSION_CODES.O)
+
 public class AppRepository {
 
     // instance variable for singleton
@@ -64,7 +69,18 @@ public class AppRepository {
     }
 
     public boolean addNewEvent(String eventName, String eventDescription, String eventLocation, ZonedDateTime eventDateTime, String imageUri) {
-        Event event = new Event(eventName, eventDescription, eventLocation, eventDateTime, imageUri);
+        Map<String,String> properties = new LinkedHashMap<>();
+        properties.put("Date/Time", ZonedDateTimeConverter.fromZonedDateTime(eventDateTime));
+        properties.put("Location", eventLocation);
+        Event event = new Event(
+                new Random().nextLong(),
+                eventName, eventDescription,
+                imageUri,
+                properties,
+                ZonedDateTime.now(AppConfig.TIMEZONE),
+                0
+        );
+
         try {
             this.insert(event);
             return true;

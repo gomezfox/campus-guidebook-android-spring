@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Sustainability.ListFragment" >
+    tools:context=".ui.Sustainability.SustListFragment" >
 
     <LinearLayout
             xmlns:tools="http://schemas.android.com/tools"
