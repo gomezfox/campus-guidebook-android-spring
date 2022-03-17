@@ -50,7 +50,7 @@ captures/
 .idea/navEditor.xml
 .idea/deploymentTargetDropDown.xml
 .idea/jarRepositories.xml
-.idea/misc.xml
+#.idea/misc.xml
 .DS_Store
 
 # Keystore files

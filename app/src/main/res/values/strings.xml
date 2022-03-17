@@ -2,23 +2,40 @@
     <string name="app_name">Campus Guidebook</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">Campus Guidebook</string>
+    <string name="nav_header_subtitle">kodiak@cascadia.edu</string>
+    <string name="nav_header_desc">Cascadia College</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_info">Campus Sustainability</string>
     <string name="menu_events">Events</string>
+    <string name="menu_clubs">Student Clubs</string>
     <string name="title_activity_login">Login Page</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="prompt_username">"username"</string>
+    <string name="action_register">"Create an Account"</string>
+    <string name="successfully_added_event">"Succesfuly added event!"</string>
+    <string name="error_adding_event">"Error adding event!"</string>
+
+    <!-- Strings for accessibility -->
+    <string name="image_club_banner">Student club banner</string>
+    <string name="image_sust_banner">Sustainability Banner</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sustainability">Sustainability</string>
+    <string name="menu_sust_list">Sustainability Features</string>
+    <string name="lorem_ipsum_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra vitae congue eu consequat ac felis donec. Massa id neque aliquam vestibulum morbi. Laoreet id donec ultrices tincidunt arcu non sodales neque. Ultrices mi tempus imperdiet nulla malesuada pellentesque. Pharetra et ultrices neque ornare aenean euismod. Augue ut lectus arcu bibendum. Mus mauris vitae ultricies leo integer malesuada nunc vel. Nisl tincidunt eget nullam non nisi est sit. Lacus viverra vitae congue eu consequat ac felis. Tristique magna sit amet purus gravida quis blandit turpis cursus. Metus vulputate eu scelerisque felis imperdiet. Turpis egestas sed tempus urna et. In iaculis nunc sed augue lacus viverra vitae congue eu. Orci dapibus ultrices in iaculis nunc sed. Sit amet aliquam id diam maecenas. Cursus vitae congue mauris rhoncus aenean. Id semper risus in hendrerit gravida rutrum quisque non.</string>
+    <string name="sustainability_Details">Sustainability Details</string>
+    <string name="colon_space"><![CDATA[: >]]></string>
+    <string name="click_to_take_action_on_this_item">Click to take action on this item</string>
+    <string name="a_logo_or_photograph">A logo or photograph</string>
+
 </resources>
